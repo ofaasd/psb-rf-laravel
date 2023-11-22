@@ -18,7 +18,7 @@
     <script src="{{asset('assets/js/modernizr-2.6.2.min.js')}}"></script>
     <script src="{{asset('assets/js/jquery.cookie-1.3.1.js')}}"></script>
     <script src="{{asset('assets/js/jquery.steps.js')}}"></script>
-    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
     <!-- SweetAlert -->
 
 	  <!-- Datatable -->
