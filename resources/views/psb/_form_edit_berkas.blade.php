@@ -65,7 +65,9 @@
                         $ekstensi = $pecah[1];
                     @endphp
                     @if($ekstensi == "pdf")
-
+                        <object data="{{URL::to('')}}/assets/images/upload/file_kk/{{$berkas->file_kk}}" type="application/pdf" width="100%" height="400">
+                            <p>PDF Link : <a href="{{URL::to('')}}/assets/images/upload/file_kk/{{$berkas->file_kk}}">to the PDF!</a></p>
+                        </object>
                     @else
                         <img src="{{URL::to('')}}/assets/images/upload/file_kk/{{$berkas->file_kk}}" width="80%">
                     @endif
@@ -95,7 +97,9 @@
                         $ekstensi = $pecah[1];
                     @endphp
                     @if($ekstensi == "pdf")
-
+                        <object data="{{URL::to('')}}/assets/images/upload/file_ktp/{{$berkas->file_ktp}}" type="application/pdf" width="100%" height="400">
+                            <p>PDF Link : <a href="{{URL::to('')}}/assets/images/upload/file_ktp/{{$berkas->file_ktp}}">to the PDF!</a></p>
+                        </object>
                     @else
                         <img src="{{URL::to('')}}/assets/images/upload/file_ktp/{{$berkas->file_ktp}}" width="80%">
                     @endif
