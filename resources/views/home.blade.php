@@ -1,10 +1,8 @@
 @extends('layouts/layout')
 @section('content')
-        <div   div class="jumbotron">
-            <div class="container">
-                <h1 class="display-3">Selamat Datang</h1>
-                <p>Di Anjungan Informasi Penerimaan Peserta Didik Baru (PPDB/PSB) Pondok Pesantren Anak Tahfidzul Qur'an Raudlatul Falah, Gembong, Pati. Halaman ini berisi informasi terkait pendaftaran secara online. Untuk pengisian formulir silahkan klik tombol dibawah ini. Informasi lebih lanjut bisa menghubungi Admin PPDB di nomor WA xxx</p>
-                <p><a class="btn btn-primary btn-lg" href="{{URL::to('psb/create')}}" role="button">Form Pendaftaran »</a></p>
+        <div class="row">
+            <div class="col-md-12">
+                <img src="{{asset('assets/images/banner.jpeg')}}" alt="Banner" width="100%">
             </div>
         </div>
         <div class="row" style="margin:10px">
