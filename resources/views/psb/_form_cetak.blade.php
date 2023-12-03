@@ -83,7 +83,7 @@
             <td colspan="4">{{$psb_peserta->usia_tahun ?? '<Kosong>'}} Tahun, {{$psb_peserta->usia_bulan ?? '<Kosong>'}} Bulan</td>
         </tr>
         <tr>
-            <td valign="top">Jumlah Saudara Kandung</td>
+            <td valign="top">Jumlah Saudara</td>
             <td colspan="4">{{$psb_peserta->jumlah_saudara ?? '<Kosong>'}} Anak Ke {{$psb_peserta->anak_ke ?? '<Kosong>'}}</td>
         </tr>
         <tr>
