@@ -12,6 +12,9 @@
     <li class="nav-item">
         <a class="nav-link text-white  active" aria-current="page" href="{{URL::to('psb/data_pribadi')}}">Update Data</a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link text-white  active" aria-current="page" href="{{URL::to('psb/upload_bukti')}}">Upload Bukti Pembayaran</a>
+    </li>
     @endif
     <!-- <li class="nav-item">
         <a class="nav-link text-white  active" aria-current="page" href="{{URL::to('psb_new/upload')}}">Upload Berkas</a>

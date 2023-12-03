@@ -1,5 +1,14 @@
 @extends('layouts/layout')
 @section('content')
+    <div class="alert alert-primary">
+        <ul>
+            <li>Untuk Dapat Mencetak Formulir Pendaftaran Silahkan melakukan pembayaran formulir pendaftaran melalui no rekening xxxxxxxxxx atas nama Yayasan PPATQ Raudlatul Falah Pati.</li>
+            <li>Jika sudah melakukan pembayaran silahkan mengupload bukti pembayaran dengan mengklik menu upload bukti pembayaran.</li>
+            <li>Tunggu beberapa saat, admin kami akan memberikan informasi melalui Whatsapp apabila pembayaran telah di validasi. Pastikan No whatsapp yang terdaftar adalah nomor yang valid</li>
+        </ul>
+
+
+    </div>
     <div class="row">
         <div class="col-md-12" style="padding-top:10px;">
             <div class="row">

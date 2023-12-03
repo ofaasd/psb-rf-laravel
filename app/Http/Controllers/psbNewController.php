@@ -11,6 +11,7 @@ use App\Models\PsbSekolahAsal;
 use App\Models\UserPsb;
 use App\Models\PsbGelombang;
 use App\Models\PsbBerkasPendukung;
+use App\Models\PsbBuktiPembayaran;
 use Alert;
 use Image;
 use URL;
@@ -226,6 +227,74 @@ class psbNewController extends Controller
                     'photo'=>$filename,
                 ];
 
+            }
+        }
+        echo json_encode($array);
+    }
+    public function upload_bukti_pembayaran(){
+        $username = session('psb_username');
+        $psb_peserta = PsbPesertaOnline::where('no_pendaftaran',$username)->first();
+        $bukti_bayar = 0;
+        $psb_bukti_bayar = PsbBuktiPembayaran::where('psb_peserta_id',$psb_peserta->id);
+        if($psb_bukti_bayar->count() > 0 ){
+            $bukti_bayar = $psb_bukti_bayar->first()->status;
+        }
+        return view('psb/bukti_pembayaran',compact('username','psb_peserta','bukti_bayar'));
+    }
+    public function simpan_bukti_bayar(Request $request){
+        $id = $request->id;
+        $request->validate([
+            'bukti' => [File::types(['jpg', 'jpeg', 'png', 'pdf'])->max(10 * 1024)],
+        ]);
+        $nama_file = array('bukti');
+        $array = array();
+        foreach($nama_file as $value){
+            if($request->file($value)){
+                $file = $request->file($value);
+                $ekstensi = $file->extension();
+                if(strtolower($ekstensi) == 'jpg' || strtolower($ekstensi) == 'png' || strtolower($ekstensi) == 'jpeg'){
+                    $filename = date('YmdHis') . $file->getClientOriginalName();
+                    $kompres = Image::make($file)
+                    ->resize(800, null, function ($constraint) {
+                        $constraint->aspectRatio();
+                    })
+                    ->save('assets/images/upload/file_' . $value . '/' . $filename);
+                }else{
+                    $filename = date('YmdHis') . $file->getClientOriginalName();
+                    $file->move('assets/images/upload/file_' . $value . '/',$filename);
+                }
+                //$cek = PsbBerkasPendukung::where('psb_peserta_id',$id);
+                $bukti = new PsbBuktiPembayaran();
+                $bukti->psb_peserta_id = $request->id;
+                $bukti->atas_nama = $request->atas_nama;
+                $bukti->bank = $request->bank_pengirim;
+                $bukti->no_rekening = $request->no_rekening;
+                $bukti->bukti = $filename;
+                $bukti->status = 1;
+                if($bukti->save()){
+
+                    $array[] = [
+                        'code' => 1,
+                        'status' => 'Success',
+                        'msg' => 'Data Berhasil Disimpan',
+                        // 'location' => $value,
+                        // 'ekstensi' => strtolower($ekstensi),
+                        'photo'=>$filename,
+                    ];
+                }else{
+                    $array[] = [
+                        'code' => 0,
+                        'status' => 'error',
+                        'msg' => 'Data Gagal Disimpan',
+                    ];
+                }
+
+            }else{
+                $array[] = [
+                    'code' => 0,
+                    'status' => 'error',
+                    'msg' => 'Data Gagal Disimpan | File Bukti Pembayaran harap diisi',
+                ];
             }
         }
         echo json_encode($array);

@@ -35,6 +35,8 @@ Route::middleware([CheckLogin::class])->group(function () {
     Route::post('psb/update_data_walsan',[psbNewController::class, 'update_data_walsan']);
     Route::post('psb/update_data_asal_sekolah',[psbNewController::class, 'update_data_asal_sekolah']);
     Route::post('psb/update_data_berkas',[psbNewController::class, 'update_data_berkas']);
+    Route::get('psb/upload_bukti',[psbNewController::class, 'upload_bukti_pembayaran']);
+    Route::post('psb/simpan_bukti',[psbNewController::class, 'simpan_bukti_bayar']);
 });
 
 

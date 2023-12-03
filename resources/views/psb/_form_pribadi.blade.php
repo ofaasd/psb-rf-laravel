@@ -2,7 +2,7 @@
     <div class="row">
 
         <div class="col-md-6">
-            <div class="form-group ">
+            <div class="form-group">
                 <label for="nik">NIK</label>
                 <input type="text" name="nik" class="form-control " id="nik" value="<?=$psb_peserta->nik??''?>">
             </div>
