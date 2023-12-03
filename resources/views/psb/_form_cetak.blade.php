@@ -84,7 +84,11 @@
         </tr>
         <tr>
             <td valign="top">Jumlah Saudara</td>
-            <td colspan="4">{{$psb_peserta->jumlah_saudara ?? '<Kosong>'}} Anak Ke {{$psb_peserta->anak_ke ?? '<Kosong>'}}</td>
+            <td colspan="4">{{$psb_peserta->jumlah_saudara ?? '<Kosong>'}} </td>
+        </tr>
+        <tr>
+            <td valign="top">Anak Ke</td>
+            <td colspan="4">{{$psb_peserta->anak_ke ?? '<Kosong>'}}</td>
         </tr>
         <tr>
             <td valign="top">Alamat Lengkap</td>
