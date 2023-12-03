@@ -15,12 +15,13 @@ use App\Models\PsbBuktiPembayaran;
 use Alert;
 use Image;
 use URL;
+use PDF;
 use Illuminate\Validation\Rules\File;
 
 class psbNewController extends Controller
 {
     //
-
+    public $jenjang = array(1=>'TK','RA','SD/MI');
     public function data_pribadi(){
         $provinsi = Province::all();
         $username = session('psb_username');
@@ -39,6 +40,39 @@ class psbNewController extends Controller
         $berkas = $berkas_pendukung->first();
         //Alert::success('', '');
         return view('psb/create2',compact('provinsi','psb_peserta','psb_wali','psb_asal','kota','foto','berkas'));
+    }
+    public function cetak_form(){
+        $provinsi = '';
+        $username = session('psb_username');
+        $psb_peserta = PsbPesertaOnline::where('no_pendaftaran',$username)->first();
+        $psb_wali = PsbWaliPesertum::where('psb_peserta_id',$psb_peserta->id)->first();
+        $psb_asal = PsbSekolahAsal::where('psb_peserta_id',$psb_peserta->id)->first();
+        $berkas_pendukung = PsbBerkasPendukung::where('psb_peserta_id',$psb_peserta->id);
+        $foto = "https://payment.ppatq-rf.id/assets/images/user.png";
+        if($berkas_pendukung->count() > 0 && !empty($berkas_pendukung->first()->file_photo)){
+            $foto = URL::to('assets/images/upload/foto_casan/') . "/" .$berkas_pendukung->first()->file_photo;
+        }
+        $kota = "";
+        if(!empty($psb_peserta->prov_id)){
+
+            $provinsi = Province::find($psb_peserta->prov_id);
+            if(!empty($psb_peserta->kota_id)){
+                $kota = City::find($psb_peserta->kota_id);
+            }
+        }
+        $jenjang = $this->jenjang;
+        $berkas = $berkas_pendukung->first();
+        $bukti = PsbBuktiPembayaran::where('psb_peserta_id',$psb_peserta->id)->first();
+        $status_pembayaran = array('Belum Ada','Sedang Diproses Oleh Admin','Pembayaran Divalidasi');
+        $user = UserPsb::where('username',$username)->first();
+        $tahun_lahir = date('Y', strtotime($psb_peserta->tanggal_lahir));
+        $new_nama = substr($psb_peserta->nama,0,3);
+        $tanggal = date('dm',strtotime($psb_peserta->tanggal_lahir));
+        $password = $tahun_lahir . $new_nama . $tanggal;
+        //Alert::success('', '');
+        // return view('psb/_form_cetak',compact('user','password','status_pembayaran','bukti','provinsi','psb_peserta','psb_wali','psb_asal','kota','foto','berkas','jenjang'));
+        $pdf = PDF::loadView('psb/_form_cetak',compact('user','password','status_pembayaran','bukti','provinsi','psb_peserta','psb_wali','psb_asal','kota','foto','berkas','jenjang'));
+        return $pdf->stream('Form Pendaftaran.pdf');
     }
     public function update_data_pribadi(Request $request){
         $id = $request->id;

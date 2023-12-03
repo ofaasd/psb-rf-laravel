@@ -31,7 +31,7 @@
             </div>
             <div class="col-md-12">
                 <div class="form-group">
-                    <label for="File KK">File Rapor</label>
+                    <label for="File KK">File Rapor / Ijazah</label>
                     <div id='rapor_error'></div>
                     <div class="row">
                         <input type="file" name="rapor" class="form-control col-md-6">
@@ -117,7 +117,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">File Rapor</h5>
+                <h5 class="modal-title" id="exampleModalLabel">File Rapor/Ijazah</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>

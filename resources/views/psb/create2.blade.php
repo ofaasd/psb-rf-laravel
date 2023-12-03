@@ -5,9 +5,10 @@
             <li>Untuk Dapat Mencetak Formulir Pendaftaran Silahkan melakukan pembayaran formulir pendaftaran melalui no rekening xxxxxxxxxx atas nama Yayasan PPATQ Raudlatul Falah Pati.</li>
             <li>Jika sudah melakukan pembayaran silahkan mengupload bukti pembayaran dengan mengklik menu upload bukti pembayaran.</li>
             <li>Tunggu beberapa saat, admin kami akan memberikan informasi melalui Whatsapp apabila pembayaran telah di validasi. Pastikan No whatsapp yang terdaftar adalah nomor yang valid</li>
+            <li>Klik tombol di bawah ini untuk mencetak formulir pendaftaran</li>
         </ul>
 
-
+        <a href="{{URL::to('psb/cetak_formulir')}}" class='btn btn-success'>Cetak Formulir Pendaftaran</a>
     </div>
     <div class="row">
         <div class="col-md-12" style="padding-top:10px;">
