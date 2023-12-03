@@ -73,7 +73,7 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                @include('layouts/menu');
+                @include('layouts/menu')
             </div>
         </nav>
         <br />
