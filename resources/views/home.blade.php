@@ -35,7 +35,7 @@
                 </ol>
                 <h3 class="text-left">Prosedur/Alur Pendaftaran</h3> <br />
                 <ol start=1>
-                    <li>Mendaftarkan diri dengan mengakses <a href='https://psb.ppatq-rf.id/psb/create' class='btn btn-error btn-lg'> DAFTAR SEKARANG DISNI </a></li>
+                    <li>Mendaftarkan diri dengan mengakses <a href='https://psb.ppatq-rf.id/psb/create' class='btn btn-danger btn-lg'> DAFTAR SEKARANG DISNI </a></li>
                     <li>Membayar infaq pendaftaran sebesar Rp. 300.000 ke metode transfer ke Bank BRI dengan No.Rekening 5936-01-005247-53-0 a/n Pondok Anak Tahfidhul Qur’an Unit/Cabang BRI Gembong kemudian</li>
                     <li>Mengunggah bukti bayar ke sistem pendaftaran.</li>
                     <li>Sistem akan mengirimkan informasi bukti daftar ke pendaftar berupa pesan WhatsApp ke nomor yang diinput pada saat mendaftar.</li>
