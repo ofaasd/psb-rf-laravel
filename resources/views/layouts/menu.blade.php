@@ -12,8 +12,8 @@
     <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-expanded="false">Data Santri</a>
         <div class="dropdown-menu">
-            <a class="dropdown-item" href="psb">Data Calon Santri</a>
-            <a class="dropdown-item" href="#">Data Santri Aktif</a>
+            <a class="dropdown-item" href="{{URL::to('psb')}}">Data Calon Santri</a>
+            <a class="dropdown-item" href="{{URL::to('santri_aktif')}}">Data Santri Aktif</a>
         </div>
     </li>
     @if(!empty(session('psb_username')))
