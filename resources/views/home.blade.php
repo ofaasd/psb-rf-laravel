@@ -39,6 +39,10 @@
                     <li>Setelah Login silahkan mengisi formulir pendaftaran secara online yang ada di dalam sistem</li>
                     <li>Membayar infaq pendaftaran sebesar Rp. 300.000 ke metode transfer ke Bank BRI dengan No.Rekening 5936-01-005247-53-0 a/n Pondok Anak Tahfidhul Qur’an Unit/Cabang BRI Gembong kemudian</li>
                     <li>mengunggah bukti bayar ke sistem pendaftaran.</li>
+                    <li>Sistem akan mengirimkan informasi bukti daftar ke pendaftar berupa pesan WhatsApp ke nomor yang diinput pada saat mendaftar.</li>
+                    <li>Sistem juga akan mengirim kuesioner Orangtua, pengisian tes potensi akademik dan dokumen syarat pendaftaran.</li>
+                    <li>Pendaftar akan mendapatkan informasi jadwal proses wawancara orangtua beserta calon siswa dengan kepala sekolah atau yang mewakili.</li>
+                    <li>Pendaftar yang dinyatakan diterima dan mendapatkan surat lolos dari Panitia Penerimaan Santri Baru dan selanjutnya melakukan daftar ulang dengan membayar uang pangkal.</li>
                 </ol>
                 <div class="col-md-12 text-center">
                     <a href='https://psb.ppatq-rf.id/psb/create' class='btn btn-primary btn-lg'>Daftar Sekarang</a>
