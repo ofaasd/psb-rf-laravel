@@ -25,7 +25,7 @@ table.table td, table.table th {
                         @php
 
                         @endphp
-                        <td><img src="{{helper::get_photo($santri->photo,$santri->location)}}" alt="" width="40"></td>
+                        <td><img src="{{helper::get_photo($santri->photo,$santri->photo_location)}}" alt="" width="40"></td>
                         <td>{{$santri->nama}}</td>
                         <td>{{$santri->kelas}}</td>
                         <td>{{$santri->kota->city_name ?? " "}}</td>

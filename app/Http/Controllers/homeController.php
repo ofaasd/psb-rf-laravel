@@ -22,7 +22,10 @@ class homeController extends Controller
     }
     public function santri_aktif(){
         $var['santri'] = SantriDetail::all();
-        return view('santri_aktif',compact('var'));
+        $employee = EmployeeNew::all();
+        $pegawai = array();
+        $pegawai[0] = "Kosong";
+        return view('santri_aktif',compact('var','pegawai'));
     }
 
 }
