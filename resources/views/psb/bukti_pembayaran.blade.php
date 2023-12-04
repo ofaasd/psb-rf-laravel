@@ -10,19 +10,19 @@
                 <table cellpadding="5">
                     <tr>
                         <td>Bank</td>
-                        <td>: BCA</td>
+                        <td>: BRI</td>
                     </tr>
                     <tr>
                         <td>No. Rekening</td>
-                        <td>: XXXXXXXXXX</td>
+                        <td>: 5936-01-005247-53-0</td>
                     </tr>
                     <tr>
                         <td>Atas Nama</td>
-                        <td>: Yayasan PPATQ RF</td>
+                        <td>: Pondok Anak Tahfidhul Qur’an</td>
                     </tr>
                     <tr>
                         <td>Jumlah</td>
-                        <td>: Rp. 150.000</td>
+                        <td>: Rp. 300.000</td>
                     </tr>
                 </table>
                 <p>Jika sudah melakukan pembayaran harap melakukan konfirmasi melalui form di bawah ini</p>
