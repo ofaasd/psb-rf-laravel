@@ -180,7 +180,7 @@
             <td colspan="5" height="40"><b>Berkas Pendukung</b></td>
         </tr>
         <tr>
-            <td valign="top">Photo Calon Santri Baru</td>
+            <td valign="top">Photo Calon Santri</td>
             <td colspan="4">{{($berkas->file_photo)? 'Ada (Terakhir Diperbaharui ' . date('d-m-Y',strtotime($berkas->updated_at)) . ')' : '<Kosong>'}}</td>
         </tr>
         <tr>
@@ -217,6 +217,17 @@
         <tr>
             <td valign="top">Status Pembayaran</td>
             <td colspan="4">{{$status_pembayaran[$bukti->status] ?? '<Kosong>'}}</td>
+        </tr>
+        <tr>
+            <td colspan="5">
+                <img src="{{URL::to('')}}/assets/images/upload/foto_casan/{{$berkas->file_photo}}" width="150">
+            </td>
+        </tr>
+        <tr>
+            <td height="50"></td>
+        </tr>
+        <tr>
+            <td colspan="5" style="background:red;color:white; padding:10px;">Digenerate Oleh Sistem PPATQ-RF.ID | Terakhir Di update {{date('Y-m-d H:i:s',strtotime($psb_peserta->updated_at))}}</td>
         </tr>
     </table>
 </body>

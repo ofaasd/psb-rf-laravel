@@ -3,17 +3,25 @@
         <a class="nav-link text-white  active" aria-current="page" href="{{URL::to('/')}}">Home</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-white  active" aria-current="page" href="{{URL::to('psb/create')}}">Form Pendaftaran</a>
+        <a class="nav-link text-white  active" aria-current="page" href="{{URL::to('/program_kegiatan')}}">Program Kegiatan</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-white  active" aria-current="page" href="{{URL::to('psb')}}">Data Pendaftaran</a>
+        <a class="nav-link text-white  active" aria-current="page" href="{{URL::to('psb/create')}}">Form Pendaftaran</a>
+    </li>
+
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-expanded="false">Data Santri</a>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="psb">Data Calon Santri</a>
+            <a class="dropdown-item" href="#">Data Santri Aktif</a>
+        </div>
     </li>
     @if(!empty(session('psb_username')))
     <li class="nav-item">
         <a class="nav-link text-white  active" aria-current="page" href="{{URL::to('psb/data_pribadi')}}">Update Data</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-white  active" aria-current="page" href="{{URL::to('psb/upload_bukti')}}">Upload Bukti Pembayaran</a>
+        <a class="nav-link text-white  active" aria-current="page" href="{{URL::to('psb/upload_bukti')}}">Bukti Pembayaran</a>
     </li>
     @endif
     <!-- <li class="nav-item">

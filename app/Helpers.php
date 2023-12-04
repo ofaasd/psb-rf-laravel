@@ -37,4 +37,13 @@ class helper{
 		curl_close($curl);
 		return $response;
     }
+    public static function get_photo($location,$file){
+        $var['santri_photo'] = 'https://manajemen.ppatq-rf.id/assets/img/avatars/1.png';
+        if (!empty($file) && $location == 2) {
+            $var['santri_photo'] = 'https://manajemen.ppatq-rf.id/assets/img/upload/photo/' . $file;
+        } elseif (!empty($file) && $location== 1) {
+            $var['santri_photo'] = 'https://payment.ppatq-rf.id/assets/upload/user/' . $file;
+        }
+        return $var['santri_photo'];
+    }
 }
