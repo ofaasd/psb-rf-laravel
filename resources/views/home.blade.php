@@ -47,7 +47,7 @@
                 <p>Jika berkeinginan daftar secara langsung,
                     Silakan datang ke pondok pesantren dengan persyaratan sebagai berikut : </p>
                 <ol start=1>
-                    <li>Usia 6 - 7 tahun saat mendaftar (dengan dipandu oleh Panitia Penerimaan Santri Baru), membuka aplikasi http://psb.ppatq-rf.id</li>
+                    <li>Usia 6 - 7 tahun saat mendaftar (dengan dipandu oleh Panitia Penerimaan Santri Baru), membuka aplikasi <a href='http://psb.ppatq-rf.id'>http://psb.ppatq-rf.id</a></li>
                     <li>Mengisi formulir pendaftaran</li>
                     <li>Mengisi surat pernyataan</li>
                     <li>Menyerahkan foto copy akta kelahiran 2 lembar & pdf</li>
