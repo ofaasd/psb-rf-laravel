@@ -19,5 +19,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::middleware('apiMiddleware')->post('update_data_siswa',[\App\Http\Controllers\psbNewController::class, 'update_data_pribadi']);
-Route::middleware('apiMiddleware')->post('update_data_berkas',[\App\Http\Controllers\psbNewController::class, 'update_data_berkas']);
+Route::middleware(apiMiddleware::class)->post('update_data_siswa',[\App\Http\Controllers\psbNewController::class, 'update_data_pribadi']);
+Route::middleware(apiMiddleware::class)->post('update_data_berkas',[\App\Http\Controllers\psbNewController::class, 'update_data_berkas']);
