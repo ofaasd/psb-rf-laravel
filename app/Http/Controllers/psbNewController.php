@@ -205,11 +205,12 @@ class psbNewController extends Controller
     public function update_data_berkas(Request $request){
         $id = $request->id;
         $request->validate([
+            'photo' => [File::types(['jpg', 'jpeg', 'png', 'pdf'])->max(10 * 1024)],
             'kk' => [File::types(['jpg', 'jpeg', 'png', 'pdf'])->max(10 * 1024)],
             'ktp' => [File::types(['jpg', 'jpeg', 'png', 'pdf'])->max(10 * 1024)],
             'rapor' => [File::types(['jpg', 'jpeg', 'png', 'pdf'])->max(10 * 1024)],
         ]);
-        $nama_file = array('kk','ktp','rapor');
+        $nama_file = array('photo','kk','ktp','rapor');
         $array = array();
         foreach($nama_file as $value){
             if($request->file($value)){
@@ -217,14 +218,28 @@ class psbNewController extends Controller
                 $ekstensi = $file->extension();
                 if(strtolower($ekstensi) == 'jpg' || strtolower($ekstensi) == 'png' || strtolower($ekstensi) == 'jpeg'){
                     $filename = date('YmdHis') . $file->getClientOriginalName();
-                    $kompres = Image::make($file)
-                    ->resize(800, null, function ($constraint) {
-                        $constraint->aspectRatio();
-                    })
-                    ->save('assets/images/upload/file_' . $value . '/' . $filename);
+                    if(value == 'photo'){
+                        $kompres = Image::make($file)
+                        ->resize(800, null, function ($constraint) {
+                            $constraint->aspectRatio();
+                        })
+                        ->save('assets/images/upload/foto_casan/' . $filename);
+                    }else{
+                        $kompres = Image::make($file)
+                        ->resize(800, null, function ($constraint) {
+                            $constraint->aspectRatio();
+                        })
+                        ->save('assets/images/upload/file_' . $value . '/' . $filename);
+                    }
                 }else{
-                    $filename = date('YmdHis') . $file->getClientOriginalName();
-                    $file->move('assets/images/upload/file_' . $value . '/',$filename);
+                    if(value == 'photo'){
+                        $filename = date('YmdHis') . $file->getClientOriginalName();
+                    $file->move('assets/images/upload/foto_casan/',$filename);
+                    }else{
+                        $filename = date('YmdHis') . $file->getClientOriginalName();
+                        $file->move('assets/images/upload/file_' . $value . '/',$filename);
+                    }
+
                 }
                 $cek = PsbBerkasPendukung::where('psb_peserta_id',$id);
                 if($cek->count() > 0){
