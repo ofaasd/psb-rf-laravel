@@ -12,6 +12,7 @@ use App\Models\UserPsb;
 use App\Models\PsbGelombang;
 use App\Models\PsbBerkasPendukung;
 use App\Models\PsbBuktiPembayaran;
+use App\Models\PsbSeragam;
 use Alert;
 use Image;
 use URL;
@@ -28,6 +29,7 @@ class psbNewController extends Controller
         $psb_peserta = PsbPesertaOnline::where('no_pendaftaran',$username)->first();
         $psb_wali = PsbWaliPesertum::where('psb_peserta_id',$psb_peserta->id)->first();
         $psb_asal = PsbSekolahAsal::where('psb_peserta_id',$psb_peserta->id)->first();
+        $psb_seragam = PsbSeragam::where('psb_peserta_id',$psb_peserta->id)->first();
         $berkas_pendukung = PsbBerkasPendukung::where('psb_peserta_id',$psb_peserta->id);
         $foto = "https://payment.ppatq-rf.id/assets/images/user.png";
         if($berkas_pendukung->count() > 0 && !empty($berkas_pendukung->first()->file_photo)){
@@ -39,7 +41,7 @@ class psbNewController extends Controller
         }
         $berkas = $berkas_pendukung->first();
         //Alert::success('', '');
-        return view('psb/create2',compact('provinsi','psb_peserta','psb_wali','psb_asal','kota','foto','berkas'));
+        return view('psb/create2',compact('psb_seragam','provinsi','psb_peserta','psb_wali','psb_asal','kota','foto','berkas'));
     }
     public function cetak_form(){
         $provinsi = '';
@@ -187,6 +189,12 @@ class psbNewController extends Controller
         $sekolahAsal->npsn = $request->npsn;
         $sekolahAsal->nisn = $request->nisn;
         if($sekolahAsal->save()){
+            $seragam = psb_seragam::find($request->psb_seragam);
+            $seragam->berat_badan = $request->berat_badan;
+            $seragam->tinggi_badan = $request->tinggi_badan;
+            $seragam->lingkar_dada = $request->lingkar_dada;
+            $seragam->lingkar_pinggul = $request->lingkar_pinggul;
+            $seragam->save();
             $array[] = [
                 'code' => 1,
                 'status' => 'Success',

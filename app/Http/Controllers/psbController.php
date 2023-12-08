@@ -10,6 +10,7 @@ use App\Models\PsbWaliPesertum;
 use App\Models\PsbSekolahAsal;
 use App\Models\UserPsb;
 use App\Models\PsbGelombang;
+use App\Models\PsbSeragam;
 
 use Illuminate\Support\Facades\DB;
 use DateTime;
@@ -186,6 +187,15 @@ https://psb.ppatq-rf.id';
                 $sekolahAsal->nisn = $request->nisn;
                 $sekolahAsal->psb_peserta_id = $data->id;
                 $sekolahAsal->save();
+
+                $seragam = new PsbSeragam();
+                $seragam->psb_peserta_id = $data->id;
+                $seragam->berat_badan = $request->berat_badan;
+                $seragam->tinggi_badan = $request->tinggi_badan;
+                $seragam->lingkar_dada = $request->lingkar_dada;
+                $seragam->lingkar_pinggul = $request->lingkar_pinggul;
+                $seragam->save();
+
 
                 $array[] = [
                     'code' => 0,

@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class PsbSeragam
- * 
+ *
  * @property int $id
  * @property int $psb_peserta_id
  * @property float|null $berat_badan
@@ -28,6 +28,7 @@ class PsbSeragam extends Model
 {
 	use SoftDeletes;
 	protected $table = 'psb_seragam';
+    protected $dateFormat = 'U';
 
 	protected $casts = [
 		'psb_peserta_id' => 'int',
