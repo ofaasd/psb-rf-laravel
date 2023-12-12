@@ -21,6 +21,7 @@ use App\Http\Middleware\CheckLogin;
 Route::get('/', [homeController::class, 'index']);
 Route::get('/program_kegiatan', [homeController::class, 'program_kegiatan']);
 Route::get('/santri_aktif', [homeController::class, 'santri_aktif']);
+Route::get('/pesantren', [homeController::class, 'pesantren']);
 Route::get('psb/create',[psbController::class, 'create']);
 Route::post('psb/get_kota',[psbController::class, 'get_kota']);
 Route::post('/psb',[psbController::class, 'store']);

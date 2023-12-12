@@ -6,6 +6,9 @@
         <a class="nav-link text-white  active" aria-current="page" href="{{URL::to('/program_kegiatan')}}">Program Kegiatan</a>
     </li>
     <li class="nav-item">
+        <a class="nav-link text-white  active" aria-current="page" href="{{URL::to('/pesantren')}}">Kepesantrenan</a>
+    </li>
+    <li class="nav-item">
         <a class="nav-link text-white  active" aria-current="page" href="{{URL::to('psb/create')}}">Form Pendaftaran</a>
     </li>
 

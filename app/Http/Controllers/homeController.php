@@ -16,6 +16,10 @@ class homeController extends Controller
 
         return view('home');
     }
+    public function pesantren(){
+
+        return view('pesantren');
+    }
     public function program_kegiatan(){
 
         return view('program_kegiatan');
