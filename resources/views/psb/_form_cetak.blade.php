@@ -177,23 +177,42 @@
             <td colspan="4">{{$psb_asal->nisn ?? '<Kosong>'}}</td>
         </tr>
         <tr>
+            <td colspan="5" height="40"><b>Ukuran Seragam</b></td>
+        </tr>
+        <tr>
+            <td valign="top">Berat Badan</td>
+            <td colspan="4">{{$psb_seragam->berat_badan ?? '<Kosong>'}} KG</td>
+        </tr>
+        <tr>
+            <td valign="top">Tinggi Badan</td>
+            <td colspan="4">{{$psb_seragam->tinggi_badan ?? '<Kosong>'}} CM</td>
+        </tr>
+        <tr>
+            <td valign="top">Lingkar Dada</td>
+            <td colspan="4">{{$psb_seragam->lingkar_dada ?? '<Kosong>'}} CM</td>
+        </tr>
+        <tr>
+            <td valign="top">Lingkar Pinggul</td>
+            <td colspan="4">{{$psb_seragam->lingkar_pinggul ?? '<Kosong>'}} CM</td>
+        </tr>
+        <tr>
             <td colspan="5" height="40"><b>Berkas Pendukung</b></td>
         </tr>
         <tr>
             <td valign="top">Photo Calon Santri</td>
-            <td colspan="4">{{($berkas->file_photo)? 'Ada (Terakhir Diperbaharui ' . date('d-m-Y',strtotime($berkas->updated_at)) . ')' : '<Kosong>'}}</td>
+            <td colspan="4">{{(!empty($berkas->file_photo))? 'Ada (Terakhir Diperbaharui ' . date('d-m-Y',strtotime($berkas->updated_at)) . ')' : '<Kosong>'}}</td>
         </tr>
         <tr>
             <td valign="top">File KK</td>
-            <td colspan="4">{{($berkas->file_kk)? 'Ada (Terakhir Diperbaharui ' . date('d-m-Y',strtotime($berkas->updated_at)) . ')' : '<Kosong>'}}</td>
+            <td colspan="4">{{(!empty($berkas->file_kk))? 'Ada (Terakhir Diperbaharui ' . date('d-m-Y',strtotime($berkas->updated_at)) . ')' : '<Kosong>'}}</td>
         </tr>
         <tr>
             <td valign="top">File KTP</td>
-            <td colspan="4">{{($berkas->file_ktp)? 'Ada (Terakhir Diperbaharui ' . date('d-m-Y',strtotime($berkas->updated_at)) . ')' : '<Kosong>'}}</td>
+            <td colspan="4">{{(!empty($berkas->file_ktp))? 'Ada (Terakhir Diperbaharui ' . date('d-m-Y',strtotime($berkas->updated_at)) . ')' : '<Kosong>'}}</td>
         </tr>
         <tr>
             <td valign="top">File Rapor/Ijazah</td>
-            <td colspan="4">{{($berkas->file_rapor)? 'Ada (Terakhir Diperbaharui ' . date('d-m-Y',strtotime($berkas->updated_at)) . ')' : '<Kosong>'}}</td>
+            <td colspan="4">{{(!empty($berkas->file_rapor))? 'Ada (Terakhir Diperbaharui ' . date('d-m-Y',strtotime($berkas->updated_at)) . ')' : '<Kosong>'}}</td>
         </tr>
         <tr>
             <td colspan="5" height="40"><b>Status Pembayaran</b></td>
@@ -212,15 +231,18 @@
         </tr>
         <tr>
             <td valign="top">Bukti Pembayaran</td>
-            <td colspan="4">{{($bukti->bukti)? 'Ada' : '<Kosong>'}}</td>
+            <td colspan="4">{{(!empty($bukti->bukti))? 'Ada' : '<Kosong>'}}</td>
         </tr>
         <tr>
             <td valign="top">Status Pembayaran</td>
-            <td colspan="4">{{$status_pembayaran[$bukti->status] ?? '<Kosong>'}}</td>
+            @php $stats = 0; if(!empty($bukti->status)) $stats = $bukti->status @endphp
+            <td colspan="4">{{$status_pembayaran[$stats] ?? '<Kosong>'}}</td>
         </tr>
         <tr>
             <td colspan="5">
-                <img src="{{URL::to('')}}/assets/images/upload/foto_casan/{{$berkas->file_photo}}" width="150">
+                @if(!empty($berkas->file_photo))
+                    <img src="{{URL::to('')}}/assets/images/upload/foto_casan/{{$berkas->file_photo}}" width="150">
+                @endif
             </td>
         </tr>
         <tr>

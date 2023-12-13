@@ -45,21 +45,21 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="tinggi_badan">Tinggi Badan</label>
-                    <input type="text" name="tinggi_badan" class="form-control col-md-12" value="" id="tinggi_badan" value="{{$psb_seragam->tinggi_badan??''}}" placeholder="Cth: 180 CM">
+                    <input type="number" name="tinggi_badan" class="form-control col-md-12" id="tinggi_badan" value="{{$psb_seragam->tinggi_badan??''}}" placeholder="Cth: 180 CM">
                 </div>
                 <div class="form-group">
                     <label for="tinggi_badan">Berat Badan</label>
-                    <input type="text" name="berat_badan" class="form-control col-md-12" value="" id="berat_badan" value="{{$psb_seragam->berat_badan??''}}" placeholder="Cth: 80 KG">
+                    <input type="number" name="berat_badan" class="form-control col-md-12" id="berat_badan" value="{{$psb_seragam->berat_badan??''}}" placeholder="Cth: 80 KG">
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="lingkar_dada">Lingkar Dada</label>
-                    <input type="text" name="lingkar_dada" class="form-control col-md-12" value="" id="lingkar_dada" value="{{$psb_seragam->lingkar_dada??''}}" placeholder="Cth: 50 CM">
+                    <input type="number" name="lingkar_dada" class="form-control col-md-12" id="lingkar_dada" value="{{$psb_seragam->lingkar_dada??''}}" placeholder="Cth: 50 CM">
                 </div>
                 <div class="form-group">
                     <label for="lingkar_pinggul">Lingkar Pinggul</label>
-                    <input type="text" name="lingkar_pinggul" class="form-control col-md-12" value="" id="lingkar_pinggul" value="{{$psb_seragam->lingkar_pinggul??''}}" placeholder="Cth: 50 CM">
+                    <input type="number" name="lingkar_pinggul" class="form-control col-md-12" id="lingkar_pinggul" value="{{$psb_seragam->lingkar_pinggul??''}}" placeholder="Cth: 50 CM">
                 </div>
             </div>
             <div class="col-md-12">

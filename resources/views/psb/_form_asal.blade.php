@@ -40,22 +40,22 @@
         </div>
         <div class="col-md-6">
             <div class="form-group">
-                <label for="tinggi_badan">Tinggi Badan</label>
-                <input type="text" name="tinggi_badan" class="form-control col-md-12" value="" id="tinggi_badan" placeholder="Cth: 180 CM">
+                <label for="tinggi_badan">Tinggi Badan (CM)</label>
+                <input type="number" name="tinggi_badan" class="form-control col-md-12" value="" id="tinggi_badan" placeholder="Cth: 180 CM">
             </div>
             <div class="form-group">
-                <label for="tinggi_badan">Berat Badan</label>
-                <input type="text" name="berat_badan" class="form-control col-md-12" value="" id="berat_badan" placeholder="Cth: 80 KG">
+                <label for="tinggi_badan">Berat Badan (KG)</label>
+                <input type="number" name="berat_badan" class="form-control col-md-12" value="" id="berat_badan" placeholder="Cth: 80 KG">
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-group">
-                <label for="lingkar_dada">Lingkar Dada</label>
-                <input type="text" name="lingkar_dada" class="form-control col-md-12" value="" id="lingkar_dada" placeholder="Cth: 50 CM">
+                <label for="lingkar_dada">Lingkar Dada (CM)</label>
+                <input type="number" name="lingkar_dada" class="form-control col-md-12" value="" id="lingkar_dada" placeholder="Cth: 50 CM">
             </div>
             <div class="form-group">
-                <label for="lingkar_pinggul">Lingkar Pinggul</label>
-                <input type="text" name="lingkar_pinggul" class="form-control col-md-12" value="" id="lingkar_pinggul" placeholder="Cth: 50 CM">
+                <label for="lingkar_pinggul">Lingkar Pinggul (CM)</label>
+                <input type="number" name="lingkar_pinggul" class="form-control col-md-12" value="" id="lingkar_pinggul" placeholder="Cth: 50 CM">
             </div>
         </div>
     </div>

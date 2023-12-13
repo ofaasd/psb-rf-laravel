@@ -49,6 +49,7 @@ class psbNewController extends Controller
         $psb_peserta = PsbPesertaOnline::where('no_pendaftaran',$username)->first();
         $psb_wali = PsbWaliPesertum::where('psb_peserta_id',$psb_peserta->id)->first();
         $psb_asal = PsbSekolahAsal::where('psb_peserta_id',$psb_peserta->id)->first();
+        $psb_seragam = PsbSeragam::where('psb_peserta_id',$psb_peserta->id)->first();
         $berkas_pendukung = PsbBerkasPendukung::where('psb_peserta_id',$psb_peserta->id);
         $foto = "https://payment.ppatq-rf.id/assets/images/user.png";
         if($berkas_pendukung->count() > 0 && !empty($berkas_pendukung->first()->file_photo)){
@@ -73,7 +74,7 @@ class psbNewController extends Controller
         $password = $tahun_lahir . $new_nama . $tanggal;
         //Alert::success('', '');
         // return view('psb/_form_cetak',compact('user','password','status_pembayaran','bukti','provinsi','psb_peserta','psb_wali','psb_asal','kota','foto','berkas','jenjang'));
-        $pdf = PDF::loadView('psb/_form_cetak',compact('user','password','status_pembayaran','bukti','provinsi','psb_peserta','psb_wali','psb_asal','kota','foto','berkas','jenjang'));
+        $pdf = PDF::loadView('psb/_form_cetak',compact('psb_seragam','user','password','status_pembayaran','bukti','provinsi','psb_peserta','psb_wali','psb_asal','kota','foto','berkas','jenjang'));
         return $pdf->stream('Form Pendaftaran.pdf');
     }
     public function update_data_pribadi(Request $request){
