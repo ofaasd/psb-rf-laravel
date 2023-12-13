@@ -190,7 +190,7 @@ class psbNewController extends Controller
         $sekolahAsal->npsn = $request->npsn;
         $sekolahAsal->nisn = $request->nisn;
         if($sekolahAsal->save()){
-            $seragam = psb_seragam::find($request->psb_seragam);
+            $seragam = PsbSeragam::find($request->psb_seragam);
             $seragam->berat_badan = $request->berat_badan;
             $seragam->tinggi_badan = $request->tinggi_badan;
             $seragam->lingkar_dada = $request->lingkar_dada;
