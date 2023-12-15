@@ -15,6 +15,10 @@ use App\Models\PsbSeragam;
 use Illuminate\Support\Facades\DB;
 use DateTime;
 use helper;
+use Image;
+use URL;
+use PDF;
+use Illuminate\Validation\Rules\File;
 
 class psbController extends Controller
 {
@@ -141,6 +145,57 @@ https://psb.ppatq-rf.id';
                 $data['pesan'] = $pesan;
 
                 helper::send_wa($data);
+                $kk = "Tidak Ada";
+                $ktp = "Tidak Ada";
+                $rapor = "Tidak Ada";
+                $photo = "Tidak Ada";
+                if($request->file('kk')){
+                    $kk = "Ada";
+                }
+                if($request->file('ktp')){
+                    $ktp = "Ada";
+                }
+                if($request->file('rapor')){
+                    $rapor = "Ada";
+                }
+                if($request->file('photo')){
+                    $photo = "Ada";
+                }
+
+
+                $ayah = $request->nama_ayah ?? '';
+                $kota = City::find($request->kota)->city_name ?? '';
+                $pesan2 = 'Pesan dari sistem PSB PPATQ-RF
+https://psb.ppatq-rf.id
+
+Telah terdaftar
+Calon santri a/n : ' . $request->nama . '
+Wali santri a/n : ' . $ayah  . '
+dari kota : ' . $kota . '
+
+status kelengkapan
+' . $kk . ' KK
+' . $rapor . ' Raport
+' . $photo . ' Foto
+' . $ktp . ' KTP
+
+
+username : ' . $username .'
+password : ' . $password . '
+
+status : menunggu jadwal test & wawancara
+
+
+
+https://psb.ppatq-rf.id';
+                $no_pengurus = ['08979194645','089601087437','082298576026','089668309013'];
+                foreach($no_pengurus as $value){
+                    $data['no_wa'] = $value;
+                    $data['pesan'] = $pesan2;
+
+                    helper::send_wa($data);
+                }
+
             }
 
             $data = new PsbPesertaOnline();
@@ -195,6 +250,71 @@ https://psb.ppatq-rf.id';
                 $seragam->lingkar_dada = $request->lingkar_dada;
                 $seragam->lingkar_pinggul = $request->lingkar_pinggul;
                 $seragam->save();
+
+                $request->validate([
+                    'photo' => [File::types(['jpg', 'jpeg', 'png', 'pdf'])->max(10 * 1024)],
+                    'kk' => [File::types(['jpg', 'jpeg', 'png', 'pdf'])->max(10 * 1024)],
+                    'ktp' => [File::types(['jpg', 'jpeg', 'png', 'pdf'])->max(10 * 1024)],
+                    'rapor' => [File::types(['jpg', 'jpeg', 'png', 'pdf'])->max(10 * 1024)],
+                ]);
+                $nama_file = array('photo','kk','ktp','rapor');
+                $array = array();
+                foreach($nama_file as $value){
+                    if($request->file($value)){
+                        $file = $request->file($value);
+                        $ekstensi = $file->extension();
+                        if(strtolower($ekstensi) == 'jpg' || strtolower($ekstensi) == 'png' || strtolower($ekstensi) == 'jpeg'){
+                            $filename = date('YmdHis') . $file->getClientOriginalName();
+                            if(value == 'photo'){
+                                $kompres = Image::make($file)
+                                ->resize(800, null, function ($constraint) {
+                                    $constraint->aspectRatio();
+                                })
+                                ->save('assets/images/upload/foto_casan/' . $filename);
+                            }else{
+                                $kompres = Image::make($file)
+                                ->resize(800, null, function ($constraint) {
+                                    $constraint->aspectRatio();
+                                })
+                                ->save('assets/images/upload/file_' . $value . '/' . $filename);
+                            }
+                        }else{
+                            if(value == 'photo'){
+                                $filename = date('YmdHis') . $file->getClientOriginalName();
+                            $file->move('assets/images/upload/foto_casan/',$filename);
+                            }else{
+                                $filename = date('YmdHis') . $file->getClientOriginalName();
+                                $file->move('assets/images/upload/file_' . $value . '/',$filename);
+                            }
+
+                        }
+                        $cek = PsbBerkasPendukung::where('psb_peserta_id',$id);
+                        if($cek->count() > 0){
+                            $cek = $cek->first();
+                            $psbBerkasPendukung = PsbBerkasPendukung::find($cek->id);
+                            if($value == "kk"){
+                                $psbBerkasPendukung->file_kk = $filename;
+                            }elseif($value == 'ktp' ){
+                                $psbBerkasPendukung->file_ktp = $filename;
+                            }elseif($value == 'rapor'){
+                                $psbBerkasPendukung->file_rapor = $filename;
+                            }
+                            $psbBerkasPendukung->save();
+
+                        }else{
+                            $psbBerkasPendukung = new PsbBerkasPendukung();
+                            if($value == "kk"){
+                                $psbBerkasPendukung->file_kk = $filename;
+                            }elseif($value == 'ktp' ){
+                                $psbBerkasPendukung->file_ktp = $filename;
+                            }elseif($value == 'rapor'){
+                                $psbBerkasPendukung->file_rapor = $filename;
+                            }
+                            $psbBerkasPendukung->psb_peserta_id = $id;
+                            $psbBerkasPendukung->save();
+                        }
+                    }
+                }
 
 
                 $array[] = [

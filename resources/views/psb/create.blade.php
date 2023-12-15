@@ -18,6 +18,9 @@
 
                     <h3>Sekolah Asal</h3>
                     @include('psb/_form_asal')
+
+                    <h3>Berkas Pnedukung</h3>
+                    @include('psb/_form_berkas')
                 </div>
             </form>
         </div>
