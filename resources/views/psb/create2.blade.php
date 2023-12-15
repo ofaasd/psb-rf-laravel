@@ -17,22 +17,22 @@
             </div>
             <div class="row">
                 <div class="col-md-3 button-menu">
-                    <a href='#' class="btn btn-primary col-md-12" id='data-diri'>
+                    <a href='javascript:void(0)' class="btn btn-primary col-md-12" id='data-diri'>
                         Data Diri
                     </a>
                 </div>
                 <div class="col-md-3 button-menu">
-                    <a href='#' class="btn btn-secondary col-md-12" id='walsan'>
+                    <a href='javascript:void(0)' class="btn btn-secondary col-md-12" id='walsan'>
                         Data Wali Santri
                     </a>
                 </div>
                 <div class="col-md-3 button-menu">
-                    <a href='#' class="btn btn-secondary col-md-12" id='asal-sekolah'>
+                    <a href='javascript:void(0)' class="btn btn-secondary col-md-12" id='asal-sekolah'>
                         Data Asal Sekolah
                     </a>
                 </div>
                 <div class="col-md-3 button-menu">
-                    <a href='#' class="btn btn-secondary col-md-12" id='berkas'>
+                    <a href='javascript:void(0)' class="btn btn-secondary col-md-12" id='berkas'>
                         Berkas Pendukung
                     </a>
                 </div>

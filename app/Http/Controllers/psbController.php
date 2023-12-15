@@ -45,15 +45,15 @@ class psbController extends Controller
         $array = array();
         $cek_hp = UserPsb::where('no_hp',$no_hp)->count();
         $hitung = 0;
-        if($cek_hp > 0 ){
-            $array[] = [
-                'code' => 1,
-                'status' => 'error',
-                'msg' => 'No. HP sudah terdaftar pada sistem'
-            ];
-            //echo json_encode($array);
-            $hitung++;
-        }
+        // if($cek_hp > 0 ){
+        //     $array[] = [
+        //         'code' => 1,
+        //         'status' => 'error',
+        //         'msg' => 'No. HP sudah terdaftar pada sistem'
+        //     ];
+        //     //echo json_encode($array);
+        //     $hitung++;
+        // }
         //cek umur peserta > 5 dan  < 12 tahun
         $tanggal_lahir = $request->tanggal_lahir;
         $dob = new DateTime($tanggal_lahir);
@@ -66,7 +66,7 @@ class psbController extends Controller
             $array[] = [
                 'code' => 2,
                 'status' => 'error',
-                'msg' => 'Usia minimal 5 tahun dan maksimal 12 tahun'
+                'msg' => 'Usia minimal 5 tahun dan maksimal 12 tahun | Usia Saat ini : ' . $year
             ];
             //echo json_encode($array);
             $hitung++;
@@ -188,13 +188,13 @@ status : menunggu jadwal test & wawancara
 
 
 https://psb.ppatq-rf.id';
-                $no_pengurus = ['08979194645','089601087437','082298576026','089668309013'];
-                foreach($no_pengurus as $value){
-                    $data['no_wa'] = $value;
-                    $data['pesan'] = $pesan2;
+                // $no_pengurus = ['08979194645','089601087437','082298576026','089668309013'];
+                // foreach($no_pengurus as $value){
+                //     $data['no_wa'] = $value;
+                //     $data['pesan'] = $pesan2;
 
-                    helper::send_wa($data);
-                }
+                //     helper::send_wa($data);
+                // }
 
             }
 
@@ -226,8 +226,8 @@ https://psb.ppatq-rf.id';
                 $walsan->pendidikan_ibu = $request->pendidikan_ibu;
                 $walsan->pekerjaan_ayah = $request->pekerjaan_ayah;
                 $walsan->pekerjaan_ibu = $request->pekerjaan_ibu;
-                $walsan->alamat_ayah = $request->alamat_ayah;
-                $walsan->alamat_ibu = $request->alamat_ibu;
+                $walsan->alamat_ayah = $request->alamat;
+                $walsan->alamat_ibu = $request->alamat;
                 $walsan->no_hp = $request->no_hp;
                 $walsan->no_telp = $request->no_telp;
                 $walsan->psb_peserta_id = $data->id;

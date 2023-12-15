@@ -39,6 +39,9 @@
                         </div>
                     </div>
                 </div>
+
+            </div>
+            <div class="col-md-6">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
@@ -53,8 +56,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-6">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
@@ -119,13 +120,6 @@
                             <input type="text" name="kode_pos" class="form-control" value="<?=$psb_peserta->kode_pos??''?>" id="kode_pos" required>
                         </div>
                     </div>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="no_hp">No. Handphone (WA) <span class='text-danger'>*</span></label>
-                            <input type="text" name="no_hp" class="form-control" value="<?=$psb_wali->no_hp??''?>" id="no_hp" required />
-                        </div>
-                    </div>
-
                 </div>
 
             </div>

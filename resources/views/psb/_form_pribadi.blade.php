@@ -3,7 +3,7 @@
 
         <div class="col-md-6">
             <div class="form-group">
-                <label for="nik">NIK</label>
+                <label for="nik">NIK calon santri PPATQ RF</label>
                 <input type="text" name="nik" class="form-control " id="nik" value="<?=$psb_peserta->nik??''?>">
             </div>
             <div class="form-group">
@@ -41,10 +41,7 @@
                     </div>
                 </div>
             </div>
-            <div class="form-group">
-                <label for="no_hp">No. Handphone (WA) <span class='text-danger'>*</span></label>
-                <input type="text" name="no_hp" class="form-control" value="<?=$psb_wali->no_hp??''?>" id="no_hp" required />
-            </div>
+
         </div>
         <div class="col-md-6">
             <div class="row">
@@ -62,7 +59,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="alamat">Alamat Lengkap <span class='text-danger'>*</span></label>
+                <label for="alamat">Alamat Wali Santri <span class='text-danger'>*</span></label>
                 <textarea class="form-control" name="alamat" id="alamat" required><?=$psb_peserta->alamat??''?></textarea>
             </div>
 

@@ -25,12 +25,8 @@
                     <input type="text" name="pekerjaan_ayah" value="{{$psb_wali->pekerjaan_ayah??''}}" class="form-control" id="pekerjaan_ayah">
                 </div>
                 <div class="form-group">
-                    <label for="alamat_ayah">Alamat Lengkap</label>
-                    <textarea name="alamat_ayah" class="form-control" id="alamat_ayah">{{$psb_wali->alamat_ayah??''}}</textarea>
-                </div>
-                <div class="form-group">
-                    <label for="no_telp">No. Telpon</label>
-                    <input type="text" name="no_telp" class="form-control" value="{{$psb_wali->no_telp??''}}" id="no_telp" />
+                    <label for="no_hp">No. Handphone Ayah <span class='text-danger'>*</span></label>
+                    <input type="text" name="no_hp" class="form-control" value="<?=$psb_wali->no_hp??''?>" id="no_hp" required />
                 </div>
                 <div class="form-group">
                     <input type="submit" value="Simpan" class="btn btn-primary">
@@ -57,8 +53,8 @@
                     <input type="text" name="pekerjaan_ibu" value="{{$psb_wali->pekerjaan_ibu??''}}" class="form-control" id="pekerjaan_ibu">
                 </div>
                 <div class="form-group">
-                    <label for="alamat_ibu">Alamat Lengkap</label>
-                    <textarea name="alamat_ibu" class="form-control" id="alamat_ibu">{{$psb_wali->alamat_ibu??''}}</textarea>
+                    <label for="no_telp">No. HP Ibu</label>
+                    <input type="text" name="no_telp" class="form-control" value="{{$psb_wali->no_telp??''}}" id="no_telp" />
                 </div>
 
             </div>

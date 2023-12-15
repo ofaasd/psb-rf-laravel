@@ -21,13 +21,10 @@
                 <input type="text" name="pekerjaan_ayah" value="" class="form-control" id="pekerjaan_ayah">
             </div>
             <div class="form-group">
-                <label for="alamat_ayah">Alamat Lengkap</label>
-                <textarea name="alamat_ayah" class="form-control" id="alamat_ayah"></textarea>
+                <label for="no_hp">No. Handphone Ayah <span class='text-danger'>*</span></label>
+                <input type="text" name="no_hp" class="form-control" value="<?=$psb_wali->no_hp??''?>" id="no_hp" required />
             </div>
-            <div class="form-group">
-                <label for="no_telp">No. Telpon</label>
-                <input type="text" name="no_telp" class="form-control" value="" id="no_telp" />
-            </div>
+
         </div>
         <div class="col-md-6">
             <div class="form-group">
@@ -49,11 +46,11 @@
                 <label for="pekerjaan_ibu">Pekerjaan ibu</label>
                 <input type="text" name="pekerjaan_ibu" value="" class="form-control" id="pekerjaan_ibu">
             </div>
-            <div class="form-group">
-                <label for="alamat_ibu">Alamat Lengkap</label>
-                <textarea name="alamat_ibu" class="form-control" id="alamat_ibu"></textarea>
-            </div>
 
+            <div class="form-group">
+                <label for="no_telp">No. HP Ibu</label>
+                <input type="text" name="no_telp" class="form-control" value="" id="no_telp" />
+            </div>
         </div>
     </div>
 </section>
