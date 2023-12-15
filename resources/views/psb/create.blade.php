@@ -120,14 +120,14 @@
                                         </div>
                                         `);
                                         $(".riple-frame").hide();
-                                        // $.ajax({
-                                        //     url : urlSend + '/send_wa_file',
-                                        //     data : {"_token": "{{ csrf_token() }}",no_wa : data[0].no_wa,pesan : data[0].pesan,file : data[0].url_file},
-                                        //     method : "POST",
-                                        //     success : function(data){
-                                        //         console.log(data)
-                                        //     }
-                                        // })
+                                        $.ajax({
+                                            url : urlSend + '/send_wa_file',
+                                            data : {"_token": "{{ csrf_token() }}",no_wa : data[0].no_wa,pesan : data[0].pesan,file : data[0].url_file},
+                                            method : "POST",
+                                            success : function(data){
+                                                console.log(data)
+                                            }
+                                        })
                                     }
                                 });
                             }else{
