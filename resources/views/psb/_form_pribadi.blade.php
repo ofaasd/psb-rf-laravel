@@ -40,8 +40,12 @@
                         <input type="date" name="tanggal_lahir" class="form-control" id="tanggal_lahir" value="<?=$user->tanggal_lahir??''?>" required>
                     </div>
                 </div>
-            </div>
 
+            </div>
+            <div class="form-group">
+                <label for="no_hp">No. HP Ayah <span class='text-danger'>*</span></label>
+                <input type="text" name="no_hp" class="form-control" value="<?=$psb_wali->no_hp??''?>" id="no_hp" required />
+            </div>
         </div>
         <div class="col-md-6">
             <div class="row">

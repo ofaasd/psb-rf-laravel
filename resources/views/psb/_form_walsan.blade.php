@@ -20,10 +20,7 @@
                 <label for="pekerjaan_ayah">Pekerjaan Ayah</label>
                 <input type="text" name="pekerjaan_ayah" value="" class="form-control" id="pekerjaan_ayah">
             </div>
-            <div class="form-group">
-                <label for="no_hp">No. Handphone Ayah <span class='text-danger'>*</span></label>
-                <input type="text" name="no_hp" class="form-control" value="<?=$psb_wali->no_hp??''?>" id="no_hp" required />
-            </div>
+
 
         </div>
         <div class="col-md-6">

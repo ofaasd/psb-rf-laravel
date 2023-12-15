@@ -250,7 +250,7 @@ https://psb.ppatq-rf.id';
                 $seragam->lingkar_dada = $request->lingkar_dada;
                 $seragam->lingkar_pinggul = $request->lingkar_pinggul;
                 $seragam->save();
-
+                $id = $data->id;
                 $request->validate([
                     'photo' => [File::types(['jpg', 'jpeg', 'png', 'pdf'])->max(10 * 1024)],
                     'kk' => [File::types(['jpg', 'jpeg', 'png', 'pdf'])->max(10 * 1024)],
