@@ -11,7 +11,8 @@ use App\Models\PsbSekolahAsal;
 use App\Models\UserPsb;
 use App\Models\PsbGelombang;
 use App\Models\PsbSeragam;
-
+use App\Models\PsbBerkasPendukung;
+use App\Models\PsbBuktiPembayaran;
 use Illuminate\Support\Facades\DB;
 use DateTime;
 use helper;
@@ -23,6 +24,7 @@ use Illuminate\Validation\Rules\File;
 class psbController extends Controller
 {
     //
+    public $jenjang = array(1=>'TK','RA','SD/MI');
     public function index(){
         $psb = PsbPesertaOnline::all();
         $status = array(0=>'Belum Diverifikasi',1=>'Sudah Diverifikasi');
@@ -56,6 +58,7 @@ class psbController extends Controller
         // }
         //cek umur peserta > 5 dan  < 12 tahun
         $tanggal_lahir = $request->tanggal_lahir;
+        $tempat_lahir = $request->tempat_lahir;
         $dob = new DateTime($tanggal_lahir);
         $today   = new DateTime('today');
         $year = $dob->diff($today)->y;
@@ -73,7 +76,8 @@ class psbController extends Controller
         }
 
         $nama = $request->nama;
-        $peserta = PsbPesertaOnline::where(array('nama'=>$nama,'tanggal_lahir'=>$tanggal_lahir))->count();
+        $int_tanggal_lahir = strtotime($tanggal_lahir);
+        $peserta = PsbPesertaOnline::where(['nama'=>$nama,'tempat_lahir'=>$tempat_lahir,'tanggal_lahir'=>$int_tanggal_lahir])->count();
         if($peserta > 0){
             $array[] = [
                 'code' => 3,
@@ -108,6 +112,7 @@ class psbController extends Controller
         $user->kode_pos = $request->kode_pos;
         $user->no_hp = $request->no_hp;
         $username = '';
+        $data_wa = [];
         if($user->save()){
             $nama = $request->nama;
             $tgl_lahir = $request->tanggal_lahir;
@@ -141,10 +146,10 @@ username : ' . $username . '
 password : ' . $password . '
 Selanjutnya anda dapat melakukan pengkinian data calon santri baru di menu PSB setelah login melalui sistem
 https://psb.ppatq-rf.id';
-                $data['no_wa'] = $request->no_hp;
-                $data['pesan'] = $pesan;
+                $data_wa['no_wa'] = $request->no_hp;
+                $data_wa['pesan'] = $pesan;
 
-                helper::send_wa($data);
+
                 $kk = "Tidak Ada";
                 $ktp = "Tidak Ada";
                 $rapor = "Tidak Ada";
@@ -188,6 +193,7 @@ status : menunggu jadwal test & wawancara
 
 
 https://psb.ppatq-rf.id';
+                //pake $data2 soalnya sudah di pake untuk send wa di bawah
                 // $no_pengurus = ['08979194645','089601087437','082298576026','089668309013'];
                 // foreach($no_pengurus as $value){
                 //     $data['no_wa'] = $value;
@@ -315,15 +321,27 @@ https://psb.ppatq-rf.id';
                         }
                     }
                 }
-
-
+                $wa = '';
+                if(!empty($data_wa)){
+                    if($this->save_file_cetak($username)){
+                        $data_wa['file'] = URL::to('/assets/formulir/' . 'Form_Pendaftaran_' . $username . '.pdf');
+                        $wa = helper::send_wa_file($data_wa);
+                    }else{
+                        $wa = helper::send_wa($data_wa);
+                    }
+                }
                 $array[] = [
                     'code' => 0,
                     'status' => 'Success',
                     'username' => $username,
                     'password' => $password,
-                    'msg' => ''
+                    'no_wa' => $data_wa['no_wa'],
+                    'pesan' => $data_wa['pesan'],
+                    'msg' => '',
+                    'wa' => $wa,
+                    'url_file' =>URL::to('/assets/formulir/' . 'Form_Pendaftaran_' . $username . '.pdf'),
                 ];
+
                 echo json_encode($array);
             }else{
                 $array[] = [
@@ -335,8 +353,46 @@ https://psb.ppatq-rf.id';
             }
         }
     }
-    public function send_wa(){
-        $testingHelper = helper::testing();
+    public function save_file_cetak($username){
+        $provinsi = '';
+        $psb_peserta = PsbPesertaOnline::where('no_pendaftaran',$username)->first();
+        $psb_wali = PsbWaliPesertum::where('psb_peserta_id',$psb_peserta->id)->first();
+        $psb_asal = PsbSekolahAsal::where('psb_peserta_id',$psb_peserta->id)->first();
+        $psb_seragam = PsbSeragam::where('psb_peserta_id',$psb_peserta->id)->first();
+        $berkas_pendukung = PsbBerkasPendukung::where('psb_peserta_id',$psb_peserta->id);
+        $foto = "https://payment.ppatq-rf.id/assets/images/user.png";
+        if($berkas_pendukung->count() > 0 && !empty($berkas_pendukung->first()->file_photo)){
+            $foto = URL::to('assets/images/upload/foto_casan/') . "/" .$berkas_pendukung->first()->file_photo;
+        }
+        $kota = "";
+        if(!empty($psb_peserta->prov_id)){
+
+            $provinsi = Province::find($psb_peserta->prov_id);
+            if(!empty($psb_peserta->kota_id)){
+                $kota = City::find($psb_peserta->kota_id);
+            }
+        }
+        $jenjang = $this->jenjang;
+        $berkas = $berkas_pendukung->first();
+        $bukti = PsbBuktiPembayaran::where('psb_peserta_id',$psb_peserta->id)->first();
+        $status_pembayaran = array('Belum Ada','Sedang Diproses Oleh Admin','Pembayaran Divalidasi');
+        $user = UserPsb::where('username',$username)->first();
+        $tahun_lahir = date('Y', strtotime($psb_peserta->tanggal_lahir));
+        $new_nama = substr($psb_peserta->nama,0,3);
+        $tanggal = date('dm',strtotime($psb_peserta->tanggal_lahir));
+        $password = $tahun_lahir . $new_nama . $tanggal;
+        //Alert::success('', '');
+        // return view('psb/_form_cetak',compact('user','password','status_pembayaran','bukti','provinsi','psb_peserta','psb_wali','psb_asal','kota','foto','berkas','jenjang'));
+        $path = 'assets/formulir/';
+        $pdf = PDF::loadView('psb/_form_cetak',compact('psb_seragam','user','password','status_pembayaran','bukti','provinsi','psb_peserta','psb_wali','psb_asal','kota','foto','berkas','jenjang'));
+        return $pdf->save('' . $path . 'Form_Pendaftaran_' . $username . '.pdf');
+    }
+    public function send_wa_file(Request $request){
+        $data['no_wa'] = $request->no_wa;
+        $data['pesan'] = $request->pesan;
+        $data['file'] = $request->file;
+
+        $testingHelper = helper::send_wa_file($data);
         echo $testingHelper;
 
     }

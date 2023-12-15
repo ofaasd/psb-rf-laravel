@@ -27,6 +27,7 @@ Route::post('psb/get_kota',[psbController::class, 'get_kota']);
 Route::post('/psb',[psbController::class, 'store']);
 Route::get('/psb',[psbController::class, 'index']);
 Route::post('psb/validation',[psbController::class, 'validation']);
+Route::post('psb/send_wa_file',[psbController::class, 'send_wa_file']);
 Route::get('psb/send_wa',[psbController::class, 'send_wa']);
 
 

@@ -3,7 +3,7 @@
 
         <div class="col-md-6">
             <div class="form-group">
-                <label for="nik">NIK calon santri PPATQ RF</label>
+                <label for="nik">NIK calon santri PPATQ RF </label>
                 <input type="text" name="nik" class="form-control " id="nik" value="<?=$psb_peserta->nik??''?>">
             </div>
             <div class="form-group">
