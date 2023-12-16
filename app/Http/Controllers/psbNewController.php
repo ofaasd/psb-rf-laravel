@@ -227,7 +227,7 @@ class psbNewController extends Controller
                 $ekstensi = $file->extension();
                 if(strtolower($ekstensi) == 'jpg' || strtolower($ekstensi) == 'png' || strtolower($ekstensi) == 'jpeg'){
                     $filename = date('YmdHis') . $file->getClientOriginalName();
-                    if(value == 'photo'){
+                    if($value == 'photo'){
                         $kompres = Image::make($file)
                         ->resize(800, null, function ($constraint) {
                             $constraint->aspectRatio();
@@ -241,7 +241,7 @@ class psbNewController extends Controller
                         ->save('assets/images/upload/file_' . $value . '/' . $filename);
                     }
                 }else{
-                    if(value == 'photo'){
+                    if($value == 'photo'){
                         $filename = date('YmdHis') . $file->getClientOriginalName();
                     $file->move('assets/images/upload/foto_casan/',$filename);
                     }else{
@@ -260,6 +260,8 @@ class psbNewController extends Controller
                         $psbBerkasPendukung->file_ktp = $filename;
                     }elseif($value == 'rapor'){
                         $psbBerkasPendukung->file_rapor = $filename;
+                    }elseif($value == 'photo'){
+                        $psbBerkasPendukung->file_photo = $filename;
                     }
                     $psbBerkasPendukung->save();
 
@@ -271,6 +273,8 @@ class psbNewController extends Controller
                         $psbBerkasPendukung->file_ktp = $filename;
                     }elseif($value == 'rapor'){
                         $psbBerkasPendukung->file_rapor = $filename;
+                    }elseif($value == 'photo'){
+                        $psbBerkasPendukung->file_photo = $filename;
                     }
                     $psbBerkasPendukung->psb_peserta_id = $id;
                     $psbBerkasPendukung->save();
