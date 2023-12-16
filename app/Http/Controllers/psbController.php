@@ -265,27 +265,30 @@ https://psb.ppatq-rf.id';
                 ]);
                 $nama_file = array('photo','kk','ktp','rapor');
                 $array = array();
+                $upload = 0;
                 foreach($nama_file as $value){
                     if($request->file($value)){
                         $file = $request->file($value);
                         $ekstensi = $file->extension();
                         if(strtolower($ekstensi) == 'jpg' || strtolower($ekstensi) == 'png' || strtolower($ekstensi) == 'jpeg'){
                             $filename = date('YmdHis') . $file->getClientOriginalName();
-                            if(value == 'photo'){
+                            if($value == 'photo'){
                                 $kompres = Image::make($file)
                                 ->resize(800, null, function ($constraint) {
                                     $constraint->aspectRatio();
                                 })
                                 ->save('assets/images/upload/foto_casan/' . $filename);
+                                $upload++;
                             }else{
                                 $kompres = Image::make($file)
                                 ->resize(800, null, function ($constraint) {
                                     $constraint->aspectRatio();
                                 })
                                 ->save('assets/images/upload/file_' . $value . '/' . $filename);
+                                $upload++;
                             }
                         }else{
-                            if(value == 'photo'){
+                            if($value == 'photo'){
                                 $filename = date('YmdHis') . $file->getClientOriginalName();
                             $file->move('assets/images/upload/foto_casan/',$filename);
                             }else{
@@ -304,6 +307,8 @@ https://psb.ppatq-rf.id';
                                 $psbBerkasPendukung->file_ktp = $filename;
                             }elseif($value == 'rapor'){
                                 $psbBerkasPendukung->file_rapor = $filename;
+                            }elseif($value == 'photo'){
+                                $psbBerkasPendukung->file_photo = $filename;
                             }
                             $psbBerkasPendukung->save();
 
@@ -315,6 +320,8 @@ https://psb.ppatq-rf.id';
                                 $psbBerkasPendukung->file_ktp = $filename;
                             }elseif($value == 'rapor'){
                                 $psbBerkasPendukung->file_rapor = $filename;
+                            }elseif($value == 'photo'){
+                                $psbBerkasPendukung->file_photo = $filename;
                             }
                             $psbBerkasPendukung->psb_peserta_id = $id;
                             $psbBerkasPendukung->save();

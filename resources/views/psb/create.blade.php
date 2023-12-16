@@ -6,7 +6,7 @@
                 <div class="col-md-12" id='alert-show'></div>
             </div>
             <div class="riple-frame"><div class="lds-ripple"><div></div><div></div></div></div>
-            <form id="example-form" action="#">
+            <form id="example-form" action="#" enctype="multipart/form-data">
 
                 @csrf
                 <div>
@@ -101,9 +101,13 @@
                                 $("#alert-show").html('');
                                 validatedStepOne = true;
                                 const urlSend = "{{URL::to('psb')}}";
+                                const formData = new FormData(document.getElementById("example-form"));
+
                                 $.ajax({
                                     url : urlSend,
-                                    data : myForm,
+                                    data : formData,
+                                    processData: false,
+                                    contentType: false,
                                     method : "POST",
                                     success : function(data){
                                         data = JSON.parse(data);
