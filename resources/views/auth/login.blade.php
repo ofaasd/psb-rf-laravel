@@ -60,6 +60,7 @@
 									data-callback='onSubmit'
 									data-action='submit'
 									>Login</button>
+                                    <a href="{{URL::to('forgot_password')}}" class="btn btn-secondary">Lupa Password</a>
                             </div>
                         </div>
                     </form>

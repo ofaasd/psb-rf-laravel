@@ -395,7 +395,7 @@ https://psb.ppatq-rf.id';
         // return view('psb/_form_cetak',compact('user','password','status_pembayaran','bukti','provinsi','psb_peserta','psb_wali','psb_asal','kota','foto','berkas','jenjang'));
         $path = 'assets/formulir/';
         $pdf = PDF::loadView('psb/_form_cetak',compact('psb_seragam','user','password','status_pembayaran','bukti','provinsi','psb_peserta','psb_wali','psb_asal','kota','foto','berkas','jenjang'));
-        return $pdf->save('' . $path . 'Form_Pendaftaran_' . $username . '.pdf');
+        return $pdf->save('' . $path . 'DAFTAR_PPATQ_RF_' . $psb_peserta->nama . '_' . $username . '.pdf');
     }
     public function send_wa_file(Request $request){
         $data['no_wa'] = $request->no_wa;

@@ -32,6 +32,7 @@ Route::get('psb/send_wa',[psbController::class, 'send_wa']);
 
 
 
+
 //must login
 Route::middleware([CheckLogin::class])->group(function () {
     Route::get('psb/data_pribadi',[psbNewController::class, 'data_pribadi']);
@@ -47,5 +48,7 @@ Route::middleware([CheckLogin::class])->group(function () {
 
 //Auth Route
 Route::get('/login',[AuthPsbController::class,'login']);
+Route::get('/forgot_password',[AuthPsbController::class,'forgot_password']);
+Route::post('/forgot',[AuthPsbController::class,'proses_forget']);
 Route::get('/logout',[AuthPsbController::class,'logout']);
 Route::post('/login',[AuthPsbController::class,'proses_login']);
