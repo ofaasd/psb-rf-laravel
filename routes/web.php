@@ -24,6 +24,8 @@ Route::get('/santri_aktif', [homeController::class, 'santri_aktif']);
 Route::get('/pesantren', [homeController::class, 'pesantren']);
 Route::get('psb/create',[psbController::class, 'create']);
 Route::post('psb/get_kota',[psbController::class, 'get_kota']);
+Route::post('psb/get_kecamatan',[psbController::class, 'get_kecamatan']);
+Route::post('psb/get_kelurahan',[psbController::class, 'get_kelurahan']);
 Route::post('/psb',[psbController::class, 'store']);
 Route::get('/psb',[psbController::class, 'index']);
 Route::post('psb/validation',[psbController::class, 'validation']);

@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Province
- * 
+ *
  * @property int $prov_id
  * @property string|null $prov_name
  * @property int|null $locationid
@@ -20,18 +20,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Province extends Model
 {
-	protected $table = 'provinces';
-	protected $primaryKey = 'prov_id';
+	protected $table = 'provinsi_tbl';
 	public $timestamps = false;
 
-	protected $casts = [
-		'locationid' => 'int',
-		'status' => 'int'
-	];
-
-	protected $fillable = [
-		'prov_name',
-		'locationid',
-		'status'
-	];
 }

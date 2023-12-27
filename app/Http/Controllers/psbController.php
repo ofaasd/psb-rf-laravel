@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Province;
 use App\Models\City;
+use App\Models\Kecamatan;
+use App\Models\Kelurahan;
 use App\Models\PsbPesertaOnline;
 use App\Models\PsbWaliPesertum;
 use App\Models\PsbSekolahAsal;
@@ -38,8 +40,21 @@ class psbController extends Controller
     }
     public function get_kota(Request $request){
         $id = $request->prov_id;
-        $get_kota = City::where('prov_id',$id)->get();
+        $get_kota = City::where('id_provinsi',$id)->get();
         echo json_encode($get_kota);
+    }
+    public function get_kecamatan(Request $request){
+        $id_provinsi = $request->prov_id;
+        $id_kota = $request->kota_id;
+        $get_kecamatan = Kecamatan::where('id_provinsi',$id_provinsi)->where('id_kota_kab',$id_kota)->get();
+        echo json_encode($get_kecamatan);
+    }
+    public function get_kelurahan(Request $request){
+        $id_provinsi = $request->prov_id;
+        $id_kota = $request->kota_id;
+        $id_kecamatan = $request->kecamatan_id;
+        $get_kelurahan = Kelurahan::where('id_provinsi',$id_provinsi)->where('id_kota_kab',$id_kota)->where('id_kecamatan',$id_kecamatan)->get();
+        echo json_encode($get_kelurahan);
     }
     public function validation(Request $request){
         $no_hp = $request->no_hp;

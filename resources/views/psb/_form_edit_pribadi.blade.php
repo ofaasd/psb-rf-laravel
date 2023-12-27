@@ -104,13 +104,27 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="kecamatan">Kecamatan <span class='text-danger'>*</span></label>
-                            <input type="text" name="kecamatan" class="form-control" value="<?=$psb_peserta->kecamatan??''?>" id="kecamatan" required>
+                            <select class="form-control" name="kecamatan" id="kecamatan" required>
+                                <option value=0>--Pilih Kecamatan--</option>
+                                @if(!empty($kecamatan))
+                                    @foreach($kecamatan as $row)
+                                        <option value="{{$row->id_kecamatan}}" {{($row->id_kecamatan == $psb_peserta->id_kecamatan)?"selected":""}}>{{$row->city_name}}</option>
+                                    @endforeach
+                                @endif
+                            </select>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="kelurahan">Keluarahan/Desa <span class='text-danger'>*</span></label>
-                            <input type="text" name="kelurahan" class="form-control" value="<?=$psb_peserta->kelurahan??''?>" id="kelurahan" required>
+                            <label for="kelurahan">Kelurahan/Desa <span class='text-danger'>*</span></label>
+                            <select class="form-control" name="kelurahan" id="kelurahan" required>
+                                <option value=0>--Pilih Kelurahan--</option>
+                                @if(!empty($kelurahan))
+                                    @foreach($kelurahan as $row)
+                                        <option value="{{$row->id_kelurahan}}" {{($row->id_kelurahan == $psb_peserta->id_kelurahan)?"selected":""}}>{{$row->city_name}}</option>
+                                    @endforeach
+                                @endif
+                            </select>
                         </div>
                     </div>
 
@@ -171,6 +185,8 @@ $(document).ready(function(){
 
     })
     const url = '{{URL::to('psb/get_kota')}}';
+    const url2 = '{{URL::to('psb/get_kecamatan')}}';
+    const url3 = '{{URL::to('psb/get_kelurahan')}}';
     $("#provinsi").on('change',function(){
         $.ajax({
             url : url,
@@ -184,6 +200,43 @@ $(document).ready(function(){
                 $("#kota").html('');
                 data.forEach(function (item){
                     $("#kota").append('<option value="' + item.city_id + '">' + item.city_name + '</option>');
+                });
+            }
+        });
+    });
+    $("#kota").on('change',function(){
+        $.ajax({
+            url : url2,
+            data : {
+                    "_token": "{{ csrf_token() }}",
+                    "prov_id" : $("#provinsi").val(),
+                    "kota_id" : $(this).val()
+                    },
+            method : "POST",
+            success : function(data){
+                data = JSON.parse(data);
+                $("#kecamatan").html('');
+                data.forEach(function (item){
+                    $("#kecamatan").append('<option value="' + item.id_kecamatan + '">' + item.nama_kecamatan + '</option>');
+                });
+            }
+        });
+    });
+    $("#kecamatan").on('change',function(){
+        $.ajax({
+            url : url3,
+            data : {
+                    "_token": "{{ csrf_token() }}",
+                    "prov_id" : $("#provinsi").val(),
+                    "kota_id" : $("#kota").val(),
+                    "kecamatan_id" : $(this).val()
+                    },
+            method : "POST",
+            success : function(data){
+                data = JSON.parse(data);
+                $("#kelurahan").html('');
+                data.forEach(function (item){
+                    $("#kelurahan").append('<option value="' + item.id_kelurahan + '">' + item.nama_kelurahan + '</option>');
                 });
             }
         });

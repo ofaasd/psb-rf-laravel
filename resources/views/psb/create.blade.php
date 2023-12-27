@@ -153,6 +153,8 @@
             });
             $("#provinsi").select2();
             $("#kota").select2();
+            $("#kecamatan").select2();
+            $("#kelurahan").select2();
         });
 
     </script>
