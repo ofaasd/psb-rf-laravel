@@ -13,6 +13,8 @@ use App\Models\PsbGelombang;
 use App\Models\PsbBerkasPendukung;
 use App\Models\PsbBuktiPembayaran;
 use App\Models\PsbSeragam;
+use App\Models\Kecamatan;
+use App\Models\Kelurahan;
 use Alert;
 use Image;
 use URL;
@@ -37,11 +39,20 @@ class psbNewController extends Controller
         }
         $kota = "";
         if(!empty($psb_peserta->prov_id)){
-            $kota = City::where('prov_id',$psb_peserta->prov_id)->get();
+            $kota = City::where('id_provinsi',$psb_peserta->prov_id)->get();
         }
+        $kecamatan = "";
+        if(!empty($psb_peserta->kota_id) && !empty($psb_peserta->kecamatan)){
+            $kecamatan = Kecamatan::where('id_provinsi',$psb_peserta->prov_id)->where("id_kota_kab",$psb_peserta->kota_id)->get();
+        }
+        $kelurahan = "";
+        if(!empty($psb_peserta->kota_id) && !empty($psb_peserta->kecamatan) && !empty($psb_peserta->kelurahan)){
+            $kelurahan = Kelurahan::where('id_provinsi',$psb_peserta->prov_id)->where("id_kota_kab",$psb_peserta->kota_id)->where("id_kecamatan",$psb_peserta->kecamatan)->get();
+        }
+
         $berkas = $berkas_pendukung->first();
         //Alert::success('', '');
-        return view('psb/create2',compact('psb_seragam','provinsi','psb_peserta','psb_wali','psb_asal','kota','foto','berkas'));
+        return view('psb/create2',compact('kecamatan','kelurahan','psb_seragam','provinsi','psb_peserta','psb_wali','psb_asal','kota','foto','berkas'));
     }
     public function cetak_form(){
         $provinsi = '';

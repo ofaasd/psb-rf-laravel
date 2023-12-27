@@ -83,7 +83,7 @@
                             <select class="form-control" name="provinsi" id="provinsi" required>
                                 <option value=0>--Pilih Provinsi--</option>
                                 @foreach($provinsi as $row)
-                                    <option value="{{$row->prov_id}}" {{($row->prov_id == $psb_peserta->prov_id)?"selected":""}}>{{$row->prov_name}}</option>
+                                    <option value="{{$row->id_provinsi}}" {{($row->id_provinsi == $psb_peserta->prov_id)?"selected":""}}>{{$row->nama_provinsi}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -95,7 +95,7 @@
                                 <option value=0>--Pilih Kota--</option>
                                 @if(!empty($kota))
                                     @foreach($kota as $row)
-                                        <option value="{{$row->city_id}}" {{($row->city_id == $psb_peserta->kota_id)?"selected":""}}>{{$row->city_name}}</option>
+                                        <option value="{{$row->id_kota_kab}}" {{($row->id_kota_kab == $psb_peserta->kota_id)?"selected":""}}>{{$row->nama_kota_kab}}</option>
                                     @endforeach
                                 @endif
                             </select>
@@ -108,7 +108,7 @@
                                 <option value=0>--Pilih Kecamatan--</option>
                                 @if(!empty($kecamatan))
                                     @foreach($kecamatan as $row)
-                                        <option value="{{$row->id_kecamatan}}" {{($row->id_kecamatan == $psb_peserta->id_kecamatan)?"selected":""}}>{{$row->city_name}}</option>
+                                        <option value="{{$row->id_kecamatan}}" {{($row->id_kecamatan == $psb_peserta->kecamatan)?"selected":""}}>{{$row->nama_kecamatan}}</option>
                                     @endforeach
                                 @endif
                             </select>
@@ -121,7 +121,7 @@
                                 <option value=0>--Pilih Kelurahan--</option>
                                 @if(!empty($kelurahan))
                                     @foreach($kelurahan as $row)
-                                        <option value="{{$row->id_kelurahan}}" {{($row->id_kelurahan == $psb_peserta->id_kelurahan)?"selected":""}}>{{$row->city_name}}</option>
+                                        <option value="{{$row->id_kelurahan}}" {{($row->id_kelurahan == $psb_peserta->kelurahan)?"selected":""}}>{{$row->nama_kelurahan}}</option>
                                     @endforeach
                                 @endif
                             </select>
@@ -199,7 +199,7 @@ $(document).ready(function(){
                 data = JSON.parse(data);
                 $("#kota").html('');
                 data.forEach(function (item){
-                    $("#kota").append('<option value="' + item.city_id + '">' + item.city_name + '</option>');
+                    $("#kota").append('<option value="' + item.id_kota_kab + '">' + item.nama_kota_kab + '</option>');
                 });
             }
         });

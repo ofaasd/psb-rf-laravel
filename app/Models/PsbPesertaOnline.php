@@ -89,11 +89,11 @@ class PsbPesertaOnline extends Model
 
     public function provinsi(): BelongsTo
     {
-        return $this->belongsTo(Province::class, 'prov_id', 'prov_id');
+        return $this->belongsTo(Province::class, 'prov_id', 'id_provinsi');
     }
     public function kota(): BelongsTo
     {
-        return $this->belongsTo(City::class, 'kota_id', 'city_id');
+        return $this->belongsTo(City::class, 'kota_id', 'id_kota_kab');
     }
     public function asal_sekolah(): BelongsTo{
         return $this->belongsTo(PsbSekolahAsal::class, 'id', 'psb_peserta_id');
