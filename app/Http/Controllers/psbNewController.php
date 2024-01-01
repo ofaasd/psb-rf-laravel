@@ -372,12 +372,14 @@ class psbNewController extends Controller
         echo json_encode($array);
     }
     public function simpan_bukti_bayar_api_admin(Request $request){
+
         $id = $request->id;
         $request->validate([
             'bukti' => [File::types(['jpg', 'jpeg', 'png', 'pdf'])->max(10 * 1024)],
         ]);
         $nama_file = array('bukti');
         $array = array();
+        $filename = "";
         foreach($nama_file as $value){
             if($request->file($value)){
                 $file = $request->file($value);
@@ -393,40 +395,48 @@ class psbNewController extends Controller
                     $filename = date('YmdHis') . $file->getClientOriginalName();
                     $file->move('assets/images/upload/file_' . $value . '/',$filename);
                 }
-                //$cek = PsbBerkasPendukung::where('psb_peserta_id',$id);
-                $bukti = new PsbBuktiPembayaran();
-                $bukti->psb_peserta_id = $request->id;
-                $bukti->atas_nama = $request->atas_nama;
-                $bukti->bank = $request->bank_pengirim;
-                $bukti->no_rekening = $request->no_rekening;
-                $bukti->bukti = $filename;
-                $bukti->status = $request->status;
-                if($bukti->save()){
-
-                    $array[] = [
-                        'code' => 1,
-                        'status' => 'Success',
-                        'msg' => 'Data Berhasil Disimpan',
-                        // 'location' => $value,
-                        // 'ekstensi' => strtolower($ekstensi),
-                        'photo'=>$filename,
-                    ];
-                }else{
-                    $array[] = [
-                        'code' => 0,
-                        'status' => 'error',
-                        'msg' => 'Data Gagal Disimpan',
-                    ];
-                }
-
-            }else{
-                $array[] = [
-                    'code' => 0,
-                    'status' => 'error',
-                    'msg' => 'Data Gagal Disimpan | File Bukti Pembayaran harap diisi',
-                ];
             }
         }
-        echo json_encode($array);
+
+        if ($id) {
+        // update the value
+        $PsbBuktiPembayaran = PsbBuktiPembayaran::updateOrCreate(
+            ['id' => $id],
+            [
+            'bank' => $request->bank,
+            'no_rekening' => $request->no_rekening,
+            'atas_nama' => $request->atas_nama,
+            'status' => $request->status,
+            'psb_peserta_id' => $request->psb_peserta_id,
+            'bukti' => $filename,
+            ]
+        );
+
+        // user updated
+        return response()->json('Updated');
+        } else {
+        // create new one if email is unique
+        //$userEmail = User::where('email', $request->email)->first();
+
+        $PsbBuktiPembayaran = PsbBuktiPembayaran::updateOrCreate(
+            ['id' => $id],
+            [
+            'bank' => $request->bank,
+            'no_rekening' => $request->no_rekening,
+            'atas_nama' => $request->atas_nama,
+            'status' => $request->status,
+            'psb_peserta_id' => $request->psb_peserta_id,
+            'bukti' => $filename,
+            ]
+        );
+        if ($PsbBuktiPembayaran) {
+            // user created
+            return response()->json('Created');
+        } else {
+            return response()->json('Failed Create Academic');
+        }
+        }
+
+
     }
 }
