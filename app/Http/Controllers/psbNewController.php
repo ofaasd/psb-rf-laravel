@@ -371,4 +371,62 @@ class psbNewController extends Controller
         }
         echo json_encode($array);
     }
+    public function simpan_bukti_bayar_api_admin(Request $request){
+        $id = $request->id;
+        $request->validate([
+            'bukti' => [File::types(['jpg', 'jpeg', 'png', 'pdf'])->max(10 * 1024)],
+        ]);
+        $nama_file = array('bukti');
+        $array = array();
+        foreach($nama_file as $value){
+            if($request->file($value)){
+                $file = $request->file($value);
+                $ekstensi = $file->extension();
+                if(strtolower($ekstensi) == 'jpg' || strtolower($ekstensi) == 'png' || strtolower($ekstensi) == 'jpeg'){
+                    $filename = date('YmdHis') . $file->getClientOriginalName();
+                    $kompres = Image::make($file)
+                    ->resize(800, null, function ($constraint) {
+                        $constraint->aspectRatio();
+                    })
+                    ->save('assets/images/upload/file_' . $value . '/' . $filename);
+                }else{
+                    $filename = date('YmdHis') . $file->getClientOriginalName();
+                    $file->move('assets/images/upload/file_' . $value . '/',$filename);
+                }
+                //$cek = PsbBerkasPendukung::where('psb_peserta_id',$id);
+                $bukti = new PsbBuktiPembayaran();
+                $bukti->psb_peserta_id = $request->id;
+                $bukti->atas_nama = $request->atas_nama;
+                $bukti->bank = $request->bank_pengirim;
+                $bukti->no_rekening = $request->no_rekening;
+                $bukti->bukti = $filename;
+                $bukti->status = $request->status;
+                if($bukti->save()){
+
+                    $array[] = [
+                        'code' => 1,
+                        'status' => 'Success',
+                        'msg' => 'Data Berhasil Disimpan',
+                        // 'location' => $value,
+                        // 'ekstensi' => strtolower($ekstensi),
+                        'photo'=>$filename,
+                    ];
+                }else{
+                    $array[] = [
+                        'code' => 0,
+                        'status' => 'error',
+                        'msg' => 'Data Gagal Disimpan',
+                    ];
+                }
+
+            }else{
+                $array[] = [
+                    'code' => 0,
+                    'status' => 'error',
+                    'msg' => 'Data Gagal Disimpan | File Bukti Pembayaran harap diisi',
+                ];
+            }
+        }
+        echo json_encode($array);
+    }
 }
