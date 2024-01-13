@@ -68,6 +68,7 @@ class UserPsb extends Model
 		'password',
 		'last_login_at',
 		'last_ip_login',
+        'password_ori',
 		'last_reset_password'
 	];
 }

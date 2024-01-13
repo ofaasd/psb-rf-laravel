@@ -150,7 +150,9 @@ class psbController extends Controller
             $password = $tahun_lahir . $new_nama . $tanggal;
 
             $user->username = $username;
+            $user->password_ori = $password;
             $user->password = md5($password);
+
             if($user->save()){
                 //kirim pesan wa disini
                 $pesan = '*Pesan ini dikirim dari sistem*
