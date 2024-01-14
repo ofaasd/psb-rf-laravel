@@ -345,7 +345,7 @@ https://psb.ppatq-rf.id';
                         }
                     }
                 }
-                //$wa = '';
+                $wa = '';
                 // if(!empty($data_wa)){
                 //     if($this->save_file_cetak($username)){
                 //         $data_wa['file'] = URL::to('/assets/formulir/' . 'Form_Pendaftaran_' . $username . '.pdf');
