@@ -104,11 +104,11 @@
         </tr>
         <tr>
             <td valign="top">Kota</td>
-            <td colspan="4">{{$kota->city_name ?? '<Kosong>'}}</td>
+            <td colspan="4">{{$kota->nama_kota ?? '<Kosong>'}}</td>
         </tr>
         <tr>
             <td valign="top">Provinsi</td>
-            <td colspan="4">{{$provinsi->prov_name ?? '<Kosong>'}}</td>
+            <td colspan="4">{{$provinsi->nama_provinsi ?? '<Kosong>'}}</td>
         </tr>
         <tr>
             <td colspan="5" height="40"><b>Data Wali Santri</b></td>

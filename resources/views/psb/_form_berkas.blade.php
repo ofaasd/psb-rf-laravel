@@ -7,7 +7,7 @@
                 <div class="row">
                     <input type="file" name="photo" class="form-control col-md-6">
                 </div>
-                <small id="photoHelp" class="form-text text-muted">File upload berformat JPG/PNG/PDF. maksimal ukuran file 10MB</small>
+
             </div>
         </div>
         <div class="col-md-12">
@@ -17,7 +17,7 @@
                 <div class="row">
                     <input type="file" name="kk" class="form-control col-md-6">
                 </div>
-                <small id="emailHelp" class="form-text text-muted">File upload berformat JPG/PNG/PDF. maksimal ukuran file 10MB</small>
+
             </div>
         </div>
         <div class="col-md-12">
@@ -28,7 +28,7 @@
                     <input type="file" name="ktp" class="form-control col-md-6">
 
                 </div>
-                <small id="emailHelp" class="form-text text-muted">File upload berformat JPG/PNG/PDF. maksimal ukuran file 10MB</small>
+
             </div>
         </div>
         <div class="col-md-12">
@@ -38,7 +38,7 @@
                 <div class="row">
                     <input type="file" name="rapor" class="form-control col-md-6">
                 </div>
-                <small id="emailHelp" class="form-text text-muted">File upload berformat JPG/PNG/PDF. maksimal ukuran file 10MB</small>
+
             </div>
         </div>
     </div>

@@ -345,7 +345,7 @@ https://psb.ppatq-rf.id';
                         }
                     }
                 }
-                $wa = '';
+                //$wa = '';
                 // if(!empty($data_wa)){
                 //     if($this->save_file_cetak($username)){
                 //         $data_wa['file'] = URL::to('/assets/formulir/' . 'Form_Pendaftaran_' . $username . '.pdf');
@@ -354,9 +354,9 @@ https://psb.ppatq-rf.id';
                 //         $wa = helper::send_wa($data_wa);
                 //     }
                 // }
-                if($this->save_file_cetak($username)){
-                    $wa = helper::send_wa($data_wa);
-                }
+                // if($this->save_file_cetak($username)){
+                //     $wa = helper::send_wa($data_wa);
+                // }
                 $array[] = [
                     'code' => 0,
                     'status' => 'Success',
@@ -394,9 +394,10 @@ https://psb.ppatq-rf.id';
         $kota = "";
         if(!empty($psb_peserta->prov_id)){
 
-            $provinsi = Province::find($psb_peserta->prov_id);
+            $provinsi = Province::where("id_provinsi",$psb_peserta->prov_id)->first();
             if(!empty($psb_peserta->kota_id)){
-                $kota = City::find($psb_peserta->kota_id);
+                $kota = City::where("id_provinsi",$psb_peserta->prov_id)->where("id_kota_kab",$psb_peserta->kota_id)->first();
+
             }
         }
         $jenjang = $this->jenjang;
