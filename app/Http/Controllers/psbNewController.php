@@ -225,10 +225,10 @@ class psbNewController extends Controller
     public function update_data_berkas(Request $request){
         $id = $request->id;
         $request->validate([
-            'photo' => [File::types(['jpg', 'jpeg', 'png', 'pdf'])->max(10 * 1024)],
-            'kk' => [File::types(['jpg', 'jpeg', 'png', 'pdf'])->max(10 * 1024)],
-            'ktp' => [File::types(['jpg', 'jpeg', 'png', 'pdf'])->max(10 * 1024)],
-            'rapor' => [File::types(['jpg', 'jpeg', 'png', 'pdf'])->max(10 * 1024)],
+            'photo' => [File::types(['jpg', 'jpeg', 'png', 'pdf'])->max(50 * 1024)],
+            'kk' => [File::types(['jpg', 'jpeg', 'png', 'pdf'])->max(50 * 1024)],
+            'ktp' => [File::types(['jpg', 'jpeg', 'png', 'pdf'])->max(50 * 1024)],
+            'rapor' => [File::types(['jpg', 'jpeg', 'png', 'pdf'])->max(50 * 1024)],
         ]);
         $nama_file = array('photo','kk','ktp','rapor');
         $array = array();
@@ -316,7 +316,7 @@ class psbNewController extends Controller
     public function simpan_bukti_bayar(Request $request){
         $id = $request->id;
         $request->validate([
-            'bukti' => [File::types(['jpg', 'jpeg', 'png', 'pdf'])->max(10 * 1024)],
+            'bukti' => [File::types(['jpg', 'jpeg', 'png', 'pdf'])->max(50 * 1024)],
         ]);
         $nama_file = array('bukti');
         $array = array();
@@ -375,7 +375,7 @@ class psbNewController extends Controller
 
         $id = $request->id;
         $request->validate([
-            'bukti' => [File::types(['jpg', 'jpeg', 'png', 'pdf'])->max(10 * 1024)],
+            'bukti' => [File::types(['jpg', 'jpeg', 'png', 'pdf'])->max(50 * 1024)],
         ]);
         $nama_file = array('bukti');
         $array = array();
