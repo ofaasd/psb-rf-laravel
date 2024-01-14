@@ -13,7 +13,7 @@
                             <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#kkModal">Lihat File KK</a>
                         </div>
                     </div>
-                    <small id="emailHelp" class="form-text text-muted">File upload berformat JPG/PNG/PDF. maksimal ukuran file 10MB</small>
+                    <small id="emailHelp" class="form-text text-muted">File upload berformat JPG/PNG/PDF. maksimal ukuran file 50MB</small>
                 </div>
             </div>
             <div class="col-md-12">
@@ -26,7 +26,7 @@
                             <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#ktpModal">Lihat File KTP</a>
                         </div>
                     </div>
-                    <small id="emailHelp" class="form-text text-muted">File upload berformat JPG/PNG/PDF. maksimal ukuran file 10MB</small>
+                    <small id="emailHelp" class="form-text text-muted">File upload berformat JPG/PNG/PDF. maksimal ukuran file 50MB</small>
                 </div>
             </div>
             <div class="col-md-12">
@@ -39,7 +39,7 @@
                             <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#raporModal">Lihat File Rapor</a>
                         </div>
                     </div>
-                    <small id="emailHelp" class="form-text text-muted">File upload berformat JPG/PNG/PDF. maksimal ukuran file 10MB</small>
+                    <small id="emailHelp" class="form-text text-muted">File upload berformat JPG/PNG/PDF. maksimal ukuran file 50MB</small>
                 </div>
             </div>
             <div class="col-md-12">
