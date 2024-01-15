@@ -425,16 +425,23 @@ https://psb.ppatq-rf.id';
         $data['pesan'] = $request->pesan;
         $data['file'] = $request->file;
 
-        $testingHelper = helper::send_wa_file($data);
+        $testingHelper = helper::send_wa($data);
         if(!empty($testingHelper)){
+            $wa_file = helper::send_wa_file($data);
             $username = $request->username;
             $psb_peserta = PsbPesertaOnline::where('no_pendaftaran',$username)->first();
             $update_peserta = PsbPesertaOnline::find($psb_peserta->id);
             $update_peserta->status_wa = 1;
-            if($update_peserta->save()){
-                echo $testingHelper;
-            }else{
-                echo "gagal";
+            if(!empty($wa_file)){
+                $username = $request->username;
+                $psb_peserta = PsbPesertaOnline::where('no_pendaftaran',$username)->first();
+                $update_peserta = PsbPesertaOnline::find($psb_peserta->id);
+                $update_peserta->status_wa = 2;
+                if($update_peserta->save()){
+                    echo $testingHelper;
+                }else{
+                    echo "gagal";
+                }
             }
         }
 
