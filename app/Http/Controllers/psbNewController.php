@@ -412,6 +412,11 @@ class psbNewController extends Controller
             ]
         );
 
+        $psb_peserta = PsbPesertaOnline::find($request->psb_peserta_id);
+        $psb_peserta->status = $request->status;
+        $psb_peserta->save();
+
+
         // user updated
         $array = ['status' => "Berhasil Update", "Code" => 1];
         echo json_encode($array);
@@ -430,6 +435,9 @@ class psbNewController extends Controller
             'bukti' => $filename,
             ]
         );
+        $psb_peserta = PsbPesertaOnline::find($request->psb_peserta_id);
+        $psb_peserta->status = $request->status;
+        $psb_peserta->save();
         if ($PsbBuktiPembayaran) {
             // user created
             //return response()->json('Created');
