@@ -400,17 +400,30 @@ class psbNewController extends Controller
 
         if ($id) {
         // update the value
-        $PsbBuktiPembayaran = PsbBuktiPembayaran::updateOrCreate(
-            ['id' => $id],
-            [
-            'bank' => $request->bank,
-            'no_rekening' => $request->no_rekening,
-            'atas_nama' => $request->atas_nama,
-            'status' => $request->status,
-            'psb_peserta_id' => $request->psb_peserta_id,
-            'bukti' => $filename,
-            ]
-        );
+        if($request->file($value)){
+            $PsbBuktiPembayaran = PsbBuktiPembayaran::updateOrCreate(
+                ['id' => $id],
+                [
+                'bank' => $request->bank,
+                'no_rekening' => $request->no_rekening,
+                'atas_nama' => $request->atas_nama,
+                'status' => $request->status,
+                'psb_peserta_id' => $request->psb_peserta_id,
+                'bukti' => $filename,
+                ]
+            );
+        }else{
+            $PsbBuktiPembayaran = PsbBuktiPembayaran::updateOrCreate(
+                ['id' => $id],
+                [
+                'bank' => $request->bank,
+                'no_rekening' => $request->no_rekening,
+                'atas_nama' => $request->atas_nama,
+                'status' => $request->status,
+                'psb_peserta_id' => $request->psb_peserta_id
+                ]
+            );
+        }
 
         $psb_peserta = PsbPesertaOnline::find($request->psb_peserta_id);
         $psb_peserta->status = $request->status;
@@ -423,18 +436,30 @@ class psbNewController extends Controller
         } else {
         // create new one if email is unique
         //$userEmail = User::where('email', $request->email)->first();
-
-        $PsbBuktiPembayaran = PsbBuktiPembayaran::updateOrCreate(
-            ['id' => $id],
-            [
-            'bank' => $request->bank,
-            'no_rekening' => $request->no_rekening,
-            'atas_nama' => $request->atas_nama,
-            'status' => $request->status,
-            'psb_peserta_id' => $request->psb_peserta_id,
-            'bukti' => $filename,
-            ]
-        );
+        if($request->file($value)){
+            $PsbBuktiPembayaran = PsbBuktiPembayaran::updateOrCreate(
+                ['id' => $id],
+                [
+                'bank' => $request->bank,
+                'no_rekening' => $request->no_rekening,
+                'atas_nama' => $request->atas_nama,
+                'status' => $request->status,
+                'psb_peserta_id' => $request->psb_peserta_id,
+                'bukti' => $filename,
+                ]
+            );
+        }else{
+            $PsbBuktiPembayaran = PsbBuktiPembayaran::updateOrCreate(
+                ['id' => $id],
+                [
+                'bank' => $request->bank,
+                'no_rekening' => $request->no_rekening,
+                'atas_nama' => $request->atas_nama,
+                'status' => $request->status,
+                'psb_peserta_id' => $request->psb_peserta_id,
+                ]
+            );
+        }
         $psb_peserta = PsbPesertaOnline::find($request->psb_peserta_id);
         $psb_peserta->status = $request->status;
         $psb_peserta->save();
