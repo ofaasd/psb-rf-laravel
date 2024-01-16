@@ -413,7 +413,8 @@ class psbNewController extends Controller
         );
 
         // user updated
-        return response()->json('Updated');
+        $array = ['status' => "Berhasil Update", "Code" => 1];
+        echo json_encode($array);
         } else {
         // create new one if email is unique
         //$userEmail = User::where('email', $request->email)->first();
@@ -431,9 +432,12 @@ class psbNewController extends Controller
         );
         if ($PsbBuktiPembayaran) {
             // user created
-            return response()->json('Created');
+            //return response()->json('Created');
+            $array = ['status' => "Berhasil Simpan", "Code" => 1];
+            echo json_encode($array);
         } else {
-            return response()->json('Failed Create Academic');
+            $array = ['status' => "Gagal Simpan", "Code" => 2];
+            echo json_encode($array);
         }
         }
 
