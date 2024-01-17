@@ -427,11 +427,11 @@ class psbNewController extends Controller
 
         $psb_peserta = PsbPesertaOnline::find($request->psb_peserta_id);
         $psb_peserta->status = $request->status;
-        // if($request->status == 2){
-        //     $psb_peserta->tanggal_validasi = date('Y-m-d H:i:s');
-        // }else{
-        //     $psb_peserta->tanggal_validasi = "";
-        // }
+        if($request->status == 2){
+            $psb_peserta->tanggal_validasi = strtotime(date('Y-m-d H:i:s'));
+        }else{
+            $psb_peserta->tanggal_validasi = "";
+        }
         $psb_peserta->save();
 
 
@@ -466,12 +466,12 @@ class psbNewController extends Controller
             );
         }
         $psb_peserta = PsbPesertaOnline::find($request->psb_peserta_id);
-        // $psb_peserta->status = $request->status;
-        // if($request->status == 2){
-        //     $psb_peserta->tanggal_validasi = date('Y-m-d H:i:s');
-        // }else{
-        //     $psb_peserta->tanggal_validasi = "";
-        // }
+        $psb_peserta->status = $request->status;
+        if($request->status == 2){
+            $psb_peserta->tanggal_validasi = strtotime(date('Y-m-d H:i:s'));
+        }else{
+            $psb_peserta->tanggal_validasi = "";
+        }
         $psb_peserta->save();
         if ($PsbBuktiPembayaran) {
             // user created
