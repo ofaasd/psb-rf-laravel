@@ -431,6 +431,7 @@ class psbNewController extends Controller
         $psb_peserta->status = $request->status;
         if($request->status == "2"){
             $psb_peserta->tanggal_validasi = strtotime(date('Y-m-d H:i:s'));
+            $psb_peserta->save();
 
             $peserta = PsbPesertaOnline::where('id', $request->psb_peserta_id)->first();
             $walisan = PsbWaliPesertum::where('psb_peserta_id', $request->psb_peserta_id)->first();
@@ -447,8 +448,9 @@ class psbNewController extends Controller
             $data['no_hp'] = $walisan->no_hp;
 
             helper::send_wa($data);
+        }else{
+            $psb_peserta->save();
         }
-        $psb_peserta->save();
 
 
         // user updated
@@ -485,7 +487,8 @@ class psbNewController extends Controller
         $psb_peserta->status = $request->status;
         if($request->status == "2"){
             $psb_peserta->tanggal_validasi = strtotime(date('Y-m-d H:i:s'));
-
+            $psb_peserta->save();
+            
             $peserta = PsbPesertaOnline::where('id', $request->psb_peserta_id)->first();
             $walisan = PsbWaliPesertum::where('psb_peserta_id', $request->psb_peserta_id)->first();
             $user = UserPsb::where('username', $peserta->no_pendaftaran)->first();
@@ -501,8 +504,10 @@ class psbNewController extends Controller
             $data['no_hp'] = $walisan->no_hp;
 
             helper::send_wa($data);
+        }else{
+            $psb_peserta->save();
         }
-        $psb_peserta->save();
+        
         if ($PsbBuktiPembayaran) {
             // user created
             //return response()->json('Created');
