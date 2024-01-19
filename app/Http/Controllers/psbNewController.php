@@ -426,15 +426,17 @@ class psbNewController extends Controller
                     ]
                 );
             }
-
+            $peserta = PsbPesertaOnline::where('id', $request->psb_peserta_id)->first();
             $psb_peserta = PsbPesertaOnline::find($request->psb_peserta_id);
             $psb_peserta->status = $request->status;
             $pesan = '';
             if($request->status == "2"){
                 $psb_peserta->tanggal_validasi = strtotime(date('Y-m-d H:i:s'));
+                $pecah = explode('.', $peserta->no_pendaftaran);
+                $psb_peserta->no_test = $pecah[2];
                 $psb_peserta->save();
 
-                $peserta = PsbPesertaOnline::where('id', $request->psb_peserta_id)->first();
+                
                 $walisan = PsbWaliPesertum::where('psb_peserta_id', $request->psb_peserta_id)->first();
                 $user = UserPsb::where('username', $peserta->no_pendaftaran)->first();
                 $template_pesan = TemplatePesan::where('status', 1)->first();
@@ -482,13 +484,16 @@ class psbNewController extends Controller
                 ]
             );
         }
+        $peserta = PsbPesertaOnline::where('id', $request->psb_peserta_id)->first();
+
         $psb_peserta = PsbPesertaOnline::find($request->psb_peserta_id);
         $psb_peserta->status = $request->status;
         if($request->status == "2"){
             $psb_peserta->tanggal_validasi = strtotime(date('Y-m-d H:i:s'));
+            $pecah = explode('.', $peserta->no_pendaftaran);
+            $psb_peserta->no_test = $pecah[2];
             $psb_peserta->save();
 
-            $peserta = PsbPesertaOnline::where('id', $request->psb_peserta_id)->first();
             $walisan = PsbWaliPesertum::where('psb_peserta_id', $request->psb_peserta_id)->first();
             $user = UserPsb::where('username', $peserta->no_pendaftaran)->first();
             $template_pesan = TemplatePesan::where('status', 1)->first();
