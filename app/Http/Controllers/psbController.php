@@ -429,23 +429,28 @@ https://psb.ppatq-rf.id';
         sleep(30);
         if(!empty($testingHelper)){
 
-            $wa_file = helper::send_wa_file($data);
+            //$wa_file = helper::send_wa_file($data);
             $username = $request->username;
             $psb_peserta = PsbPesertaOnline::where('no_pendaftaran',$username)->first();
             $update_peserta = PsbPesertaOnline::find($psb_peserta->id);
             $update_peserta->status_wa = 1;
-
-            if(!empty($wa_file)){
-                $username = $request->username;
-                $psb_peserta = PsbPesertaOnline::where('no_pendaftaran',$username)->first();
-                $update_peserta = PsbPesertaOnline::find($psb_peserta->id);
-                $update_peserta->status_wa = 2;
-                if($update_peserta->save()){
-                    echo $testingHelper;
-                }else{
-                    echo "gagal";
-                }
+            if($update_peserta->save()){
+                echo $testingHelper;
+            }else{
+                echo "gagal";
             }
+
+            // if(!empty($wa_file)){
+            //     $username = $request->username;
+            //     $psb_peserta = PsbPesertaOnline::where('no_pendaftaran',$username)->first();
+            //     $update_peserta = PsbPesertaOnline::find($psb_peserta->id);
+            //     $update_peserta->status_wa = 2;
+            //     if($update_peserta->save()){
+            //         echo $testingHelper;
+            //     }else{
+            //         echo "gagal";
+            //     }
+            // }
         }
 
     }
