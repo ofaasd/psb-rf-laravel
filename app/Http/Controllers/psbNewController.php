@@ -429,6 +429,7 @@ class psbNewController extends Controller
 
             $psb_peserta = PsbPesertaOnline::find($request->psb_peserta_id);
             $psb_peserta->status = $request->status;
+            $pesan = '';
             if($request->status == "2"){
                 $psb_peserta->tanggal_validasi = strtotime(date('Y-m-d H:i:s'));
                 $psb_peserta->save();
@@ -447,12 +448,12 @@ class psbNewController extends Controller
                 $data['no_wa'] = $walisan->no_hp;
                 $data['pesan'] = $pesan;
 
-                helper::send_wa($data);
+                $pesan = helper::send_wa($data);
             }else{
                 $psb_peserta->save();
             }
             // user updated
-            $array = ['status' => "Berhasil Update", "Code" => 1];
+            $array = ['status' => "Berhasil Update", "Code" => 1, "pesan" =>$pesan];
             echo json_encode($array);
         } else {
         // create new one if email is unique
