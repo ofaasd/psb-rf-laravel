@@ -12,6 +12,7 @@ use App\Models\UserPsb;
 use App\Models\PsbGelombang;
 use App\Models\PsbBerkasPendukung;
 use App\Models\PsbBuktiPembayaran;
+use App\Models\TemplatePesan;
 use App\Models\PsbSeragam;
 use App\Models\Kecamatan;
 use App\Models\Kelurahan;
@@ -19,6 +20,7 @@ use Alert;
 use Image;
 use URL;
 use PDF;
+use helper;
 use Illuminate\Validation\Rules\File;
 
 class psbNewController extends Controller
@@ -429,6 +431,22 @@ class psbNewController extends Controller
         $psb_peserta->status = $request->status;
         if($request->status == "2"){
             $psb_peserta->tanggal_validasi = strtotime(date('Y-m-d H:i:s'));
+
+            $peserta = PsbPesertaOnline::where('id', $request->psb_peserta_id)->first();
+            $walisan = PsbWaliPesertum::where('psb_peserta_id', $request->psb_peserta_id)->first();
+            $user = UserPsb::where('username', $peserta->no_pendaftaran)->first();
+            $template_pesan = TemplatePesan::where('status', 1)->first();
+
+            $pesan = str_replace('{{nama}}', $peserta->nama, $template_pesan->pesan);
+            $pesan = str_replace('{{tanggal_validasi}}', date('Y-m-d H:i:s', $peserta->tanggal_validasi), $pesan);
+            $pesan = str_replace('{{no_test}}', $peserta->no_test, $pesan);
+            $pesan = str_replace('{{username}}', $user->username, $pesan);
+            $pesan = str_replace('{{password}}', $user->password_ori, $pesan);
+        
+            $data['no_wa'] = $request->no_hp;
+            $data['no_hp'] = $walisan->no_hp;
+
+            helper::send_wa($data);
         }
         $psb_peserta->save();
 
@@ -467,6 +485,22 @@ class psbNewController extends Controller
         $psb_peserta->status = $request->status;
         if($request->status == "2"){
             $psb_peserta->tanggal_validasi = strtotime(date('Y-m-d H:i:s'));
+
+            $peserta = PsbPesertaOnline::where('id', $request->psb_peserta_id)->first();
+            $walisan = PsbWaliPesertum::where('psb_peserta_id', $request->psb_peserta_id)->first();
+            $user = UserPsb::where('username', $peserta->no_pendaftaran)->first();
+            $template_pesan = TemplatePesan::where('status', 1)->first();
+
+            $pesan = str_replace('{{nama}}', $peserta->nama, $template_pesan->pesan);
+            $pesan = str_replace('{{tanggal_validasi}}', date('Y-m-d H:i:s', $peserta->tanggal_validasi), $pesan);
+            $pesan = str_replace('{{no_test}}', $peserta->no_test, $pesan);
+            $pesan = str_replace('{{username}}', $user->username, $pesan);
+            $pesan = str_replace('{{password}}', $user->password_ori, $pesan);
+        
+            $data['no_wa'] = $request->no_hp;
+            $data['no_hp'] = $walisan->no_hp;
+
+            helper::send_wa($data);
         }
         $psb_peserta->save();
         if ($PsbBuktiPembayaran) {
