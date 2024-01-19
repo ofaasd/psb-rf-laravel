@@ -401,61 +401,59 @@ class psbNewController extends Controller
         }
 
         if ($id) {
-        // update the value
-        if($request->file($value)){
-            $PsbBuktiPembayaran = PsbBuktiPembayaran::updateOrCreate(
-                ['id' => $id],
-                [
-                'bank' => $request->bank,
-                'no_rekening' => $request->no_rekening,
-                'atas_nama' => $request->atas_nama,
-                'status' => $request->status,
-                'psb_peserta_id' => $request->psb_peserta_id,
-                'bukti' => $filename,
-                ]
-            );
-        }else{
-            $PsbBuktiPembayaran = PsbBuktiPembayaran::updateOrCreate(
-                ['id' => $id],
-                [
-                'bank' => $request->bank,
-                'no_rekening' => $request->no_rekening,
-                'atas_nama' => $request->atas_nama,
-                'status' => $request->status,
-                'psb_peserta_id' => $request->psb_peserta_id
-                ]
-            );
-        }
+            // update the value
+            if($request->file($value)){
+                $PsbBuktiPembayaran = PsbBuktiPembayaran::updateOrCreate(
+                    ['id' => $id],
+                    [
+                    'bank' => $request->bank,
+                    'no_rekening' => $request->no_rekening,
+                    'atas_nama' => $request->atas_nama,
+                    'status' => $request->status,
+                    'psb_peserta_id' => $request->psb_peserta_id,
+                    'bukti' => $filename,
+                    ]
+                );
+            }else{
+                $PsbBuktiPembayaran = PsbBuktiPembayaran::updateOrCreate(
+                    ['id' => $id],
+                    [
+                    'bank' => $request->bank,
+                    'no_rekening' => $request->no_rekening,
+                    'atas_nama' => $request->atas_nama,
+                    'status' => $request->status,
+                    'psb_peserta_id' => $request->psb_peserta_id
+                    ]
+                );
+            }
 
-        $psb_peserta = PsbPesertaOnline::find($request->psb_peserta_id);
-        $psb_peserta->status = $request->status;
-        if($request->status == "2"){
-            $psb_peserta->tanggal_validasi = strtotime(date('Y-m-d H:i:s'));
-            $psb_peserta->save();
+            $psb_peserta = PsbPesertaOnline::find($request->psb_peserta_id);
+            $psb_peserta->status = $request->status;
+            if($request->status == "2"){
+                $psb_peserta->tanggal_validasi = strtotime(date('Y-m-d H:i:s'));
+                $psb_peserta->save();
 
-            $peserta = PsbPesertaOnline::where('id', $request->psb_peserta_id)->first();
-            $walisan = PsbWaliPesertum::where('psb_peserta_id', $request->psb_peserta_id)->first();
-            $user = UserPsb::where('username', $peserta->no_pendaftaran)->first();
-            $template_pesan = TemplatePesan::where('status', 1)->first();
+                $peserta = PsbPesertaOnline::where('id', $request->psb_peserta_id)->first();
+                $walisan = PsbWaliPesertum::where('psb_peserta_id', $request->psb_peserta_id)->first();
+                $user = UserPsb::where('username', $peserta->no_pendaftaran)->first();
+                $template_pesan = TemplatePesan::where('status', 1)->first();
 
-            $pesan = str_replace('{{nama}}', $peserta->nama, $template_pesan->pesan);
-            $pesan = str_replace('{{tanggal_validasi}}', date('Y-m-d H:i:s', $peserta->tanggal_validasi), $pesan);
-            $pesan = str_replace('{{no_test}}', $peserta->no_test, $pesan);
-            $pesan = str_replace('{{username}}', $user->username, $pesan);
-            $pesan = str_replace('{{password}}', $user->password_ori, $pesan);
-        
-            $data['no_wa'] = $request->no_hp;
-            $data['no_hp'] = $walisan->no_hp;
+                $pesan = str_replace('{{nama}}', $peserta->nama, $template_pesan->pesan);
+                $pesan = str_replace('{{tanggal_validasi}}', date('Y-m-d H:i:s', $peserta->tanggal_validasi), $pesan);
+                $pesan = str_replace('{{no_test}}', $peserta->no_test, $pesan);
+                $pesan = str_replace('{{username}}', $user->username, $pesan);
+                $pesan = str_replace('{{password}}', $user->password_ori, $pesan);
+            
+                $data['no_wa'] = $walisan->no_hp;
+                $data['pesan'] = $pesan;
 
-            helper::send_wa($data);
-        }else{
-            $psb_peserta->save();
-        }
-
-
-        // user updated
-        $array = ['status' => "Berhasil Update", "Code" => 1];
-        echo json_encode($array);
+                helper::send_wa($data);
+            }else{
+                $psb_peserta->save();
+            }
+            // user updated
+            $array = ['status' => "Berhasil Update", "Code" => 1];
+            echo json_encode($array);
         } else {
         // create new one if email is unique
         //$userEmail = User::where('email', $request->email)->first();
@@ -488,7 +486,7 @@ class psbNewController extends Controller
         if($request->status == "2"){
             $psb_peserta->tanggal_validasi = strtotime(date('Y-m-d H:i:s'));
             $psb_peserta->save();
-            
+
             $peserta = PsbPesertaOnline::where('id', $request->psb_peserta_id)->first();
             $walisan = PsbWaliPesertum::where('psb_peserta_id', $request->psb_peserta_id)->first();
             $user = UserPsb::where('username', $peserta->no_pendaftaran)->first();
@@ -500,8 +498,8 @@ class psbNewController extends Controller
             $pesan = str_replace('{{username}}', $user->username, $pesan);
             $pesan = str_replace('{{password}}', $user->password_ori, $pesan);
         
-            $data['no_wa'] = $request->no_hp;
-            $data['no_hp'] = $walisan->no_hp;
+            $data['no_wa'] = $walisan->no_hp;
+            $data['pesan'] = $pesan;
 
             helper::send_wa($data);
         }else{
