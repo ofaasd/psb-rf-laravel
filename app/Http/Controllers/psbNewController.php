@@ -446,6 +446,8 @@ class psbNewController extends Controller
                 $pesan = str_replace('{{no_test}}', $peserta->no_test, $pesan);
                 $pesan = str_replace('{{username}}', $user->username, $pesan);
                 $pesan = str_replace('{{password}}', $user->password_ori, $pesan);
+                $pesan = str_replace('{{nama_ayah}}', $walisan->nama_ayah, $pesan);
+                $pesan = str_replace('{{nama_ibu}}', $walisan->nama_ibu, $pesan);
             
                 $data['no_wa'] = $walisan->no_hp;
                 $data['pesan'] = $pesan;
@@ -503,6 +505,8 @@ class psbNewController extends Controller
             $pesan = str_replace('{{no_test}}', $peserta->no_test, $pesan);
             $pesan = str_replace('{{username}}', $user->username, $pesan);
             $pesan = str_replace('{{password}}', $user->password_ori, $pesan);
+            $pesan = str_replace('{{nama_ayah}}', $walisan->nama_ayah, $pesan);
+            $pesan = str_replace('{{nama_ibu}}', $walisan->nama_ibu, $pesan);
         
             $data['no_wa'] = $walisan->no_hp;
             $data['pesan'] = $pesan;
