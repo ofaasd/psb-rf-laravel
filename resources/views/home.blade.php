@@ -85,7 +85,7 @@
                     <li>Semua berkas di masukan stopmap Merah untuk laki laki & Hijau untuk perempuan</li>
                     <li>Pendaftar akan mendapatkan informasi jadwal proses wawancara orangtua beserta calon siswa dengan kepala sekolah atau yang mewakili.</li>
                     <li>Pendaftar yang dinyatakan diterima dan mendapatkan surat lolos dari Panitia Penerimaan Santri Baru dan selanjutnya melakukan daftar ulang dengan membayar uang pangkal.</li>
-                    <li style="font-weight:bold;font-size:16pt;color:red">CP : 0896-0108-7437 (Pak MUslim) / 0822-9857-6026 (Pak Aris)</li>
+                    <li > <span style="font-weight:bold;font-size:16pt;color:red">CP : 0896-0108-7437 (Pak MUslim) / 0822-9857-6026 (Pak Aris)</span></li>
                 </ol>
                 <hr>
             </div>
