@@ -433,7 +433,8 @@ class psbNewController extends Controller
             if($request->status == "2"){
                 $psb_peserta->tanggal_validasi = strtotime(date('Y-m-d H:i:s'));
                 $pecah = explode('.', $peserta->no_pendaftaran);
-                $psb_peserta->no_test = $pecah[2];
+                $no_test = $pecah[2];
+                $psb_peserta->no_test = $no_test;
                 $psb_peserta->save();
 
                 
@@ -443,7 +444,7 @@ class psbNewController extends Controller
 
                 $pesan = str_replace('{{nama}}', $peserta->nama, $template_pesan->pesan);
                 $pesan = str_replace('{{tanggal_validasi}}', date('Y-m-d H:i:s', $peserta->tanggal_validasi), $pesan);
-                $pesan = str_replace('{{no_test}}', $peserta->no_test, $pesan);
+                $pesan = str_replace('{{no_test}}', $no_test, $pesan);
                 $pesan = str_replace('{{username}}', $user->username, $pesan);
                 $pesan = str_replace('{{password}}', $user->password_ori, $pesan);
                 $pesan = str_replace('{{nama_ayah}}', $walisan->nama_ayah, $pesan);
@@ -453,6 +454,12 @@ class psbNewController extends Controller
                 $data['pesan'] = $pesan;
 
                 $pesan = helper::send_wa($data);
+
+                 //cc ke pengurus
+                $data['no_wa'] = '082298576026';
+                $data['pesan'] = $pesan;
+
+                helper::send_wa($data);
             }else{
                 $psb_peserta->save();
             }
@@ -493,7 +500,8 @@ class psbNewController extends Controller
         if($request->status == "2"){
             $psb_peserta->tanggal_validasi = strtotime(date('Y-m-d H:i:s'));
             $pecah = explode('.', $peserta->no_pendaftaran);
-            $psb_peserta->no_test = $pecah[2];
+            $no_test = $pecah[2];
+            $psb_peserta->no_test = $no_test;
             $psb_peserta->save();
 
             $walisan = PsbWaliPesertum::where('psb_peserta_id', $request->psb_peserta_id)->first();
@@ -502,7 +510,7 @@ class psbNewController extends Controller
 
             $pesan = str_replace('{{nama}}', $peserta->nama, $template_pesan->pesan);
             $pesan = str_replace('{{tanggal_validasi}}', date('Y-m-d H:i:s', $peserta->tanggal_validasi), $pesan);
-            $pesan = str_replace('{{no_test}}', $peserta->no_test, $pesan);
+            $pesan = str_replace('{{no_test}}', $no_test, $pesan);
             $pesan = str_replace('{{username}}', $user->username, $pesan);
             $pesan = str_replace('{{password}}', $user->password_ori, $pesan);
             $pesan = str_replace('{{nama_ayah}}', $walisan->nama_ayah, $pesan);
@@ -512,6 +520,12 @@ class psbNewController extends Controller
             $data['pesan'] = $pesan;
 
             helper::send_wa($data);
+            //cc ke pengurus
+            $data['no_wa'] = '082298576026';
+            $data['pesan'] = $pesan;
+
+            helper::send_wa($data);
+            
         }else{
             $psb_peserta->save();
         }
