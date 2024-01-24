@@ -155,14 +155,26 @@ class psbController extends Controller
 
             if($user->save()){
                 //kirim pesan wa disini
-                $pesan = '*Pesan ini dikirim dari sistem*
+                $pesan = "*Pesan ini dikirim dari sistem PSB PPATQ-RF*
 
-Selamat anda sudah terdaftar pada web Penerimaan Peserta Didik Baru PPATQ Radlatul Falah Pati
+Selamat
+nama : " . $nama . "
+no pendaftaran : " . $username . "
+
+telah terdaftar pada web sebagai peserta test seleksi  Peserta Didik Baru PPATQ Radlatul Falah Pati
+
 Silahkan catat username dan password di bawah ini untuk dapat mengubah dan melengkapi data
-username : ' . $username . '
-password : ' . $password . '
+
+username : " . $username . "
+password : " . $password . "
+
 Selanjutnya anda dapat melakukan pengkinian data calon santri baru di menu PSB setelah login melalui sistem
-https://psb.ppatq-rf.id';
+https://psb.ppatq-rf.id
+
+terimakasih
+
+
+#simpanWA_ini";
                 $data_wa['no_wa'] = $request->no_hp;
                 $data_wa['pesan'] = $pesan;
 
