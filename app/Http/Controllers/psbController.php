@@ -45,7 +45,7 @@ class psbController extends Controller
         $status = array(0=>'Belum Diverifikasi',1=>'Sudah Diverifikasi');
         $status_ujian = array(0=>'Belum Ujian', 1=>'Lulus',2=>'Tidak Lulus');
         $status_diterima = array(0=>'Dalam Proses',1=>'Diterima',2=>'Tidak Diterima');
-        return view('psb/index',compact('psb','photo','status','status_ujian','status_diterima'));
+        return view('psb/index',compact('psb','kota','provinsi','photo','status','status_ujian','status_diterima'));
     }
     public function create(){
         $provinsi = Province::all();

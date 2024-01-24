@@ -33,8 +33,8 @@
                             <td>{{$row->no_pendaftaran}}</td>
                             <td>{{$row->nama}}</td>
                             <td>{{$row->asal_sekolah->nama_sekolah ?? ''}}</td>
-                            <td>{{$row->kota->city_name ?? ''}}</td>
-                            <td>{{$row->provinsi->prov_name ?? ''}}</td>
+                            <td>{{$kota[$row->id] ?? ''}}</td>
+                            <td>{{$provinsi[$row->id] ?? ''}}</td>
                             <td>{{date('d-m-Y',strtotime($row->created_at)) ?? ''}}</td>
                             <td>
                                 @if($row->status == 1)
