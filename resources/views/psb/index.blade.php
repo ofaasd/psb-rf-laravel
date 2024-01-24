@@ -6,16 +6,18 @@
         }
     </style>
     <div class="row">
-        <div class="col-md-12" style="padding:30px">
+        <div class="col-md-12" style="padding:30px; ">
             <table class="table table-hover" id='psb_table'>
                 <thead>
                     <tr>
                         <td>No</td>
+                        <td></td>
                         <td>No Pendaftaran</td>
                         <td>Nama</td>
                         <td>Asal Sekolah</td>
                         <td>Asal Kota</td>
                         <td>Asal Provinsi</td>
+                        <td>Daftar</td>
                         <td>Verifikasi</td>
                         <td>Ujian</td>
                         <td>Diterima</td>
@@ -27,11 +29,13 @@
                     @foreach($psb as $row)
                         <tr>
                             <td>{{$i}}</td>
+                            <td><img src="{{$photo[$row->id]}}" alt="" width="50"></td>
                             <td>{{$row->no_pendaftaran}}</td>
                             <td>{{$row->nama}}</td>
                             <td>{{$row->asal_sekolah->nama_sekolah ?? ''}}</td>
-                            <td>{{$row->kota->city_name ?? ''}}</td>
-                            <td>{{$row->provinsi->prov_name ?? ''}}</td>
+                            <td>{{$kota[$row->id] ?? ''}}</td>
+                            <td>{{$provinsi[$row->id] ?? ''}}</td>
+                            <td>{{date('d-m-Y',strtotime($row->created_at)) ?? ''}}</td>
                             <td>
                                 @if($row->status == 1)
                                     <small class='btn btn-success btn-sm' data-toggle="tooltip" data-placement="top" title='{{$status[$row->status]}}'><i class='fa fa-check'></i></small>

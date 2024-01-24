@@ -29,10 +29,23 @@ class psbController extends Controller
     public $jenjang = array(1=>'TK','RA','SD/MI');
     public function index(){
         $psb = PsbPesertaOnline::all();
+        $photo = [];
+        $kota = [];
+        $provinsi = [];
+        foreach($psb as $row){
+            $berkas_pendukung = PsbBerkasPendukung::where('psb_peserta_id',$row->id);
+            if($berkas_pendukung->count() > 0){
+                $photo[$row->id] = URL::to('assets/images/upload/foto_casan/') . "/" .$berkas_pendukung->first()->file_photo;
+            }else{
+                $photo[$row->id] = "https://payment.ppatq-rf.id/assets/images/user.png";
+            }
+            $kota[$row->id] = Province::where('id_provinsi',$row->prov_id)->first()->nama_provinsi ?? '';
+            $provinsi[$row->id] = City::where('id_provinsi',$row->prov_id)->where('id_kota_kab',$row->kota_id)->first()->nama_kota_kab ?? '';
+        }
         $status = array(0=>'Belum Diverifikasi',1=>'Sudah Diverifikasi');
         $status_ujian = array(0=>'Belum Ujian', 1=>'Lulus',2=>'Tidak Lulus');
         $status_diterima = array(0=>'Dalam Proses',1=>'Diterima',2=>'Tidak Diterima');
-        return view('psb/index',compact('psb','status','status_ujian','status_diterima'));
+        return view('psb/index',compact('psb','kota','provinsi','photo','status','status_ujian','status_diterima'));
     }
     public function create(){
         $provinsi = Province::all();
