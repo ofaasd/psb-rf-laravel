@@ -30,6 +30,8 @@ class psbController extends Controller
     public function index(){
         $psb = PsbPesertaOnline::all();
         $photo = [];
+        $kota = [];
+        $provinsi = [];
         foreach($psb as $row){
             $berkas_pendukung = PsbBerkasPendukung::where('psb_peserta_id',$row->id);
             if($berkas_pendukung->count() > 0){
@@ -37,6 +39,8 @@ class psbController extends Controller
             }else{
                 $photo[$row->id] = "https://payment.ppatq-rf.id/assets/images/user.png";
             }
+            $kota[$row->id] = Province::where('id_provinsi',$row->prov_id)->first()->nama_provinsi ?? '';
+            $provinsi[$row->id] = City::where('id_provinsi',$row->prov_id)->where('id_kota_kab',$row->kota_id)->first()->nama_kota_kab ?? '';
         }
         $status = array(0=>'Belum Diverifikasi',1=>'Sudah Diverifikasi');
         $status_ujian = array(0=>'Belum Ujian', 1=>'Lulus',2=>'Tidak Lulus');
