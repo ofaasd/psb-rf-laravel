@@ -29,7 +29,7 @@
                     @foreach($psb as $row)
                         <tr>
                             <td>{{$i}}</td>
-                            <td><img src="{{$photo[$row->id]}}" alt=""></td>
+                            <td><img src="{{$photo[$row->id]}}" alt="" width="50"></td>
                             <td>{{$row->no_pendaftaran}}</td>
                             <td>{{$row->nama}}</td>
                             <td>{{$row->asal_sekolah->nama_sekolah ?? ''}}</td>
