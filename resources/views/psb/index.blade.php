@@ -6,7 +6,7 @@
         }
     </style>
     <div class="row">
-        <div class="col-md-12" style="padding:30px">
+        <div class="col-md-12" style="padding:30px; overflow-x:scroll">
             <table class="table table-hover" id='psb_table'>
                 <thead>
                     <tr>
