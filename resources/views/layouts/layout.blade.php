@@ -87,7 +87,7 @@
                     padding:0 !important;
                 }
             </style>
-            <div class="card-content" style="padding:0">
+            <div class="card-content" style="padding:0; overflow-x:scroll">
                 @yield('content')
             </div>
 	    </div>
