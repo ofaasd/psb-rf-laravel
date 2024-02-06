@@ -107,7 +107,7 @@ class SantriDetail extends Model
     }
     public function kota()
     {
-        return $this->belongsTo(City::class, 'kabkota', 'city_id');
+        return $this->belongsTo(CityOld::class, 'kabkota', 'city_id');
     }
     public function ref_kelas()
     {
