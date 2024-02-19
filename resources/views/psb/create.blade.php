@@ -1,5 +1,16 @@
 @extends('layouts/layout')
 @section('content')
+    @if($jumlah_gelombang < 1)
+    <div class="row">
+        <div class="col-md-12" style="padding-top:10px;">
+            <div class="row">
+                <div class="col-md-12" id='alert-show'>
+                    <div class="alert alert-danger">Pendaftaran Santri Baru Sudah Ditutup</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @else
     <div class="row">
         <div class="col-md-12" style="padding-top:10px;">
             <div class="row">
@@ -158,4 +169,5 @@
         });
 
     </script>
+    @endif
 @endsection

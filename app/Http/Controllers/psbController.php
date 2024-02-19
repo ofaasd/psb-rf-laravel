@@ -49,7 +49,9 @@ class psbController extends Controller
     }
     public function create(){
         $provinsi = Province::all();
-        return view('psb/create',compact('provinsi'));
+        $gelombang = PsbGelombang::where('pmb_online', 1)->get();
+        $jumlah_gelombang = PsbGelombang::where('pmb_online', 1)->count();
+        return view('psb/create',compact('provinsi','gelombang','jumlah_gelombang'));
     }
     public function get_kota(Request $request){
         $id = $request->prov_id;
@@ -127,7 +129,7 @@ class psbController extends Controller
         }
     }
     public function store(Request $request){
-        $gelombang = PsbGelombang::where('pmb_online', 1)->first();
+
         $user = new UserPsb();
         $user->nik = $request->nik;
         $user->nama = $request->nama;
@@ -263,7 +265,7 @@ https://psb.ppatq-rf.id';
             $data->kecamatan = $request->kecamatan;
             $data->kelurahan = $request->kelurahan;
             $data->kode_pos = $request->kode_pos;
-            $data->gelombang_id = $gelombang->id;
+            $data->gelombang_id = $request->gelombang_id;
             $data->no_pendaftaran = $username;
             $data->user_id = $id;
             if ($data->save()) {
