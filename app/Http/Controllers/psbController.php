@@ -50,7 +50,8 @@ class psbController extends Controller
     public function create(){
         $provinsi = Province::all();
         $gelombang = PsbGelombang::where('pmb_online', 1)->get();
-        $jumlah_gelombang = PsbGelombang::where('pmb_online', 1)->count();
+        $tanggal = date('Y-m-d');
+        $jumlah_gelombang = PsbGelombang::where('pmb_online', 1)->whereDate('tgl_mulai','<=',$tanggal)->whereDate('tgl_akhir','>=',$tanggal)->count();
         return view('psb/create',compact('provinsi','gelombang','jumlah_gelombang'));
     }
     public function get_kota(Request $request){
