@@ -42,7 +42,7 @@ class psbController extends Controller
             $kota[$row->id] = Province::where('id_provinsi',$row->prov_id)->first()->nama_provinsi ?? '';
             $provinsi[$row->id] = City::where('id_provinsi',$row->prov_id)->where('id_kota_kab',$row->kota_id)->first()->nama_kota_kab ?? '';
         }
-        $status = array(0=>'Belum Diverifikasi',1=>'Sudah Diverifikasi');
+        $status = array(0=>'Belum Diverifikasi',1=>'Sudah Diverifikasi',2=>'Tidak Valid');
         $status_ujian = array(0=>'Belum Ujian', 1=>'Lulus',2=>'Tidak Lulus');
         $status_diterima = array(0=>'Dalam Proses',1=>'Diterima',2=>'Tidak Diterima');
         return view('psb/index',compact('psb','kota','provinsi','photo','status','status_ujian','status_diterima'));
