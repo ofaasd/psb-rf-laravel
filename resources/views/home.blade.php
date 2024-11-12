@@ -36,8 +36,8 @@
                 <table class="table table-hover">
                     <tr>
                         <td>Hari / Tanggal </td>
-                        <td><p>: 14 Januari 2024 – Rabu, 21 Februari 2024</p>
-                            <p>2 Rajab - 11 Sya’ban 1445 H</p>
+                        <td><p>: Ahad, 08 Desember 2024 – Rabu, 05 Februari 2025</p>
+                            <p>Ahad, 29 Jumadil Awwal - 06 Sya’ban 1446 H</p>
                         </td>
                     </tr>
                     <tr>
@@ -69,8 +69,8 @@
                     <li>Pendaftar akan mendapatkan informasi jadwal proses wawancara orangtua beserta calon siswa dengan kepala sekolah atau yang mewakili.</li>
                     <li>Pendaftar yang dinyatakan diterima dan mendapatkan surat lolos dari Panitia Penerimaan Santri Baru dan selanjutnya melakukan daftar ulang dengan membayar uang pangkal.</li>
                 </ol>
-                <h3 class="text-left">Prosedur/Alur Pendaftaran Online</h3> <br />
-                <p>Jika berkeinginan daftar secara langsung,
+                <h3 class="text-left">Prosedur/Alur Pendaftaran Offline</h3> <br />
+                <p>Jika berkeinginan daftar secara langsung (<i>Offline</i>),
                     Silakan datang ke pondok pesantren dengan persyaratan sebagai berikut : </p>
                 <ol start=1>
                     <li>Usia 6 - 7 tahun saat mendaftar (dengan dipandu oleh Panitia Penerimaan Santri Baru), membuka aplikasi <a href='http://psb.ppatq-rf.id'>http://psb.ppatq-rf.id</a></li>
@@ -85,7 +85,7 @@
                     <li>Semua berkas di masukan stopmap Merah untuk laki laki & Hijau untuk perempuan</li>
                     <li>Pendaftar akan mendapatkan informasi jadwal proses wawancara orangtua beserta calon siswa dengan kepala sekolah atau yang mewakili.</li>
                     <li>Pendaftar yang dinyatakan diterima dan mendapatkan surat lolos dari Panitia Penerimaan Santri Baru dan selanjutnya melakukan daftar ulang dengan membayar uang pangkal.</li>
-                    <li style="list-style: none"> <span style="font-weight:bold;font-size:16pt;color:red">CP : 0896-0108-7437 (Pak MUslim) / 0822-9857-6026 (Pak Aris)</span></li>
+                    <li style="list-style: none"> <span style="font-weight:bold;font-size:16pt;color:red">CP : 0896-0108-7437 (Pak Muslim) / 0822-9857-6026 (Pak Aris)</span></li>
                 </ol>
                 <hr>
             </div>
