@@ -25,7 +25,7 @@ class homeController extends Controller
         return view('program_kegiatan');
     }
     public function santri_aktif(){
-        $var['santri'] = SantriDetail::all();
+        $var['santri'] = SantriDetail::orderBy('kelas','asc')->get();
         $employee = EmployeeNew::all();
         $pegawai = array();
         $pegawai[0] = "Kosong";
