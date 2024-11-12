@@ -28,7 +28,8 @@ class psbController extends Controller
     //
     public $jenjang = array(1=>'TK','RA','SD/MI');
     public function index(){
-        $psb = PsbPesertaOnline::all();
+        $gelombang = PsbGelombang::where('pmb_online', 1)->first();
+        $psb = PsbPesertaOnline::where('gelombang_id',$gelombang->id)->get();
         $photo = [];
         $kota = [];
         $provinsi = [];

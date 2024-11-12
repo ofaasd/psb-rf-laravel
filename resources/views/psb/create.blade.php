@@ -5,7 +5,7 @@
         <div class="col-md-12" style="padding-top:10px;">
             <div class="row">
                 <div class="col-md-12" id='alert-show'>
-                    <div class="alert alert-danger">Pendaftaran Santri Baru Sudah Ditutup</div>
+                    <div class="alert alert-danger">Pendaftaran Santri Baru Ditutup</div>
                 </div>
             </div>
         </div>
