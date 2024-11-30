@@ -240,13 +240,14 @@ status : menunggu jadwal test & wawancara
 
 https://psb.ppatq-rf.id';
                 //pake $data2 soalnya sudah di pake untuk send wa di bawah
-                // $no_pengurus = ['08979194645','089601087437','082298576026','089668309013'];
-                // foreach($no_pengurus as $value){
-                //     $data['no_wa'] = $value;
-                //     $data['pesan'] = $pesan2;
+                //$no_pengurus = ['08979194645','089601087437','082298576026','089668309013'];
+                $no_pengurus = ['082326248982'];
+                foreach($no_pengurus as $value){
+                    $data['no_wa'] = $value;
+                    $data['pesan'] = $pesan2;
 
-                //     helper::send_wa($data);
-                // }
+                    helper::send_wa($data);
+                }
 
             }
 
@@ -377,7 +378,7 @@ https://psb.ppatq-rf.id';
                 $wa = '';
                 $this->save_file_cetak($username);
                 $data_wa['file'] = URL::to('/assets/formulir/' . 'DAFTAR_PPATQ_RF_' . $request->nama . '_' . $username . '.pdf');
-                // $wa = helper::send_wa_file($data_wa);
+                $wa = helper::send_wa_file($data_wa);
                 // $w2 = helper::send_wa($data_wa);
 
                 // if(!empty($data_wa)){
