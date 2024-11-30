@@ -8,13 +8,17 @@ use App\Models\SantriDetail;
 use App\Models\RefKamar;
 use App\Models\RefKelas;
 use App\Models\EmployeeNew;
+use App\Models\PsbGelombangDetail;
+use App\Models\PsbGelombang;
 
 class homeController extends Controller
 {
     //
     public function index(){
+        $id_gelombang = PsbGelombang::where('pmb_online',1)->first()->id;
+        $detail = PsbGelombangDetail::where('id_gelombang',$id_gelombang)->first();
+        return view('home', compact('detail'));
 
-        return view('home');
     }
     public function pesantren(){
 

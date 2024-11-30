@@ -17,6 +17,7 @@
                 <div class="col-md-12" id='alert-show'></div>
             </div>
             <div class="riple-frame"><div class="lds-ripple"><div></div><div></div></div></div>
+            <div class="alert alert-warning">Pendaftaran Santri Baru Sedang dalam proses uji coba. <b>Data yang terinput tidak akan tersimpan di sistem</b></div>
             <form id="example-form" action="#" enctype="multipart/form-data">
 
                 @csrf
