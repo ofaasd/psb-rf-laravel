@@ -12,15 +12,11 @@
                 <div class="splide__slider">
                     <div class="splide__track">
                         <ul class="splide__list">
+                            @foreach($slide as $row)
                             <li class="splide__slide" data-splide-interval="3000">
-                                <img src="{!!asset('assets/images/banner.jpeg')!!}" alt="Banner" >
+                                <img src="https://manajemen.ppatq-rf.id/assets/img/upload/photo/slide_{{$row->gambar}}" alt="{{$row->caption}}" >
                             </li>
-                            <li class="splide__slide" data-splide-interval="3000">
-                                <img src="{!!asset('assets/images/banner2.jpeg')!!}" alt="Banner" >
-                            </li>
-                            <li class="splide__slide" data-splide-interval="3000">
-                                <img src="{!!asset('assets/images/banner3.jpeg')!!}" alt="Banner" >
-                            </li>
+                            @endforeach
                         </ul>
                     </div>
                     <div class="splide__progress">
