@@ -160,11 +160,13 @@ class psbController extends Controller
             }
             $tahun_lahir = date('Y', strtotime($tgl_lahir));
             $new_nama = substr($nama,0,3);
+            $nama_panggilan = explode(" ",$nama);
             $tanggal = date('dm',strtotime($tgl_lahir));
+            $new_tanggal = date('d-m-Y',strtotime($tgl_lahir));
 
             //create username and password
-            $username = "RF.ppatq." . $str_id . "." . date('y');
-            $password = $tahun_lahir . $new_nama . $tanggal;
+            $username = $nama_panggilan[0] . "_" . $str_id;
+            $password = $new_tanggal;
 
             $user->username = $username;
             $user->password_ori = $password;
