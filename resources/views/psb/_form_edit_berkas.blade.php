@@ -7,7 +7,7 @@
                 <div class="form-group">
                     <label for="File KK">File KK</label>
                     <div id='kk_error'></div>
-                    <div class="row">
+                    <div class="row g-3">
                         <input type="file" name="kk" class="form-control col-md-6">
                         <div class="col-md-6">
                             <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#kkModal">Lihat File KK</a>
@@ -20,7 +20,7 @@
                 <div class="form-group">
                     <label for="File KK">File KTP</label>
                     <div id='ktp_error'></div>
-                    <div class="row">
+                    <div class="row g-3">
                         <input type="file" name="ktp" class="form-control col-md-6">
                         <div class="col-md-6">
                             <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#ktpModal">Lihat File KTP</a>
@@ -33,7 +33,7 @@
                 <div class="form-group">
                     <label for="File KK">File Rapor / Ijazah</label>
                     <div id='rapor_error'></div>
-                    <div class="row">
+                    <div class="row g-3">
                         <input type="file" name="rapor" class="form-control col-md-6">
                         <div class="col-md-6">
                             <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#raporModal">Lihat File Rapor</a>

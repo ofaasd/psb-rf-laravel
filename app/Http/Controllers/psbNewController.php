@@ -437,7 +437,7 @@ class psbNewController extends Controller
                 $psb_peserta->no_test = $no_test;
                 $psb_peserta->save();
 
-                
+
                 $walisan = PsbWaliPesertum::where('psb_peserta_id', $request->psb_peserta_id)->first();
                 $user = UserPsb::where('username', $peserta->no_pendaftaran)->first();
                 $template_pesan = TemplatePesan::where('status', 1)->first();
@@ -449,7 +449,7 @@ class psbNewController extends Controller
                 $pesan = str_replace('{{password}}', $user->password_ori, $pesan);
                 $pesan = str_replace('{{nama_ayah}}', $walisan->nama_ayah, $pesan);
                 $pesan = str_replace('{{nama_ibu}}', $walisan->nama_ibu, $pesan);
-            
+
                 $data['no_wa'] = $walisan->no_hp;
                 $data['pesan'] = $pesan;
 
@@ -515,7 +515,7 @@ class psbNewController extends Controller
             $pesan = str_replace('{{password}}', $user->password_ori, $pesan);
             $pesan = str_replace('{{nama_ayah}}', $walisan->nama_ayah, $pesan);
             $pesan = str_replace('{{nama_ibu}}', $walisan->nama_ibu, $pesan);
-        
+
             $data['no_wa'] = $walisan->no_hp;
             $data['pesan'] = $pesan;
 
@@ -525,11 +525,11 @@ class psbNewController extends Controller
             $data['pesan'] = $pesan;
 
             helper::send_wa($data);
-            
+
         }else{
             $psb_peserta->save();
         }
-        
+
         if ($PsbBuktiPembayaran) {
             // user created
             //return response()->json('Created');

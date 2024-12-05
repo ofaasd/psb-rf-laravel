@@ -156,7 +156,7 @@ class psbController extends Controller
             }elseif(strlen($id) == 2){
                 $str_id = "0" . $id;
             }else{
-                $str_id = (str)($id);
+                $str_id = (string)($id);
             }
             $tahun_lahir = date('Y', strtotime($tgl_lahir));
             $new_nama = substr($nama,0,3);
@@ -167,10 +167,11 @@ class psbController extends Controller
             //create username and password
             $username = $nama_panggilan[0] . "_" . $str_id;
             $password = $new_tanggal;
-
+            $no_pendaftaran = "RF.ppatq." . $str_id . "." . date('y');
             $user->username = $username;
             $user->password_ori = $password;
             $user->password = md5($password);
+            $user->no_pendaftaran = $no_pendaftaran;
 
             if($user->save()){
                 //kirim pesan wa disini
@@ -275,8 +276,8 @@ https://psb.ppatq-rf.id';
             $data->kecamatan = $request->kecamatan;
             $data->kelurahan = $request->kelurahan;
             $data->kode_pos = $request->kode_pos;
-            $data->gelombang_id = $request->gelombang_id;
-            $data->no_pendaftaran = $username;
+            $data->gelombang_id = $request->gelombang;
+            $data->no_pendaftaran = $no_pendaftaran;
             $data->user_id = $id;
             if ($data->save()) {
                 $walsan = new PsbWaliPesertum();
@@ -383,7 +384,7 @@ https://psb.ppatq-rf.id';
                     }
                 }
                 $wa = '';
-                $this->save_file_cetak($username);
+                $this->save_file_cetak($no_pendaftaran);
                 $data_wa['file'] = URL::to('/assets/formulir/' . 'DAFTAR_PPATQ_RF_' . $request->nama . '_' . $username . '.pdf');
                 $wa = helper::send_wa_file($data_wa);
                 // $w2 = helper::send_wa($data_wa);
@@ -422,9 +423,9 @@ https://psb.ppatq-rf.id';
             }
         }
     }
-    public function save_file_cetak($username){
+    public function save_file_cetak($no_pendaftaran){
         $provinsi = '';
-        $psb_peserta = PsbPesertaOnline::where('no_pendaftaran',$username)->first();
+        $psb_peserta = PsbPesertaOnline::where('no_pendaftaran',$no_pendaftaran)->first();
         $psb_wali = PsbWaliPesertum::where('psb_peserta_id',$psb_peserta->id)->first();
         $psb_asal = PsbSekolahAsal::where('psb_peserta_id',$psb_peserta->id)->first();
         $psb_seragam = PsbSeragam::where('psb_peserta_id',$psb_peserta->id)->first();
@@ -446,7 +447,7 @@ https://psb.ppatq-rf.id';
         $berkas = $berkas_pendukung->first();
         $bukti = PsbBuktiPembayaran::where('psb_peserta_id',$psb_peserta->id)->first();
         $status_pembayaran = array('Belum Ada','Sedang Diproses Oleh Admin','Pembayaran Divalidasi');
-        $user = UserPsb::where('username',$username)->first();
+        $user = UserPsb::where('no_pendaftaran',$no_pendaftaran)->first();
         $tahun_lahir = date('Y', strtotime($psb_peserta->tanggal_lahir));
         $new_nama = substr($psb_peserta->nama,0,3);
         $tanggal = date('dm',strtotime($psb_peserta->tanggal_lahir));
@@ -455,7 +456,7 @@ https://psb.ppatq-rf.id';
         // return view('psb/_form_cetak',compact('user','password','status_pembayaran','bukti','provinsi','psb_peserta','psb_wali','psb_asal','kota','foto','berkas','jenjang'));
         $path = 'assets/formulir/';
         $pdf = PDF::loadView('psb/_form_cetak',compact('psb_seragam','user','password','status_pembayaran','bukti','provinsi','psb_peserta','psb_wali','psb_asal','kota','foto','berkas','jenjang'));
-        return $pdf->save('' . $path . 'DAFTAR_PPATQ_RF_' . $psb_peserta->nama . '_' . $username . '.pdf');
+        return $pdf->save('' . $path . 'DAFTAR_PPATQ_RF_' . $psb_peserta->nama . '_' . $no_pendaftaran . '.pdf');
     }
     public function send_wa_file(Request $request){
         $data['no_wa'] = $request->no_wa;

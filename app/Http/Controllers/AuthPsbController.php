@@ -25,7 +25,8 @@ class AuthPsbController extends Controller
         $user = UserPsb::where(array('username'=>$username,'password'=>$password));
 
         if($user->count() > 0){
-            $request->session()->put('psb_username', $username);
+            $hasil = $user->first();
+            $request->session()->put('psb_username', $hasil->no_pendaftaran);
             $request->session()->put('psb_id',$user->first()->id);
             return redirect('psb/data_pribadi');
         }else{
