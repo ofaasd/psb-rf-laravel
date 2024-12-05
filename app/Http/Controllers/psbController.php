@@ -156,7 +156,7 @@ class psbController extends Controller
             }elseif(strlen($id) == 2){
                 $str_id = "0" . $id;
             }else{
-                $str_id = (string)($id);
+                $str_id = (string)$id;
             }
             $tahun_lahir = date('Y', strtotime($tgl_lahir));
             $new_nama = substr($nama,0,3);
