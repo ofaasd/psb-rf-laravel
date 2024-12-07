@@ -128,9 +128,9 @@
         </tr>
         <tr>
             <td valign="top">Pendidikan Ayah</td>
-            <td valign="top">{{$psb_wali->pendidikan_ayah ?? '<Kosong>'}}</td>
+            <td valign="top">{{$list_pendidikan[$psb_wali->pendidikan_ayah] ?? '<Kosong>'}}</td>
             <td valign="top">Pendidikan Ibu</td>
-            <td valign="top" colspan="2">{{$psb_wali->pendidikan_ibu ?? '<Kosong>'}}</td>
+            <td valign="top" colspan="2">{{$list_pendidikan[$psb_wali->pendidikan_ibu] ?? '<Kosong>'}}</td>
         </tr>
         <tr>
             <td valign="top">Pekerjaan Ayah</td>
