@@ -18,7 +18,7 @@
             <td >0123123123</td>
         </tr> --}}
         <tr>
-            <td rowspan="5" width="25%"><img src="https://payment.ppatq-rf.id/assets/images/logo.png" alt=""></td>
+            <td rowspan="3" width="15%"><img src="https://payment.ppatq-rf.id/assets/images/logo.png" alt=""></td>
             <td width="10"></td>
             <td width="10%"></td>
             <td width="30%"></td>
@@ -48,16 +48,10 @@
             <td colspan="5" align="center"><img src="{{asset('assets/images/')}}/Gambar1.png" alt="" height="30" align="center"></td>
         </tr>--}}
         <tr>
-            <td colspan="5" align="center"><b>FORMULIR PENDAFTARAN SANTRI BARU PERIODE 2025</b></td>
+            <td colspan="5" align="center"><b>FORMULIR PENDAFTARAN SANTRI BARU PERIODE 2025</b><br /><b>PONDOK PESANTREN ANAK TAHFIDZUL QUR'AN RAUDLATUL  FALAH</b></td>
         </tr>
         <tr>
-            <td colspan="5" align="center"><b>PONDOK PESANTREN ANAK TAHFIDZUL QUR'AN RAUDLATUL  FALAH</b></td>
-        </tr>
-        <tr>
-            <td colspan="5" align="center">Jl. KH. Abdullah Km. 2 Bermi-Gembong -Pati 59162</td>
-        </tr>
-        <tr>
-            <td colspan="5" align="center">www.ppatq-rf.sch.id  ||  www.ppatq-rf.id</td>
+            <td colspan="5" align="center">Jl. KH. Abdullah Km. 2 Bermi-Gembong -Pati 59162 <br />www.ppatq-rf.sch.id  ||  www.ppatq-rf.id</td>
         </tr>
         <tr>
             <td colspan="5"><b>Data Santri Baru</b></td>
@@ -149,42 +143,34 @@
         </tr>
         <tr>
             <td valign="top">Dari</td>
-            <td valign="top" colspan="4">{{$jenjang[$psb_asal->jenjang] ?? '<Kosong>'}}</td>
+            <td valign="top" colspan="0">{{$jenjang[$psb_asal->jenjang] ?? '<Kosong>'}}</td>
+            <td valign="top">NPSN</td>
+            <td valign="top" colspan="2">{{$psb_asal->npsn ?? '<Kosong>'}}</td>
         </tr>
         <tr>
             <td valign="top">Nama Sekolah</td>
-            <td valign="top" colspan="4">{{$psb_asal->nama_sekolah ?? '<Kosong>'}}</td>
+            <td valign="top" colspan="0">{{$psb_asal->nama_sekolah ?? '<Kosong>'}}</td>
+            <td valign="top">NISN</td>
+            <td valign="top" colspan="2">{{$psb_asal->nisn ?? '<Kosong>'}}</td>
         </tr>
         <tr>
             <td valign="top">NSM/NSS</td>
             <td valign="top" colspan="4">{{$psb_asal->nss ?? '<Kosong>'}}</td>
         </tr>
         <tr>
-            <td valign="top">NPSN</td>
-            <td valign="top" colspan="4">{{$psb_asal->npsn ?? '<Kosong>'}}</td>
-        </tr>
-        <tr>
-            <td valign="top">NISN</td>
-            <td valign="top" colspan="4">{{$psb_asal->nisn ?? '<Kosong>'}}</td>
-        </tr>
-        <tr>
             <td valign="top" colspan="5" ><b>Ukuran Seragam</b></td>
         </tr>
         <tr>
             <td valign="top">Berat Badan</td>
-            <td valign="top" colspan="4">{{$psb_seragam->berat_badan ?? '<Kosong>'}} KG</td>
+            <td valign="top" colspan="0">{{$psb_seragam->berat_badan ?? '<Kosong>'}} KG</td>
+            <td valign="top">Lingkar Dada</td>
+            <td valign="top" colspan="2">{{$psb_seragam->lingkar_dada ?? '<Kosong>'}} CM</td>
         </tr>
         <tr>
             <td valign="top">Tinggi Badan</td>
-            <td valign="top" colspan="4">{{$psb_seragam->tinggi_badan ?? '<Kosong>'}} CM</td>
-        </tr>
-        <tr>
-            <td valign="top">Lingkar Dada</td>
-            <td valign="top" colspan="4">{{$psb_seragam->lingkar_dada ?? '<Kosong>'}} CM</td>
-        </tr>
-        <tr>
+            <td valign="top" colspan="0">{{$psb_seragam->tinggi_badan ?? '<Kosong>'}} CM</td>
             <td valign="top">Lingkar Pinggul</td>
-            <td valign="top" colspan="4">{{$psb_seragam->lingkar_pinggul ?? '<Kosong>'}} CM</td>
+            <td valign="top" colspan="2">{{$psb_seragam->lingkar_pinggul ?? '<Kosong>'}} CM</td>
         </tr>
         <tr>
             <td valign="top" colspan="5" ><b>Berkas Pendukung</b></td>
