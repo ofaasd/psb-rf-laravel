@@ -364,7 +364,7 @@ Akan dibuka 8 Des 2024
 
 *Pesan ini dikirim dari sistem PSB PPATQ-RF*
 
-Kepada Calon Santri Bari :
+Kepada Calon Santri Baru
 atas nama : " . $peserta->nama . "
 no pendaftaran : " . $peserta->no_pendaftaran . "
 
