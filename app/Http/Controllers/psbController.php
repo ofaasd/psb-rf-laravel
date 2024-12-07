@@ -175,11 +175,7 @@ class psbController extends Controller
 
             if($user->save()){
                 //kirim pesan wa disini
-                $pesan = "(uji coba - trial system)
------- PSB.PPATQ-RF.ID----
-Akan dibuka 8 Des 2024
-
-*Pesan ini dikirim dari sistem PSB PPATQ-RF*
+                $pesan = "*Pesan ini dikirim dari sistem PSB PPATQ-RF*
 
 Selamat
 nama : " . $nama . "
