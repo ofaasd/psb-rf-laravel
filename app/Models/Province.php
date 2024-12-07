@@ -22,5 +22,6 @@ class Province extends Model
 {
 	protected $table = 'provinsi_tbl';
 	public $timestamps = false;
+    protected $primaryKey = 'id_provinsi';
 
 }

@@ -71,7 +71,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="alamat">Alamat Wali Santri <span class='text-danger'>*</span></label>
+                <label for="alamat">Alamat <span class='text-danger'>*</span></label>
                 <textarea class="form-control" name="alamat" id="alamat" required><?=$psb_peserta->alamat??''?></textarea>
             </div>
 
