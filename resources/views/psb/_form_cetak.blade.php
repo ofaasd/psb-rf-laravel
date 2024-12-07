@@ -18,11 +18,7 @@
             <td >0123123123</td>
         </tr> --}}
         <tr>
-            <td rowspan="3" width="15%"><img src="https://payment.ppatq-rf.id/assets/images/logo.png" alt=""></td>
-            <td width="10"></td>
-            <td width="10%"></td>
-            <td width="30%"></td>
-            <td></td>
+            <td rowspan="3" width="15%" colspan="5"><img src="https://payment.ppatq-rf.id/assets/images/logo.png" alt=""></td>
             {{-- <td width="30%">Tahun Pelajaran</td> --}}
             {{-- <td>2025</td> --}}
         </tr>

@@ -357,7 +357,28 @@ class psbNewController extends Controller
                 $bukti->bukti = $filename;
                 $bukti->status = 1;
                 if($bukti->save()){
+                    $peserta = PsbPesertaOnline::find($request->id);
+                    $pesan = "(uji coba - trial system)
+------ PSB.PPATQ-RF.ID----
+Akan dibuka 8 Des 2024
 
+*Pesan ini dikirim dari sistem PSB PPATQ-RF*
+
+Kepada Calon Santri Bari :
+atas nama : " . $peserta->nama . "
+no pendaftaran : " . $peserta->no_pendaftaran . "
+
+Pembayaran kamu untuk pendaftaran santri baru Pondok Pesantren Anak Tahfidzul Qur'an Raudlatul Falah  sebesar Rp 300.000 melalui bank " . $request->bank_pengirim . " atas nama " . $request->atas_nama . " telah kami terima pada " . date('d-m-Y H:i:s') . "
+
+Silahkan tunggu beberapa saat, admin kami akan memverifikasi pembayaran anda.
+
+
+terimakasih";
+                    $walsan = PsbWaliPesertum::where('psb_peserta_id',$request->id)->first();
+                    $data['no_wa'] = $walsan->no_hp;
+                    $data['pesan'] = $pesan;
+
+                    helper::send_wa($data);
                     $array[] = [
                         'code' => 1,
                         'status' => 'Success',

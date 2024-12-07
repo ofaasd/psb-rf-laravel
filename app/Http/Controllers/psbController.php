@@ -183,7 +183,7 @@ Akan dibuka 8 Des 2024
 
 Selamat
 nama : " . $nama . "
-no pendaftaran : " . $username . "
+no pendaftaran : " . $no_pendaftaran . "
 
 telah terdaftar pada web sebagai peserta test seleksi  Peserta Didik Baru PPATQ Radlatul Falah Pati
 
