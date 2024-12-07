@@ -18,7 +18,11 @@
             <td >0123123123</td>
         </tr> --}}
         <tr>
-            <td rowspan="3" width="15%" colspan="5"><img src="https://payment.ppatq-rf.id/assets/images/logo.png" alt=""></td>
+            <td rowspan="3" width="15%"><img src="https://payment.ppatq-rf.id/assets/images/logo.png" alt=""></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
             {{-- <td width="30%">Tahun Pelajaran</td> --}}
             {{-- <td>2025</td> --}}
         </tr>
@@ -85,7 +89,7 @@
             <td valign="top" width="15%">Tempat Tanggal Lahir</td>
             <td valign="top" width="15%">{{$psb_peserta->tempat_lahir}}, {{date('d-m-Y', strtotime($psb_peserta->tanggal_lahir))}}</td>
             <td valign="top" width="15%">Usia</td>
-            <td valign="top" width="15%">{{$psb_peserta->usia_tahun ?? '<Kosong>'}} Tahun, {{$psb_peserta->usia_bulan ?? '<Kosong>'}} Bulan</td>
+            <td valign="top" width="15%">{{$umur_tahun ?? '<Kosong>'}} Tahun, {{$umur_bulan ?? '<Kosong>'}} Bulan</td>
         </tr>
         <tr>
             <td valign="top">Anak Ke</td>

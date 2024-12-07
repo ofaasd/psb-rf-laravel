@@ -22,6 +22,7 @@ use URL;
 use PDF;
 use helper;
 use Illuminate\Validation\Rules\File;
+use DateTime;
 
 class psbNewController extends Controller
 {
@@ -96,9 +97,14 @@ class psbNewController extends Controller
         $tanggal = date('dm',strtotime($psb_peserta->tanggal_lahir));
         $password = $tahun_lahir . $new_nama . $tanggal;
 
+        $bday = new DateTime($psb_peserta->tanggal_lahir); // Replace with the actual birth date
+        $today = new DateTime('now'); // Getting the current date
+        $diff = $today->diff($bday);
+        $umur_bulan = $diff->m;
+        $umur_tahun = $diff->y;
         //Alert::success('', '');
         // return view('psb/_form_cetak',compact('user','password','status_pembayaran','bukti','provinsi','psb_peserta','psb_wali','psb_asal','kota','foto','berkas','jenjang','kelurahan','kecamatan'));
-        $pdf = PDF::loadView('psb/_form_cetak',compact('psb_seragam','user','password','status_pembayaran','bukti','provinsi','psb_peserta','psb_wali','psb_asal','kota','foto','berkas','jenjang','kelurahan','kecamatan','list_pendidikan'));
+        $pdf = PDF::loadView('psb/_form_cetak',compact('psb_seragam','user','password','status_pembayaran','bukti','provinsi','psb_peserta','psb_wali','psb_asal','kota','foto','berkas','jenjang','kelurahan','kecamatan','list_pendidikan','umur_bulan','umur_tahun'));
         return $pdf->stream('Form Pendaftaran.pdf');
     }
     public function update_data_pribadi(Request $request){
@@ -121,10 +127,10 @@ class psbNewController extends Controller
         $data->kelurahan = $request->kelurahan;
         $data->kode_pos = $request->kode_pos;
         if($data->save()){
-            $psb_wali_id = $request->psb_wali_id;
-            $walsan = PsbWaliPesertum::find($psb_wali_id);
-            $walsan->no_hp = $request->no_hp;
-            $walsan->save();
+            // $psb_wali_id = $request->psb_wali_id;
+            // $walsan = PsbWaliPesertum::find($psb_wali_id);
+            // $walsan->no_hp = $request->no_hp;
+            // $walsan->save();
 
 
             if ($request->file('photos')) {
@@ -187,6 +193,7 @@ class psbNewController extends Controller
         $walsan->alamat_ayah = $request->alamat_ayah;
         $walsan->alamat_ibu = $request->alamat_ibu;
         $walsan->no_telp = $request->no_telp;
+        $walsan->no_hp = $request->no_hp;
         if($walsan->save()){
             $array[] = [
                 'code' => 1,
