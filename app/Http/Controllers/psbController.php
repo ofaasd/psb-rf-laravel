@@ -149,14 +149,15 @@ class psbController extends Controller
             $nama = $request->nama;
             $tgl_lahir = $request->tanggal_lahir;
             $id = $user->id;
+            $get_id_pendaftar = PsbPesertaOnline::where('gelombang_id',$request->gelombang)->orderBy('id_pendaftar','desc')->limit(1)->first()->id_pendaftar;
             $new_user = UserPsb::find($id);
             $str_id = "";
-            if(strlen($id) == 1){
-                $str_id = "00" . $id;
-            }elseif(strlen($id) == 2){
-                $str_id = "0" . $id;
+            if(strlen($get_id_pendaftar) == 1){
+                $str_id = "00" . $get_id_pendaftar;
+            }elseif(strlen($get_id_pendaftar) == 2){
+                $str_id = "0" . $get_id_pendaftar;
             }else{
-                $str_id = (string)$id;
+                $str_id = (string)$get_id_pendaftar;
             }
             $tahun_lahir = date('Y', strtotime($tgl_lahir));
             $new_nama = substr($nama,0,3);
