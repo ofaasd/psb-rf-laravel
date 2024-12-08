@@ -10,15 +10,15 @@
                 <table cellpadding="5">
                     <tr>
                         <td>Bank</td>
-                        <td>: BRI</td>
+                        <td>: BSI</td>
                     </tr>
                     <tr>
                         <td>No. Rekening</td>
-                        <td>: 5936-01-005247-53-0</td>
+                        <td>: 7141299818</td>
                     </tr>
                     <tr>
                         <td>Atas Nama</td>
-                        <td>: Pondok Anak Tahfidhul Qur’an</td>
+                        <td>: PONPES ANAK TAHFIDZUL QUR'AN RF</td>
                     </tr>
                     <tr>
                         <td>Jumlah</td>
