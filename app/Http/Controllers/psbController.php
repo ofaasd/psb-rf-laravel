@@ -392,7 +392,7 @@ https://psb.ppatq-rf.id';
                 }
                 $wa = '';
                 $this->save_file_cetak($no_pendaftaran);
-                $data_wa['file'] = URL::to('/assets/formulir/' . 'DAFTAR_PPATQ_RF_' . $request->nama . '_' . $username . '.pdf');
+                $data_wa['file'] = URL::to('/assets/formulir/' . 'DAFTAR_PPATQ_RF_' . $request->nama . '_' . $no_pendaftaran . '.pdf');
                 $wa = helper::send_wa_file($data_wa);
                 // $w2 = helper::send_wa($data_wa);
 
