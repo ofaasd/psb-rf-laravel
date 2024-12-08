@@ -188,8 +188,11 @@ Silahkan catat username dan password di bawah ini untuk dapat mengubah dan melen
 username : " . $username . "
 password : " . $password . "
 
-Selanjutnya anda dapat melakukan pengkinian data calon santri baru di menu PSB setelah login melalui sistem
-https://psb.ppatq-rf.id
+Selanjutnya silahkan login di sistem dan melaporkan pembayaran Uang pendaftaran di rekening
+
+BSI. 7141299818 a/n
+PONPES ANAK TAHFIDZUL QUR'AN RF
+melalui psb.ppatq-rf.id menu Pembayaran dan juga dapat melakukan pengkinian data - dokumen pelengkap.
 
 terimakasih
 

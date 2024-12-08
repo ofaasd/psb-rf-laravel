@@ -365,9 +365,7 @@ class psbNewController extends Controller
                 $bukti->status = 1;
                 if($bukti->save()){
                     $peserta = PsbPesertaOnline::find($request->id);
-                    $pesan = "(uji coba - trial system)
------- PSB.PPATQ-RF.ID----
-Akan dibuka 8 Des 2024
+                    $pesan = "------ PSB.PPATQ-RF.ID----
 
 *Pesan ini dikirim dari sistem PSB PPATQ-RF*
 
@@ -386,6 +384,40 @@ terimakasih";
                     $data['pesan'] = $pesan;
 
                     helper::send_wa($data);
+                    $pesan2 = 'Pesan dari sistem PSB PPATQ-RF
+https://psb.ppatq-rf.id
+
+Telah terdaftar
+Calon santri a/n : ' . $request->nama . '
+Wali santri a/n : ' . $ayah  . '
+dari kota : ' . $kota . '
+
+status kelengkapan
+' . $kk . ' KK
+' . $rapor . ' Raport
+' . $photo . ' Foto
+' . $ktp . ' KTP
+
+
+username : ' . $username .'
+password : ' . $password . '
+
+Keterangan : Pelaporan Pembayaran Pendaftaran Santri Baru
+status : Menunggu Validasi Pembayaran
+
+
+
+https://psb.ppatq-rf.id';
+                //pake $data2 soalnya sudah di pake untuk send wa di bawah
+                //$no_pengurus = ['08979194645','089601087437','082298576026','089668309013'];
+                $no_pengurus = ['082298576026','089668309013'];
+                //$no_pengurus = ['082326248982'];
+                foreach($no_pengurus as $value){
+                    $data['no_wa'] = $value;
+                    $data['pesan'] = $pesan2;
+
+                    helper::send_wa($data);
+                }
                     $array[] = [
                         'code' => 1,
                         'status' => 'Success',
