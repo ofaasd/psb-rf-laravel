@@ -2,7 +2,7 @@
 @section('content')
     <div class="alert alert-primary">
         <ul>
-            <li>Untuk Dapat Mencetak Formulir Pendaftaran Silahkan melakukan pembayaran formulir pendaftaran melalui no rekening 5936-01-005247-53-0 atas nama Pondok Anak Tahfidhul Qur’an Unit/Cabang BRI Gembong.</li>
+            <li>Untuk Dapat Mencetak Formulir Pendaftaran Silahkan melakukan pembayaran formulir pendaftaran melalui no rekening 7141299818 atas nama PONPES ANAK TAHFIDZUL QUR'AN RF Unit/Cabang BSI Gembong.</li>
             <li>Jika sudah melakukan pembayaran silahkan mengupload bukti pembayaran dengan mengklik menu upload bukti pembayaran.</li>
             <li>Tunggu beberapa saat, admin kami akan memberikan informasi melalui Whatsapp apabila pembayaran telah di validasi. Pastikan No whatsapp yang terdaftar adalah nomor yang valid</li>
             <li>Klik tombol di bawah ini untuk mencetak formulir pendaftaran</li>
