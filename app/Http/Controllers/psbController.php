@@ -244,7 +244,7 @@ status : menunggu jadwal test & wawancara
 https://psb.ppatq-rf.id';
                 //pake $data2 soalnya sudah di pake untuk send wa di bawah
                 //$no_pengurus = ['08979194645','089601087437','082298576026','089668309013'];
-                $no_pengurus = ['082298576026','089668309013'];
+                $no_pengurus = ['082298576026','089601087437'];
                 //$no_pengurus = ['082326248982'];
                 foreach($no_pengurus as $value){
                     $data['no_wa'] = $value;
