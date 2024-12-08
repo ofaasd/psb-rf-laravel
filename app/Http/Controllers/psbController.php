@@ -236,6 +236,13 @@ status kelengkapan
 ' . $photo . ' Foto
 ' . $ktp . ' KTP
 
+Status Biaya Pendaftaran
+{
+BELUM ADA LAPORAN PEMBAYARAN
+PEMBAYARAN BELUM DIVALIDASI
+PEMBAYARAN TELAH DIVALIDASI
+}
+
 
 username : ' . $username .'
 password : ' . $password . '
