@@ -6,7 +6,7 @@ class helper{
 
     public static function send_wa($data){
 
-        $number_key = '9qrE9KWANsXXHCA9';
+        $number_key = '3EYdFkP7uhk5RX6D';
         $wa_api = "X2Y7UZOZT0WVQVTG";
 
         $curl = curl_init();
@@ -39,7 +39,7 @@ class helper{
     }
     public static function send_wa_file($data){
 
-        $number_key = '9qrE9KWANsXXHCA9';
+        $number_key = '3EYdFkP7uhk5RX6D';
         $wa_api = "X2Y7UZOZT0WVQVTG";
 
         $curl = curl_init();
