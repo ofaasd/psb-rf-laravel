@@ -15,6 +15,7 @@ use App\Models\PsbGelombang;
 use App\Models\PsbSeragam;
 use App\Models\PsbBerkasPendukung;
 use App\Models\PsbBuktiPembayaran;
+use App\Models\RefTahunAjaran;
 use Illuminate\Support\Facades\DB;
 use DateTime;
 use helper;
@@ -133,6 +134,8 @@ class psbController extends Controller
     public function store(Request $request){
 
         $user = new UserPsb();
+        $gelombang = PsbGelombang::where('id',$request->gelombang)->first();
+        $tahunAjaran = RefTahunAjaran::where('id',$gelombang->tahun)->first();
         $user->nik = $request->nik;
         $user->nama = $request->nama;
         $user->tanggal_lahir = strtotime($request->tanggal_lahir);
@@ -149,7 +152,7 @@ class psbController extends Controller
             $nama = $request->nama;
             $tgl_lahir = $request->tanggal_lahir;
             $id = $user->id;
-            $get_id_pendaftar = PsbPesertaOnline::where('gelombang_id',$request->gelombang)->orderBy('id_pendaftar','desc')->limit(1)->first()->id_pendaftar;
+            $get_id_pendaftar = (PsbPesertaOnline::where('gelombang_id',$request->gelombang)->orderBy('id_pendaftar','desc')->limit(1)->first()->id_pendaftar) + 1;
             $new_user = UserPsb::find($id);
             $str_id = "";
             if(strlen($get_id_pendaftar) == 1){
@@ -168,11 +171,14 @@ class psbController extends Controller
             //create username and password
             $username = $nama_panggilan[0] . "_" . $str_id;
             $password = $new_tanggal;
-            $no_pendaftaran = "RF.ppatq." . $str_id . "." . date('y');
+            $no_pendaftaran = "RF.ppatq." . $str_id . "." . substr($tahunAjaran->akhir, -2);
             $user->username = $username;
             $user->password_ori = $password;
             $user->password = md5($password);
             $user->no_pendaftaran = $no_pendaftaran;
+            //echo substr($tahunAjaran->akhir,-2);
+            //echo $no_pendaftaran;
+            //exit;
 
             if($user->save()){
                 //kirim pesan wa disini
@@ -284,6 +290,7 @@ https://psb.ppatq-rf.id';
             $data->kode_pos = $request->kode_pos;
             $data->gelombang_id = $request->gelombang;
             $data->no_pendaftaran = $no_pendaftaran;
+            $data->id_pendaftar = $get_id_pendaftar;
             $data->user_id = $id;
             if ($data->save()) {
                 $walsan = new PsbWaliPesertum();

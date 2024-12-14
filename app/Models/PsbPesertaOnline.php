@@ -85,7 +85,8 @@ class PsbPesertaOnline extends Model
 		'no_pendaftaran',
 		'gelombang_id',
 		'kode_pos',
-		'tanggal_validasi'
+		'tanggal_validasi',
+        'id_pendaftar'
 	];
 
     public function provinsi(): BelongsTo
