@@ -45,6 +45,7 @@ Route::middleware([CheckLogin::class])->group(function () {
     Route::get('psb/upload_bukti',[psbNewController::class, 'upload_bukti_pembayaran']);
     Route::post('psb/simpan_bukti',[psbNewController::class, 'simpan_bukti_bayar']);
     Route::get('psb/cetak_formulir',[psbNewController::class, 'cetak_form']);
+    Route::get('psb/save_pdf',[psbNewController::class, 'save_pdf']);
 });
 
 
