@@ -596,7 +596,7 @@ https://psb.ppatq-rf.id';
             }
             // user updated
             $array = ['status' => "Berhasil Update", "Code" => 1, "pesan" =>$pesan];
-            echo json_encode($array);
+            return json_encode($array);
         } else {
         // create new one if email is unique
         //$userEmail = User::where('email', $request->email)->first();

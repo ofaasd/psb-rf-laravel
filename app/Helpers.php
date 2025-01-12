@@ -1,7 +1,7 @@
 <?php
 
 class helper{
-    public $number_key = 'gINggaqZ9twbPXtA';
+    public $number_key = '3EYdFkP7uhk5RX6D';
 	public $wa_api = "X2Y7UZOZT0WVQVTG";
 
     public static function send_wa($data){
