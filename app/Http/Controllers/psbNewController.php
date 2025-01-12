@@ -182,13 +182,13 @@ class psbNewController extends Controller
         $data->kelurahan = $request->kelurahan;
         $data->kode_pos = $request->kode_pos;
         if($data->save()){
-            // $psb_wali_id = $request->psb_wali_id;
-            //$walsan = PsbWaliPesertum::find($psb_wali_id);
-            // $walsan->no_hp = $request->no_hp;
-            // $walsan->save();
+            $psb_wali_id = $request->psb_wali_id;
+            $walsan = PsbWaliPesertum::find($psb_wali_id);
+            $walsan->no_hp = $request->no_hp;
+            $walsan->save();
 
 
-            if ($request->file('photos')) {
+            if (!empty($request->file('photos'))) {
                 $photo = $request->file('photos');
                 $filename = date('YmdHis') . $photo->getClientOriginalName();
                 $kompres = Image::make($photo)
