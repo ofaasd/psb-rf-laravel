@@ -184,8 +184,8 @@ class psbNewController extends Controller
         if($data->save()){
             $psb_wali_id = $request->psb_wali_id;
             $walsan = PsbWaliPesertum::find($psb_wali_id);
-            $walsan->no_hp = $request->no_hp;
-            $walsan->save();
+            // $walsan->no_hp = $request->no_hp;
+            // $walsan->save();
 
 
             if ($request->file('photos')) {
