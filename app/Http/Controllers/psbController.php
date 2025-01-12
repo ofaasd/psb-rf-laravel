@@ -34,6 +34,8 @@ class psbController extends Controller
         $photo = [];
         $kota = [];
         $provinsi = [];
+        $bukti_bayar = [];
+        $tanggal_bayar = [];
         foreach($psb as $row){
             $berkas_pendukung = PsbBerkasPendukung::where('psb_peserta_id',$row->id);
             if($berkas_pendukung->count() > 0){
@@ -43,11 +45,20 @@ class psbController extends Controller
             }
             $kota[$row->id] = Province::where('id_provinsi',$row->prov_id)->first()->nama_provinsi ?? '';
             $provinsi[$row->id] = City::where('id_provinsi',$row->prov_id)->where('id_kota_kab',$row->kota_id)->first()->nama_kota_kab ?? '';
+            $bukti_bayar[$row->id] = 0;
+            $bukti = PsbBuktiPembayaran::where('psb_peserta_id', $row->id);
+            $tanggal_bayar[$row->id] = '';
+            if ($bukti->count() > 0) {
+                $bukti_row = $bukti->first();
+                $bukti_bayar[$row->id] = $bukti_row->status;
+                $tanggal_bayar[$row->id] = (!empty($bukti_row->created_at)) ? date('d-m-Y', strtotime($bukti_row->created_at)) : "";
+            }
         }
         $status = array(0=>'Belum Diverifikasi',1=>'Sudah Diverifikasi',2=>'Tidak Valid');
         $status_ujian = array(0=>'Belum Ujian', 1=>'Lulus',2=>'Tidak Lulus');
+
         $status_diterima = array(0=>'Dalam Proses',1=>'Diterima',2=>'Tidak Diterima');
-        return view('psb/index',compact('psb','kota','provinsi','photo','status','status_ujian','status_diterima'));
+        return view('psb/index',compact('psb','kota','provinsi','photo','status','status_ujian','status_diterima','bukti_bayar'));
     }
     public function create(){
         $provinsi = Province::all();

@@ -21,6 +21,7 @@
                         <td>Verifikasi</td>
                         <td>Ujian</td>
                         <td>Diterima</td>
+                        <td>Pembayaran</td>
                         <td>Aksi</td>
                     </tr>
                 </thead>
@@ -52,6 +53,13 @@
                             </td>
                             <td>
                                 @if($row->status_diterima == 1)
+                                    <small class='btn btn-success btn-sm' data-toggle="tooltip" data-placement="top" title='{{$status_diterima[$row->status]}}'><i class='fa fa-check'></i></small>
+                                @else
+                                    <small class='btn btn-danger btn-sm' data-toggle="tooltip" data-placement="top" title='{{$status_diterima[$row->status]}}'><i class='fa fa-ban'></i></small>
+                                @endif
+                            </td>
+                            <td>
+                                @if($bukti_bayar[$row->id] == 2)
                                     <small class='btn btn-success btn-sm' data-toggle="tooltip" data-placement="top" title='{{$status_diterima[$row->status]}}'><i class='fa fa-check'></i></small>
                                 @else
                                     <small class='btn btn-danger btn-sm' data-toggle="tooltip" data-placement="top" title='{{$status_diterima[$row->status]}}'><i class='fa fa-ban'></i></small>
