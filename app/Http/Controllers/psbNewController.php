@@ -182,7 +182,7 @@ class psbNewController extends Controller
         $data->kelurahan = $request->kelurahan;
         $data->kode_pos = $request->kode_pos;
         if($data->save()){
-            $psb_wali_id = $request->psb_wali_id;
+            // $psb_wali_id = $request->psb_wali_id;
             //$walsan = PsbWaliPesertum::find($psb_wali_id);
             // $walsan->no_hp = $request->no_hp;
             // $walsan->save();
