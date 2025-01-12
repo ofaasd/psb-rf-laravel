@@ -665,10 +665,10 @@ https://psb.ppatq-rf.id';
             // user created
             //return response()->json('Created');
             $array = ['status' => "Berhasil Simpan", "Code" => 1];
-            echo json_encode($array);
+            return json_encode($array);
         } else {
             $array = ['status' => "Gagal Simpan", "Code" => 2];
-            echo json_encode($array);
+            return json_encode($array);
         }
         }
 
