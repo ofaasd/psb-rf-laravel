@@ -7,6 +7,7 @@
     </style>
     <div class="row">
         <div class="col-md-12" style="padding:30px; ">
+            <a href="https://manajemen.ppatq-rf.id/assets/file/pengumuman-2025.pdf" class="btn btn-primary mt-3 mb-3">Informasi Lengkap & Materi Tes</a>
             <table class="table table-hover" id='psb_table'>
                 <thead>
                     <tr>
