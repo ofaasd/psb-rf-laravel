@@ -18,10 +18,10 @@
                         <td>Asal Kota</td>
                         <td>Asal Provinsi</td>
                         <td>Daftar</td>
+                        <td>Bayar</td>
                         <td>Verifikasi</td>
                         <td>Ujian</td>
-                        <td>Diterima</td>
-                        <td>Pembayaran</td>
+                        
                         <td>Aksi</td>
                     </tr>
                 </thead>
@@ -38,6 +38,15 @@
                             <td>{{$provinsi[$row->id] ?? ''}}</td>
                             <td>{{date('d-m-Y',strtotime($row->created_at)) ?? ''}}</td>
                             <td>
+                                @if($bukti_bayar[$row->id] == 2)
+                                    <small class='btn btn-success btn-sm' data-toggle="tooltip" data-placement="top" title='Pembayaran Tervalidasi'><i class='fa fa-check'></i></small>
+                                @elseif($bukti_bayar[$row->id] == 1)
+                                    <small class='btn btn-secondary btn-sm' data-toggle="tooltip" data-placement="top" title='Pembayaran Belum Tervalidasi'><i class='fa fa-check'></i></small>
+                                @else
+                                    <small class='btn btn-danger btn-sm' data-toggle="tooltip" data-placement="top" title='Belum Bayar'><i class='fa fa-ban'></i></small>
+                                @endif
+                            </td>
+                            <td>
                                 @if($row->status == 1)
                                     <small class='btn btn-success btn-sm' data-toggle="tooltip" data-placement="top" title='{{$status[$row->status]}}'><i class='fa fa-check'></i></small>
                                 @else
@@ -51,20 +60,7 @@
                                     <small class='btn btn-danger btn-sm' data-toggle="tooltip" data-placement="top" title='{{$status_ujian[$row->status]}}'><i class='fa fa-ban'></i></small>
                                 @endif
                             </td>
-                            <td>
-                                @if($row->status_diterima == 1)
-                                    <small class='btn btn-success btn-sm' data-toggle="tooltip" data-placement="top" title='{{$status_diterima[$row->status]}}'><i class='fa fa-check'></i></small>
-                                @else
-                                    <small class='btn btn-danger btn-sm' data-toggle="tooltip" data-placement="top" title='{{$status_diterima[$row->status]}}'><i class='fa fa-ban'></i></small>
-                                @endif
-                            </td>
-                            <td>
-                                @if($bukti_bayar[$row->id] == 2)
-                                    <small class='btn btn-success btn-sm' data-toggle="tooltip" data-placement="top" title='{{$status_diterima[$row->status]}}'><i class='fa fa-check'></i></small>
-                                @else
-                                    <small class='btn btn-danger btn-sm' data-toggle="tooltip" data-placement="top" title='{{$status_diterima[$row->status]}}'><i class='fa fa-ban'></i></small>
-                                @endif
-                            </td>
+                            
                             <td><a href='{{URL::to("psb/data_pribadi")}}' class='btn btn-primary'><i class='fa fa-pencil'></i></a></td>
                         </tr>
                     @php $i++; @endphp
