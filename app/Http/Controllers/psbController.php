@@ -225,6 +225,7 @@ terimakasih
                 $ktp = "Tidak Ada";
                 $rapor = "Tidak Ada";
                 $photo = "Tidak Ada";
+                $akta = "Tidak Ada";
                 if($request->file('kk')){
                     $kk = "Ada";
                 }
@@ -236,6 +237,9 @@ terimakasih
                 }
                 if($request->file('photo')){
                     $photo = "Ada";
+                }
+                if($request->file('akta')){
+                    $akta = "Ada";
                 }
 
 
@@ -254,6 +258,7 @@ status kelengkapan
 ' . $rapor . ' Raport
 ' . $photo . ' Foto
 ' . $ktp . ' KTP
+' . $akta . ' Akta
 
 Status Biaya Pendaftaran
 {
@@ -342,8 +347,9 @@ https://psb.ppatq-rf.id';
                     'kk' => [File::types(['jpg', 'jpeg', 'png', 'pdf'])->max(10 * 1024)],
                     'ktp' => [File::types(['jpg', 'jpeg', 'png', 'pdf'])->max(10 * 1024)],
                     'rapor' => [File::types(['jpg', 'jpeg', 'png', 'pdf'])->max(10 * 1024)],
+                    'akta' => [File::types(['jpg', 'jpeg', 'png', 'pdf'])->max(10 * 1024)],
                 ]);
-                $nama_file = array('photo','kk','ktp','rapor');
+                $nama_file = array('photo','kk','ktp','rapor','akta');
                 $array = array();
                 $upload = 0;
                 foreach($nama_file as $value){
@@ -389,6 +395,8 @@ https://psb.ppatq-rf.id';
                                 $psbBerkasPendukung->file_rapor = $filename;
                             }elseif($value == 'photo'){
                                 $psbBerkasPendukung->file_photo = $filename;
+                            }elseif($value == 'akta'){
+                                $psbBerkasPendukung->file_akta = $filename;
                             }
                             $psbBerkasPendukung->save();
 
@@ -402,6 +410,8 @@ https://psb.ppatq-rf.id';
                                 $psbBerkasPendukung->file_rapor = $filename;
                             }elseif($value == 'photo'){
                                 $psbBerkasPendukung->file_photo = $filename;
+                            }elseif($value == 'akta'){
+                                $psbBerkasPendukung->file_akta = $filename;
                             }
                             $psbBerkasPendukung->psb_peserta_id = $id;
                             $psbBerkasPendukung->save();

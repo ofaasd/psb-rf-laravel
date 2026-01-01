@@ -13,7 +13,7 @@
                             <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#kkModal">Lihat File KK</a>
                         </div>
                     </div>
-                    <small id="emailHelp" class="form-text text-muted">File upload berformat JPG/PNG/PDF. maksimal ukuran file 50MB</small>
+                    <small id="emailHelp" class="form-text text-muted">File upload berformat JPG/PNG/PDF. maksimal ukuran file 10MB</small>
                 </div>
             </div>
             <div class="col-md-12">
@@ -26,7 +26,20 @@
                             <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#ktpModal">Lihat File KTP</a>
                         </div>
                     </div>
-                    <small id="emailHelp" class="form-text text-muted">File upload berformat JPG/PNG/PDF. maksimal ukuran file 50MB</small>
+                    <small id="emailHelp" class="form-text text-muted">File upload berformat JPG/PNG/PDF. maksimal ukuran file 10MB</small>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="File KK">File Akta</label>
+                    <div id='akta_error'></div>
+                    <div class="row g-3">
+                        <input type="file" name="akta" class="form-control col-md-6">
+                        <div class="col-md-6">
+                            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#aktaModal">Lihat File Akta</a>
+                        </div>
+                    </div>
+                    <small id="emailHelp" class="form-text text-muted">File upload berformat JPG/PNG/PDF. maksimal ukuran file 10MB</small>
                 </div>
             </div>
             <div class="col-md-12">
@@ -39,7 +52,7 @@
                             <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#raporModal">Lihat File Rapor</a>
                         </div>
                     </div>
-                    <small id="emailHelp" class="form-text text-muted">File upload berformat JPG/PNG/PDF. maksimal ukuran file 50MB</small>
+                    <small id="emailHelp" class="form-text text-muted">File upload berformat JPG/PNG/PDF. maksimal ukuran file 10MB</small>
                 </div>
             </div>
             <div class="col-md-12">
@@ -102,6 +115,38 @@
                         </object>
                     @else
                         <img src="{{URL::to('')}}/assets/images/upload/file_ktp/{{$berkas->file_ktp}}" width="80%">
+                    @endif
+                @else
+                    <div class="alert alert-danger">Belum Ada File Di Upload</div>
+                @endif
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="aktaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">File Akta</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center" id='contentakta'>
+                @if(!empty($berkas->file_akta))
+                    @php
+                        $pecah = explode(".",$berkas->file_akta);
+                        $ekstensi = $pecah[1];
+                    @endphp
+                    @if($ekstensi == "pdf")
+                        <object data="{{URL::to('')}}/assets/images/upload/file_akta/{{$berkas->file_akta}}" type="application/pdf" width="100%" height="400">
+                            <p>PDF Link : <a href="{{URL::to('')}}/assets/images/upload/file_akta/{{$berkas->file_akta}}">to the PDF!</a></p>
+                        </object>
+                    @else
+                        <img src="{{URL::to('')}}/assets/images/upload/file_akta/{{$berkas->file_akta}}" width="80%">
                     @endif
                 @else
                     <div class="alert alert-danger">Belum Ada File Di Upload</div>
