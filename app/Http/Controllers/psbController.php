@@ -163,7 +163,8 @@ class psbController extends Controller
             $nama = $request->nama;
             $tgl_lahir = $request->tanggal_lahir;
             $id = $user->id;
-            $get_id_pendaftar = (PsbPesertaOnline::where('gelombang_id',$request->gelombang)->orderBy('id_pendaftar','desc')->limit(1)->first()->id_pendaftar) + 1;
+            $last_id = (PsbPesertaOnline::where('gelombang_id',$request->gelombang)->orderBy('id_pendaftar','desc')->limit(1)->first()->id_pendaftar) ?? 0;
+            $get_id_pendaftar =  $last_id + 1;
             $new_user = UserPsb::find($id);
             $str_id = "";
             if(strlen($get_id_pendaftar) == 1){
