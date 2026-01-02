@@ -140,6 +140,7 @@ $(document).ready(function(){
             success : function(data){
                 data = JSON.parse(data);
                 $("#kota").html('');
+                $("#kota").append('<option value=0>--Pilih Kota--</option>');
                 data.forEach(function (item){
                     $("#kota").append('<option value="' + item.id_kota_kab + '">' + item.nama_kota_kab + '</option>');
                 });
@@ -158,6 +159,7 @@ $(document).ready(function(){
             success : function(data){
                 data = JSON.parse(data);
                 $("#kecamatan").html('');
+                $("#kecamatan").append('<option value=0>--Pilih Kecamatan--</option>');
                 data.forEach(function (item){
                     $("#kecamatan").append('<option value="' + item.id_kecamatan + '">' + item.nama_kecamatan + '</option>');
                 });
@@ -177,6 +179,7 @@ $(document).ready(function(){
             success : function(data){
                 data = JSON.parse(data);
                 $("#kelurahan").html('');
+                $("#kelurahan").append('<option value=0>--Pilih Kelurahan--</option>');
                 data.forEach(function (item){
                     $("#kelurahan").append('<option value="' + item.id_kelurahan + '">' + item.nama_kelurahan + '</option>');
                 });

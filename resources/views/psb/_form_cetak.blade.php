@@ -48,7 +48,7 @@
             <td colspan="5" align="center"><img src="{{asset('assets/images/')}}/Gambar1.png" alt="" height="30" align="center"></td>
         </tr>--}}
         <tr>
-            <td colspan="5" align="center"><b>FORMULIR PENDAFTARAN SANTRI BARU PERIODE 2025</b><br /><b>PONDOK PESANTREN ANAK TAHFIDZUL QUR'AN RAUDLATUL  FALAH</b></td>
+            <td colspan="5" align="center"><b>FORMULIR PENDAFTARAN SANTRI BARU PERIODE 2026</b><br /><b>PONDOK PESANTREN ANAK TAHFIDZUL QUR'AN RAUDLATUL  FALAH</b></td>
         </tr>
         <tr>
             <td colspan="5" align="center">Jl. KH. Abdullah Km. 2 Bermi-Gembong -Pati 59162 <br />www.ppatq-rf.sch.id  ||  www.ppatq-rf.id</td>
