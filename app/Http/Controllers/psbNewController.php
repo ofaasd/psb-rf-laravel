@@ -303,9 +303,10 @@ class psbNewController extends Controller
             'photo' => [File::types(['jpg', 'jpeg', 'png', 'pdf'])->max(50 * 1024)],
             'kk' => [File::types(['jpg', 'jpeg', 'png', 'pdf'])->max(50 * 1024)],
             'ktp' => [File::types(['jpg', 'jpeg', 'png', 'pdf'])->max(50 * 1024)],
+            'akta' => [File::types(['jpg', 'jpeg', 'png', 'pdf'])->max(50 * 1024)],
             'rapor' => [File::types(['jpg', 'jpeg', 'png', 'pdf'])->max(50 * 1024)],
         ]);
-        $nama_file = array('photo','kk','ktp','rapor');
+        $nama_file = array('photo','kk','ktp','rapor','akta');
         $array = array();
         foreach($nama_file as $value){
             if($request->file($value)){
@@ -348,6 +349,8 @@ class psbNewController extends Controller
                         $psbBerkasPendukung->file_rapor = $filename;
                     }elseif($value == 'photo'){
                         $psbBerkasPendukung->file_photo = $filename;
+                    }elseif($value == 'akta'){
+                        $psbBerkasPendukung->file_akta = $filename;
                     }
                     $psbBerkasPendukung->save();
 
@@ -361,6 +364,8 @@ class psbNewController extends Controller
                         $psbBerkasPendukung->file_rapor = $filename;
                     }elseif($value == 'photo'){
                         $psbBerkasPendukung->file_photo = $filename;
+                    }elseif($value == 'akta'){
+                        $psbBerkasPendukung->file_akta = $filename;
                     }
                     $psbBerkasPendukung->psb_peserta_id = $id;
                     $psbBerkasPendukung->save();
