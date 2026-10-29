@@ -55,3 +55,10 @@ Route::get('/forgot_password',[AuthPsbController::class,'forgot_password']);
 Route::post('/forgot',[AuthPsbController::class,'proses_forget']);
 Route::get('/logout',[AuthPsbController::class,'logout']);
 Route::post('/login',[AuthPsbController::class,'proses_login']);
+
+// Theme Switcher Route (Modern maryUI vs Classic)
+Route::get('/switch-theme/{theme}', function ($theme, \Illuminate\Http\Request $request) {
+    $theme = in_array($theme, ['classic', 'modern']) ? $theme : 'modern';
+    session(['ui_theme' => $theme]);
+    return redirect()->back();
+})->name('switch.theme');

@@ -94,6 +94,12 @@
 	    <br />
     </div>
 
+    <div style="position:fixed; bottom:20px; right:20px; z-index:99999;">
+        <a href="{{ route('switch.theme', 'modern') }}" class="btn btn-success shadow" style="border-radius: 50px; font-weight:600; padding:10px 18px; box-shadow: 0 4px 15px rgba(0,0,0,0.25);">
+            ✨ Beralih ke Tampilan Baru (maryUI)
+        </a>
+    </div>
+
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
