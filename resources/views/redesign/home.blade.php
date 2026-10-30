@@ -43,7 +43,7 @@
             <a href="{{URL::to('psb/create')}}" class="btn bg-white text-emerald-800 hover:bg-emerald-50 border-0 rounded-xl px-5 font-bold shadow">
                 <i class="fa-solid fa-file-pen mr-1.5"></i> Daftar Sekarang
             </a>
-            <a target="_blank" href="https://manajemen.ppatq-rf.id/assets/file/pengumuman-2026.pdf" class="btn bg-emerald-800/80 text-white hover:bg-emerald-900 border-0 rounded-xl px-4 text-xs">
+            <a target="_blank" href="{{asset('assets/files/Brosur 2027-2028.pdf')}}" class="btn bg-emerald-800/80 text-white hover:bg-emerald-900 border-0 rounded-xl px-4 text-xs">
                 <i class="fa-solid fa-download mr-1"></i> Brosur
             </a>
         </div>
