@@ -6,9 +6,30 @@
     <a href="{{URL::to('/program_kegiatan')}}" class="px-3.5 py-2 rounded-xl text-sm font-semibold text-white/90 hover:text-white hover:bg-white/15 transition {{ Request::is('program_kegiatan') ? 'bg-white/20 text-white' : '' }}">
         <i class="fa-solid fa-images mr-1.5 opacity-80"></i> Program Kegiatan
     </a>
-    <a href="{{URL::to('/pesantren')}}" class="px-3.5 py-2 rounded-xl text-sm font-semibold text-white/90 hover:text-white hover:bg-white/15 transition {{ Request::is('pesantren') ? 'bg-white/20 text-white' : '' }}">
-        <i class="fa-solid fa-mosque mr-1.5 opacity-80"></i> Kepesantrenan
-    </a>
+    <!-- Dropdown Kepesantrenan -->
+    <div class="relative group">
+        <button class="px-3.5 py-2 rounded-xl text-sm font-semibold text-white/90 hover:text-white hover:bg-white/15 inline-flex items-center gap-1.5 transition {{ Request::is('pesantren*') || Request::is('visi_misi') || Request::is('kurikulum') || Request::is('fasilitas') || Request::is('jadwal_kegiatan') || Request::is('biaya_administrasi') ? 'bg-white/20 text-white' : '' }}">
+            <i class="fa-solid fa-mosque mr-1 opacity-80"></i> Kepesantrenan
+            <i class="fa-solid fa-chevron-down text-xs opacity-70 group-hover:rotate-180 transition-transform"></i>
+        </button>
+        <div class="absolute left-0 mt-1 w-60 rounded-2xl bg-white shadow-2xl border border-emerald-100 py-2 hidden group-hover:block hover:block z-50">
+            <a href="{{URL::to('/pesantren/visi_misi')}}" class="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 transition">
+                <i class="fa-solid fa-bullseye text-emerald-600 w-4"></i> Visi Misi
+            </a>
+            <a href="{{URL::to('/pesantren/kurikulum')}}" class="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 transition">
+                <i class="fa-solid fa-book-quran text-emerald-600 w-4"></i> Kurikulum
+            </a>
+            <a href="{{URL::to('/pesantren/fasilitas')}}" class="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 transition">
+                <i class="fa-solid fa-building-columns text-emerald-600 w-4"></i> Fasilitas
+            </a>
+            <a href="{{URL::to('/pesantren/jadwal_kegiatan')}}" class="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 transition">
+                <i class="fa-solid fa-calendar-days text-emerald-600 w-4"></i> Jadwal Kegiatan Sekolah
+            </a>
+            <a href="{{URL::to('/pesantren/biaya_administrasi')}}" class="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 transition">
+                <i class="fa-solid fa-receipt text-emerald-600 w-4"></i> Biaya Administrasi
+            </a>
+        </div>
+    </div>
     <a href="{{URL::to('psb/create')}}" class="px-3.5 py-2 rounded-xl text-sm font-semibold text-white/90 hover:text-white hover:bg-white/15 transition {{ Request::is('psb/create') ? 'bg-white/20 text-white' : '' }}">
         <i class="fa-solid fa-user-plus mr-1.5 opacity-80"></i> Form Pendaftaran
     </a>

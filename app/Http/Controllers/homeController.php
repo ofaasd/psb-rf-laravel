@@ -23,8 +23,22 @@ class homeController extends Controller
 
     }
     public function pesantren(){
-
         return view('pesantren');
+    }
+    public function visi_misi(){
+        return view('kepesantrenan/visi_misi');
+    }
+    public function kurikulum(){
+        return view('pesantren');
+    }
+    public function fasilitas(){
+        return view('kepesantrenan/fasilitas');
+    }
+    public function jadwal_kegiatan(){
+        return view('kepesantrenan/jadwal_kegiatan');
+    }
+    public function biaya_administrasi(){
+        return view('kepesantrenan/biaya_administrasi');
     }
     public function program_kegiatan(){
 

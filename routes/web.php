@@ -21,7 +21,21 @@ use App\Http\Middleware\CheckLogin;
 Route::get('/', [homeController::class, 'index']);
 Route::get('/program_kegiatan', [homeController::class, 'program_kegiatan']);
 Route::get('/santri_aktif', [homeController::class, 'santri_aktif']);
-Route::get('/pesantren', [homeController::class, 'pesantren']);
+
+// Kepesantrenan Submenus
+Route::get('/pesantren', [homeController::class, 'kurikulum']);
+Route::get('/pesantren/visi_misi', [homeController::class, 'visi_misi']);
+Route::get('/pesantren/kurikulum', [homeController::class, 'kurikulum']);
+Route::get('/pesantren/fasilitas', [homeController::class, 'fasilitas']);
+Route::get('/pesantren/jadwal_kegiatan', [homeController::class, 'jadwal_kegiatan']);
+Route::get('/pesantren/biaya_administrasi', [homeController::class, 'biaya_administrasi']);
+
+// Friendly Aliases
+Route::get('/visi_misi', [homeController::class, 'visi_misi']);
+Route::get('/kurikulum', [homeController::class, 'kurikulum']);
+Route::get('/fasilitas', [homeController::class, 'fasilitas']);
+Route::get('/jadwal_kegiatan', [homeController::class, 'jadwal_kegiatan']);
+Route::get('/biaya_administrasi', [homeController::class, 'biaya_administrasi']);
 Route::get('psb/create',[psbController::class, 'create']);
 Route::post('psb/get_kota',[psbController::class, 'get_kota']);
 Route::post('psb/get_kecamatan',[psbController::class, 'get_kecamatan']);

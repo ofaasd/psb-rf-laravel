@@ -5,8 +5,15 @@
     <li class="nav-item">
         <a class="nav-link text-white  active" aria-current="page" href="{{URL::to('/program_kegiatan')}}">Program Kegiatan</a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link text-white  active" aria-current="page" href="{{URL::to('/pesantren')}}">Kepesantrenan</a>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-expanded="false">Kepesantrenan</a>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="{{URL::to('/pesantren/visi_misi')}}">Visi Misi</a>
+            <a class="dropdown-item" href="{{URL::to('/pesantren/kurikulum')}}">Kurikulum</a>
+            <a class="dropdown-item" href="{{URL::to('/pesantren/fasilitas')}}">Fasilitas</a>
+            <a class="dropdown-item" href="{{URL::to('/pesantren/jadwal_kegiatan')}}">Jadwal Kegiatan Sekolah</a>
+            <a class="dropdown-item" href="{{URL::to('/pesantren/biaya_administrasi')}}">Biaya Administrasi</a>
+        </div>
     </li>
     <li class="nav-item">
         <a class="nav-link text-white  active" aria-current="page" href="{{URL::to('psb/create')}}">Form Pendaftaran</a>
