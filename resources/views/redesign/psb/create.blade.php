@@ -38,6 +38,28 @@
     <div class="riple-frame" style="display:none;"><div class="lds-ripple"><div></div><div></div></div></div>
 
     <!-- Wizard Form Card -->
+    <style>
+        /* Pastikan content wizard fleksibel mengikuti tinggi dinamis dan tombol actions tidak bertabrakan */
+        #example-form .content {
+            height: auto !important;
+            min-height: auto !important;
+            overflow: visible !important;
+        }
+        #example-form .content > .body {
+            position: relative !important;
+            height: auto !important;
+            float: none !important;
+            overflow: visible !important;
+        }
+        #example-form .actions {
+            position: relative !important;
+            clear: both !important;
+            display: block !important;
+            margin-top: 2.5rem !important;
+            padding-top: 1.5rem !important;
+            z-index: 10 !important;
+        }
+    </style>
     <x-mary-card shadow class="border border-emerald-100 bg-white rounded-3xl p-4 sm:p-6 overflow-hidden">
         <form id="example-form" action="#" enctype="multipart/form-data">
             @csrf
@@ -81,7 +103,7 @@
             form.children("div").steps({
                 headerTag: "h3",
                 bodyTag: "section",
-                transitionEffect: "slideLeft",
+                transitionEffect: "fade",
                 labels: {
                     next: "Lanjut <i class='fa-solid fa-arrow-right ml-1'></i>",
                     previous: "<i class='fa-solid fa-arrow-left mr-1'></i> Kembali",

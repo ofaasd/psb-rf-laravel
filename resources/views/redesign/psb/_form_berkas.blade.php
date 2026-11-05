@@ -120,6 +120,87 @@
 
     </div>
 
+    <!-- Kuesioner Sumber Informasi -->
+    <div class="mt-8 pt-6 border-t border-slate-200/80 space-y-4">
+        <div class="flex items-center gap-2.5 pb-2">
+            <span class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center text-sm shadow-xs">
+                <i class="fa-solid fa-bullhorn"></i>
+            </span>
+            <div>
+                <h4 class="text-sm font-bold text-slate-800">
+                    Mendapatkan Info PPATQ-RF Dari Mana? <span class="text-rose-500">*</span>
+                </h4>
+                <p class="text-xs text-slate-500">Pilih salah satu sumber informasi utama yang mengenalkan Anda pada PPATQ-RF.</p>
+            </div>
+        </div>
+
+        @php
+            $currentSumber = $psb_peserta->sumber_informasi ?? '';
+            $currentKet = $psb_peserta->sumber_informasi_keterangan ?? '';
+        @endphp
+
+        <!-- Radio Options Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            
+            <!-- 1. Saudara - Family / Alumni -->
+            <label class="flex items-start gap-3 p-3.5 rounded-2xl border-2 border-slate-200 bg-white hover:border-emerald-300 hover:bg-emerald-50/30 cursor-pointer transition select-none has-[:checked]:border-emerald-600 has-[:checked]:bg-emerald-50/70 has-[:checked]:shadow-xs">
+                <input type="radio" name="sumber_informasi" value="saudara_keluarga_alumni" {{ $currentSumber === 'saudara_keluarga_alumni' ? 'checked' : '' }} required class="radio radio-success radio-sm mt-0.5" />
+                <div class="space-y-0.5">
+                    <span class="block text-xs font-bold text-slate-800">Saudara / Keluarga Besar / Alumni</span>
+                    <span class="block text-[11px] text-slate-500">Saudara, family, atau alumni PPATQ-RF</span>
+                </div>
+            </label>
+
+            <!-- 2. Sosial Media -->
+            <label class="flex items-start gap-3 p-3.5 rounded-2xl border-2 border-slate-200 bg-white hover:border-emerald-300 hover:bg-emerald-50/30 cursor-pointer transition select-none has-[:checked]:border-emerald-600 has-[:checked]:bg-emerald-50/70 has-[:checked]:shadow-xs">
+                <input type="radio" name="sumber_informasi" value="sosial_media" {{ $currentSumber === 'sosial_media' ? 'checked' : '' }} required class="radio radio-success radio-sm mt-0.5" />
+                <div class="space-y-0.5">
+                    <span class="block text-xs font-bold text-slate-800">Sosial Media</span>
+                    <span class="block text-[11px] text-slate-500">Instagram, Facebook, YouTube, TikTok</span>
+                </div>
+            </label>
+
+            <!-- 3. Website Resmi -->
+            <label class="flex items-start gap-3 p-3.5 rounded-2xl border-2 border-slate-200 bg-white hover:border-emerald-300 hover:bg-emerald-50/30 cursor-pointer transition select-none has-[:checked]:border-emerald-600 has-[:checked]:bg-emerald-50/70 has-[:checked]:shadow-xs">
+                <input type="radio" name="sumber_informasi" value="website_resmi" {{ $currentSumber === 'website_resmi' ? 'checked' : '' }} required class="radio radio-success radio-sm mt-0.5" />
+                <div class="space-y-0.5">
+                    <span class="block text-xs font-bold text-slate-800">Website Resmi</span>
+                    <span class="block text-[11px] text-slate-500">Website resmi ppatq-rf.id</span>
+                </div>
+            </label>
+
+            <!-- 4. Media Massa -->
+            <label class="flex items-start gap-3 p-3.5 rounded-2xl border-2 border-slate-200 bg-white hover:border-emerald-300 hover:bg-emerald-50/30 cursor-pointer transition select-none has-[:checked]:border-emerald-600 has-[:checked]:bg-emerald-50/70 has-[:checked]:shadow-xs">
+                <input type="radio" name="sumber_informasi" value="media_massa" {{ $currentSumber === 'media_massa' ? 'checked' : '' }} required class="radio radio-success radio-sm mt-0.5" />
+                <div class="space-y-0.5">
+                    <span class="block text-xs font-bold text-slate-800">Media Massa</span>
+                    <span class="block text-[11px] text-slate-500">Koran, majalah, radio, atau berita online</span>
+                </div>
+            </label>
+
+            <!-- 5. Lainnya (Full width on sm) -->
+            <label class="sm:col-span-2 flex items-start gap-3 p-3.5 rounded-2xl border-2 border-slate-200 bg-white hover:border-emerald-300 hover:bg-emerald-50/30 cursor-pointer transition select-none has-[:checked]:border-emerald-600 has-[:checked]:bg-emerald-50/70 has-[:checked]:shadow-xs">
+                <input type="radio" name="sumber_informasi" id="sumber_lainnya_radio" value="lainnya" {{ $currentSumber === 'lainnya' ? 'checked' : '' }} required class="radio radio-success radio-sm mt-0.5" />
+                <div class="space-y-0.5 flex-1">
+                    <span class="block text-xs font-bold text-slate-800">Lainnya...</span>
+                    <span class="block text-[11px] text-slate-500">Teman, brosur, acara, atau sumber informasi lain</span>
+                </div>
+            </label>
+
+        </div>
+
+        <!-- Input Text Khusus Opsi Lainnya -->
+        <div id="wrapper_sumber_lainnya" class="{{ $currentSumber === 'lainnya' ? '' : 'hidden' }} p-4 rounded-2xl bg-emerald-50/60 border border-emerald-200 space-y-1.5 transition">
+            <label for="sumber_informasi_keterangan" class="block text-xs font-bold text-emerald-950 uppercase tracking-wider">
+                Sebutkan Sumber Informasi Lainnya: <span class="text-rose-500">*</span>
+            </label>
+            <input type="text" name="sumber_informasi_keterangan" id="sumber_informasi_keterangan"
+                value="{{ $currentKet }}"
+                placeholder="Contoh: Brosur di sekolah, rekomendasi ustadz, pameran pendidikan, dll."
+                class="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-white focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 transition text-sm outline-none text-slate-800">
+        </div>
+    </div>
+
 </div>
 
 <script>
@@ -134,5 +215,18 @@ function updateFileName(input, targetId) {
         `;
     }
 }
+
+$(document).ready(function() {
+    $('input[name="sumber_informasi"]').on('change', function() {
+        if ($(this).val() === 'lainnya') {
+            $('#wrapper_sumber_lainnya').removeClass('hidden');
+            $('#sumber_informasi_keterangan').attr('required', true).focus();
+        } else {
+            $('#wrapper_sumber_lainnya').addClass('hidden');
+            $('#sumber_informasi_keterangan').removeAttr('required').val('');
+        }
+        $('.wizard > .content, #example-form .content').css('height', 'auto');
+    });
+});
 </script>
 

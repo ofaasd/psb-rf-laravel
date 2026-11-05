@@ -52,10 +52,68 @@
                 <small id="emailHelp" class="form-text text-muted">File upload berformat JPG/PNG/PDF. maksimal ukuran file 10MB</small>
             </div>
         </div>
+
+        <!-- Sumber Informasi PPATQ-RF -->
+        <div class="col-md-12 mt-4 pt-3" style="border-top:1px solid #ddd;">
+            @php
+                $currentSumber = $psb_peserta->sumber_informasi ?? '';
+                $currentKet = $psb_peserta->sumber_informasi_keterangan ?? '';
+            @endphp
+            <div class="form-group">
+                <label style="font-weight:bold; font-size:14px; color:#2e7d32;">
+                    Mendapatkan Info PPATQ-RF Dari Mana? <span class="text-danger">*</span>
+                </label>
+                <div class="mt-2">
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="radio" name="sumber_informasi" id="sumber_saudara_klasik" value="saudara_keluarga_alumni" {{ $currentSumber === 'saudara_keluarga_alumni' ? 'checked' : '' }} required>
+                        <label class="form-check-label" for="sumber_saudara_klasik">
+                            1. Saudara - family menjadi bagian keluarga besar - alumni PPATQRF
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="radio" name="sumber_informasi" id="sumber_sosmed_klasik" value="sosial_media" {{ $currentSumber === 'sosial_media' ? 'checked' : '' }} required>
+                        <label class="form-check-label" for="sumber_sosmed_klasik">
+                            2. Sosial Media
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="radio" name="sumber_informasi" id="sumber_web_klasik" value="website_resmi" {{ $currentSumber === 'website_resmi' ? 'checked' : '' }} required>
+                        <label class="form-check-label" for="sumber_web_klasik">
+                            3. Website Resmi
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="radio" name="sumber_informasi" id="sumber_media_klasik" value="media_massa" {{ $currentSumber === 'media_massa' ? 'checked' : '' }} required>
+                        <label class="form-check-label" for="sumber_media_klasik">
+                            4. Media Massa
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="radio" name="sumber_informasi" id="sumber_lainnya_klasik" value="lainnya" {{ $currentSumber === 'lainnya' ? 'checked' : '' }} required>
+                        <label class="form-check-label" for="sumber_lainnya_klasik">
+                            5. Lainnya...
+                        </label>
+                    </div>
+                </div>
+
+                <div id="wrapper_sumber_lainnya_klasik" class="mt-2" style="{{ $currentSumber === 'lainnya' ? '' : 'display:none;' }}">
+                    <input type="text" name="sumber_informasi_keterangan" id="sumber_informasi_keterangan_klasik" class="form-control col-md-8" placeholder="Sebutkan sumber informasi lainnya..." value="{{ $currentKet }}">
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 <script>
     $(document).ready(function(){
+        $('input[name="sumber_informasi"]').on('change', function() {
+            if ($(this).val() === 'lainnya') {
+                $('#wrapper_sumber_lainnya_klasik').show();
+                $('#sumber_informasi_keterangan_klasik').focus();
+            } else {
+                $('#wrapper_sumber_lainnya_klasik').hide();
+                $('#sumber_informasi_keterangan_klasik').val('');
+            }
+        });
         //let data = "";
         const url_save = "{{URL::to('psb/update_data_berkas')}}";
         $("#form_berkas").submit(function(e){

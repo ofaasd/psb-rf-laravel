@@ -16,6 +16,8 @@ use App\Models\PsbSeragam;
 use App\Models\PsbBerkasPendukung;
 use App\Models\PsbBuktiPembayaran;
 use App\Models\RefTahunAjaran;
+use App\Models\SantriDetail;
+use App\Models\TbAlumniSantriDetail;
 use Illuminate\Support\Facades\DB;
 use DateTime;
 use helper;
@@ -84,6 +86,49 @@ class psbController extends Controller
         $id_kecamatan = $request->kecamatan_id;
         $get_kelurahan = Kelurahan::where('id_provinsi',$id_provinsi)->where('id_kota_kab',$id_kota)->where('id_kecamatan',$id_kecamatan)->get();
         echo json_encode($get_kelurahan);
+    }
+    public function search_santri_aktif(Request $request){
+        $q = $request->q ?? $request->term ?? '';
+        $data = [];
+        if(strlen($q) >= 2){
+            $santri = SantriDetail::where('nama', 'LIKE', "%{$q}%")
+                ->orWhere('no_induk', 'LIKE', "%{$q}%")
+                ->limit(15)
+                ->get();
+            foreach($santri as $row){
+                $photo_url = helper::get_photo($row->photo_location, $row->photo);
+                $data[] = [
+                    'id' => $row->id,
+                    'no_induk' => $row->no_induk,
+                    'nama' => $row->nama,
+                    'kelas' => $row->kelas ?? '-',
+                    'photo' => $photo_url,
+                ];
+            }
+        }
+        return response()->json($data);
+    }
+    public function search_santri_alumni(Request $request){
+        $q = $request->q ?? $request->term ?? '';
+        $data = [];
+        if(strlen($q) >= 2){
+            $alumni = TbAlumniSantriDetail::where('nama', 'LIKE', "%{$q}%")
+                ->orWhere('no_induk', 'LIKE', "%{$q}%")
+                ->limit(15)
+                ->get();
+            foreach($alumni as $row){
+                $photo_url = helper::get_photo($row->photo_location, $row->photo);
+                $data[] = [
+                    'id' => $row->id,
+                    'no_induk' => $row->no_induk,
+                    'nama' => $row->nama,
+                    'kelas' => $row->kelas ?? '-',
+                    'tahun_lulus' => $row->tahun_lulus ?? '',
+                    'photo' => $photo_url,
+                ];
+            }
+        }
+        return response()->json($data);
     }
     public function validation(Request $request){
         $no_hp = $request->no_hp;
@@ -309,6 +354,13 @@ https://psb.ppatq-rf.id';
             $data->no_pendaftaran = $no_pendaftaran;
             $data->id_pendaftar = $get_id_pendaftar;
             $data->user_id = $id;
+            $data->keterkaitan_saudara = $request->keterkaitan_saudara ?? 'tidak_ada';
+            $data->saudara_id = $request->saudara_id;
+            $data->nama_saudara = $request->nama_saudara;
+            $data->kelas_saudara = $request->kelas_saudara;
+            $data->tahun_lulus_saudara = $request->tahun_lulus_saudara;
+            $data->sumber_informasi = $request->sumber_informasi;
+            $data->sumber_informasi_keterangan = $request->sumber_informasi_keterangan;
             if ($data->save()) {
                 $walsan = new PsbWaliPesertum();
                 $walsan->nama_ayah = $request->nama_ayah;

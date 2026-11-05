@@ -18,6 +18,24 @@
             </div>
             <div class="riple-frame"><div class="lds-ripple"><div></div><div></div></div></div>
             {{-- <div class="alert alert-warning">Pendaftaran Santri Baru Sedang dalam proses uji coba. <b>Data yang terinput tidak akan tersimpan di sistem</b></div> --}}
+            <style>
+                .wizard > .content {
+                    height: auto !important;
+                    min-height: auto !important;
+                    overflow: visible !important;
+                }
+                .wizard > .content > .body {
+                    position: relative !important;
+                    height: auto !important;
+                    float: none !important;
+                }
+                .wizard > .actions {
+                    position: relative !important;
+                    clear: both !important;
+                    margin-top: 25px !important;
+                    padding-top: 15px !important;
+                }
+            </style>
             <form id="example-form" action="#" enctype="multipart/form-data">
 
                 @csrf

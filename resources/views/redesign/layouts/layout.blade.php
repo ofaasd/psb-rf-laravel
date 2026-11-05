@@ -393,6 +393,7 @@
             display: block !important;
             margin: 0 !important;
             min-height: auto !important;
+            height: auto !important;
             overflow: visible !important;
             position: relative !important;
             width: auto !important;
@@ -408,11 +409,13 @@
         .wizard > .actions {
             position: relative !important;
             display: block !important;
+            clear: both !important;
             text-align: right !important;
             width: 100% !important;
-            margin-top: 2rem !important;
+            margin-top: 2.5rem !important;
             padding-top: 1.5rem !important;
             border-top: 1px solid #e2e8f0 !important;
+            z-index: 10 !important;
         }
         .wizard > .actions > ul {
             display: flex !important;

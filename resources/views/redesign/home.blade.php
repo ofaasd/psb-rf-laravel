@@ -1,20 +1,30 @@
 @extends('layouts/layout')
 
+<style>
+    #homeSplide .splide__slide img {
+        width: 100% !important;
+        height: auto !important;
+        display: block !important;
+    }
+</style>
+
 @section('content')
 <div class="space-y-8">
 
-    <!-- HERO SLIDER SECTION -->
-    <div class="relative rounded-2xl overflow-hidden shadow-lg border border-emerald-100 bg-slate-900">
-        <div class="splide" id="homeSplide" aria-label="Slide Informasi PSB">
-            <div class="splide__track">
-                <ul class="splide__list">
+    <!-- HERO SLIDER SECTION (Full Width Following Container, Height Auto) -->
+    <div class="-mx-4 sm:-mx-6 md:-mx-8 -mt-4 sm:-mt-6 md:-mt-8 mb-6 sm:mb-8 relative overflow-hidden bg-slate-900 border-b border-emerald-100 shadow-md">
+        <div class="splide w-full" id="homeSplide" aria-label="Slide Informasi PSB">
+            <div class="splide__track w-full">
+                <ul class="splide__list w-full">
                     @foreach($slide as $row)
-                    <li class="splide__slide relative aspect-[21/9] sm:aspect-[21/8] max-h-[440px]">
-                        <img src="https://manajemen.ppatq-rf.id/assets/img/upload/photo/slide_{{$row->gambar}}" alt="{{$row->caption}}" class="w-full h-full object-cover">
+                    <li class="splide__slide relative w-full overflow-hidden">
+                        <img src="https://manajemen.ppatq-rf.id/assets/img/upload/photo/slide_{{$row->gambar}}" 
+                             alt="{{$row->caption}}" 
+                             class="w-full h-auto block object-contain">
                         @if(!empty($row->caption))
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-6 md:p-8">
+                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent flex items-end p-4 sm:p-6 md:p-8 pointer-events-none">
                             <div class="max-w-2xl text-white">
-                                <h3 class="text-lg md:text-2xl font-bold drop-shadow">{{$row->caption}}</h3>
+                                <h3 class="text-sm sm:text-lg md:text-2xl font-bold drop-shadow leading-snug">{{$row->caption}}</h3>
                             </div>
                         </div>
                         @endif
@@ -132,15 +142,30 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        if (document.getElementById('homeSplide')) {
-            new Splide('#homeSplide', {
+        const splideEl = document.getElementById('homeSplide');
+        if (splideEl) {
+            const splide = new Splide('#homeSplide', {
                 type: 'loop',
                 autoplay: true,
-                interval: 3500,
+                interval: 4000,
                 pauseOnHover: true,
                 arrows: true,
                 pagination: true,
-            }).mount();
+                autoHeight: true,
+            });
+            splide.mount();
+
+            // Refresh splide when slide images finish loading to ensure exact auto height
+            const slideImages = splideEl.querySelectorAll('img');
+            slideImages.forEach(function (img) {
+                if (img.complete) {
+                    splide.refresh();
+                } else {
+                    img.addEventListener('load', function () {
+                        splide.refresh();
+                    });
+                }
+            });
         }
     });
 </script>

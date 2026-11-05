@@ -181,6 +181,13 @@ class psbNewController extends Controller
         $data->kecamatan = $request->kecamatan;
         $data->kelurahan = $request->kelurahan;
         $data->kode_pos = $request->kode_pos;
+        if ($request->has('keterkaitan_saudara')) {
+            $data->keterkaitan_saudara = $request->keterkaitan_saudara ?? 'tidak_ada';
+            $data->saudara_id = $request->saudara_id;
+            $data->nama_saudara = $request->nama_saudara;
+            $data->kelas_saudara = $request->kelas_saudara;
+            $data->tahun_lulus_saudara = $request->tahun_lulus_saudara;
+        }
         if($data->save()){
             $psb_wali_id = $request->psb_wali_id;
             $walsan = PsbWaliPesertum::find($psb_wali_id);
@@ -299,6 +306,14 @@ class psbNewController extends Controller
     }
     public function update_data_berkas(Request $request){
         $id = $request->id;
+        if ($request->has('sumber_informasi')) {
+            $peserta = PsbPesertaOnline::find($id);
+            if ($peserta) {
+                $peserta->sumber_informasi = $request->sumber_informasi;
+                $peserta->sumber_informasi_keterangan = $request->sumber_informasi_keterangan;
+                $peserta->save();
+            }
+        }
         $request->validate([
             'photo' => [File::types(['jpg', 'jpeg', 'png', 'pdf'])->max(50 * 1024)],
             'kk' => [File::types(['jpg', 'jpeg', 'png', 'pdf'])->max(50 * 1024)],
