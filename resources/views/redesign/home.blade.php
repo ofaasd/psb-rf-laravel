@@ -115,7 +115,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 
                 <!-- Card Hari / Tanggal -->
-                <div class="rounded-2xl border border-emerald-200/80 bg-gradient-to-br from-emerald-50/70 via-emerald-50/30 to-white p-4 sm:p-5 space-y-2 shadow-xs">
+                <div class="min-w-0 rounded-2xl border border-emerald-200/80 bg-gradient-to-br from-emerald-50/70 via-emerald-50/30 to-white p-4 sm:p-5 space-y-2 shadow-xs overflow-hidden">
                     <div class="flex items-center gap-2.5 pb-2 border-b border-emerald-200/60">
                         <span class="w-8 h-8 rounded-xl bg-emerald-600 text-white flex items-center justify-center text-sm shadow-xs shrink-0">
                             <i class="fa-solid fa-calendar-days"></i>
@@ -125,13 +125,13 @@
                             <h4 class="text-sm font-bold text-slate-900">Hari / Tanggal</h4>
                         </div>
                     </div>
-                    <div class="html-render text-slate-700 text-xs sm:text-sm leading-relaxed pl-0.5 pt-1">
+                    <div class="html-render text-slate-700 text-xs sm:text-sm leading-relaxed pl-0.5 pt-1 break-words [overflow-wrap:anywhere] max-w-full">
                         {!! $detail->hari !!}
                     </div>
                 </div>
 
                 <!-- Card Waktu Jam Kerja -->
-                <div class="rounded-2xl border border-teal-200/80 bg-gradient-to-br from-teal-50/70 via-teal-50/30 to-white p-4 sm:p-5 space-y-2 shadow-xs">
+                <div class="min-w-0 rounded-2xl border border-teal-200/80 bg-gradient-to-br from-teal-50/70 via-teal-50/30 to-white p-4 sm:p-5 space-y-2 shadow-xs overflow-hidden">
                     <div class="flex items-center gap-2.5 pb-2 border-b border-teal-200/60">
                         <span class="w-8 h-8 rounded-xl bg-teal-600 text-white flex items-center justify-center text-sm shadow-xs shrink-0">
                             <i class="fa-solid fa-clock"></i>
@@ -141,7 +141,7 @@
                             <h4 class="text-sm font-bold text-slate-900">Waktu Jam Kerja</h4>
                         </div>
                     </div>
-                    <div class="html-render text-slate-700 text-xs sm:text-sm leading-relaxed pl-0.5 pt-1">
+                    <div class="html-render text-slate-700 text-xs sm:text-sm leading-relaxed pl-0.5 pt-1 break-words [overflow-wrap:anywhere] max-w-full">
                         {!! $detail->jam !!}
                     </div>
                 </div>
@@ -164,7 +164,7 @@
             </span>
         </div>
         <div class="p-4 sm:p-6">
-            <div class="html-render p-4 sm:p-5 rounded-2xl bg-slate-50/80 border border-slate-100 text-slate-700 text-xs sm:text-sm leading-relaxed">
+            <div class="html-render p-4 sm:p-5 rounded-2xl bg-slate-50/80 border border-slate-100 text-slate-700 text-xs sm:text-sm leading-relaxed break-words [overflow-wrap:anywhere] max-w-full overflow-x-auto">
                 {!! $detail->syarat !!}
             </div>
         </div>
@@ -184,7 +184,7 @@
             </span>
         </div>
         <div class="p-4 sm:p-6">
-            <div class="html-render p-4 sm:p-5 rounded-2xl bg-emerald-50/40 border border-emerald-100/60 text-slate-700 text-xs sm:text-sm leading-relaxed">
+            <div class="html-render p-4 sm:p-5 rounded-2xl bg-emerald-50/40 border border-emerald-100/60 text-slate-700 text-xs sm:text-sm leading-relaxed break-words [overflow-wrap:anywhere] max-w-full overflow-x-auto">
                 {!! $detail->prosedur_online !!}
             </div>
         </div>
@@ -204,7 +204,7 @@
             </span>
         </div>
         <div class="p-4 sm:p-6">
-            <div class="html-render p-4 sm:p-5 rounded-2xl bg-slate-50/80 border border-slate-100 text-slate-700 text-xs sm:text-sm leading-relaxed">
+            <div class="html-render p-4 sm:p-5 rounded-2xl bg-slate-50/80 border border-slate-100 text-slate-700 text-xs sm:text-sm leading-relaxed break-words [overflow-wrap:anywhere] max-w-full overflow-x-auto">
                 {!! $detail->prosedur_offline !!}
             </div>
         </div>

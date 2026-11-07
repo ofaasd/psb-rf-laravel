@@ -300,6 +300,10 @@
             color: #334155;
             line-height: 1.8;
             font-size: 0.95rem;
+            overflow-wrap: anywhere !important;
+            word-break: break-word !important;
+            max-width: 100% !important;
+            box-sizing: border-box;
         }
 
         /* =========================================================
@@ -514,6 +518,9 @@
         .wysiwyg-content p,
         .html-render p {
             margin-bottom: 0.75rem;
+            overflow-wrap: anywhere !important;
+            word-break: break-word !important;
+            max-width: 100% !important;
         }
         .wysiwyg-content p:last-child,
         .html-render p:last-child {
@@ -525,6 +532,7 @@
             padding-left: 2rem !important;
             margin-top: 0.5rem !important;
             margin-bottom: 1rem !important;
+            max-width: 100% !important;
         }
         .wysiwyg-content ul,
         .html-render ul {
@@ -532,12 +540,15 @@
             padding-left: 2rem !important;
             margin-top: 0.5rem !important;
             margin-bottom: 1rem !important;
+            max-width: 100% !important;
         }
         .wysiwyg-content li,
         .html-render li {
             display: list-item !important;
             margin-bottom: 0.45rem !important;
             padding-left: 0.25rem !important;
+            overflow-wrap: anywhere !important;
+            word-break: break-word !important;
         }
         .wysiwyg-content ol > li::marker,
         .html-render ol > li::marker {
@@ -564,6 +575,9 @@
         .html-render a {
             color: #0284c7;
             text-decoration: underline;
+            overflow-wrap: anywhere !important;
+            word-break: break-all !important;
+            max-width: 100% !important;
         }
         .wysiwyg-content a[style*="background-color"],
         .html-render a[style*="background-color"] {
@@ -576,13 +590,23 @@
             font-size: 0.85rem !important;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12) !important;
             margin: 0.25rem 0 !important;
+            max-width: 100% !important;
+            white-space: normal !important;
+            word-break: break-word !important;
+            overflow-wrap: anywhere !important;
         }
         .wysiwyg-content table,
         .html-render table {
             width: 100% !important;
+            max-width: 100% !important;
+            display: block !important;
+            overflow-x: auto !important;
+            -webkit-overflow-scrolling: touch;
             border-collapse: collapse !important;
             margin-top: 0.5rem !important;
             margin-bottom: 1rem !important;
+            border: 1px solid #e2e8f0 !important;
+            border-radius: 0.75rem !important;
         }
         .wysiwyg-content table td,
         .wysiwyg-content table th,
@@ -591,6 +615,21 @@
             padding: 0.75rem 1rem !important;
             border-bottom: 1px solid #f1f5f9 !important;
             vertical-align: top !important;
+        }
+        .wysiwyg-content img,
+        .html-render img {
+            max-width: 100% !important;
+            height: auto !important;
+            border-radius: 0.75rem !important;
+        }
+        .wysiwyg-content pre,
+        .html-render pre,
+        .wysiwyg-content code,
+        .html-render code {
+            white-space: pre-wrap !important;
+            overflow-wrap: anywhere !important;
+            word-break: break-all !important;
+            max-width: 100% !important;
         }
     </style>
 </head>
@@ -792,7 +831,7 @@
         </nav>
 
         <!-- MAIN CONTENT AREA (Retaining Card Structure With Visual Enhancements) -->
-        <main class="p-4 sm:p-6 md:p-8 bg-white min-h-[500px]">
+        <main class="p-4 sm:p-6 md:p-8 bg-white min-h-[500px] min-w-0 overflow-hidden">
             @yield('content')
         </main>
 
