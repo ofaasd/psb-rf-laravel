@@ -84,7 +84,7 @@
             <a href="{{URL::to('psb/create')}}" class="btn btn-sm sm:btn-md bg-white text-emerald-800 hover:bg-emerald-50 border-0 rounded-xl px-4 sm:px-5 font-bold shadow-xs flex-1 sm:flex-initial">
                 <i class="fa-solid fa-file-pen mr-1"></i> Daftar Sekarang
             </a>
-            <a target="_blank" href="{{asset('assets/files/Brosur 2027-2028.pdf')}}" class="btn btn-sm sm:btn-md bg-emerald-850/80 text-white hover:bg-emerald-900 border-0 rounded-xl px-3.5 sm:px-4 text-xs font-semibold shadow-xs flex-1 sm:flex-initial">
+            <a target="_blank" href="{{asset('assets/files/Brosur 2027-2028.pdf')}}" class="btn btn-sm sm:btn-md bg-emerald-800 hover:bg-emerald-900 text-white border border-white/20 rounded-xl px-3.5 sm:px-4 text-xs font-semibold shadow-xs flex-1 sm:flex-initial">
                 <i class="fa-solid fa-download mr-1"></i> Unduh Brosur
             </a>
         </div>
