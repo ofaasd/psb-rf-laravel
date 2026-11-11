@@ -68,6 +68,16 @@
             box-shadow: 0 4px 15px -1px rgba(5, 120, 87, 0.3);
         }
 
+        /* Nav Dropdown Hover & Click Support (Mencegah submenu hilang saat kursor bergerak atau di-klik) */
+        .nav-dropdown:hover .nav-dropdown-menu,
+        .nav-dropdown.dropdown-open .nav-dropdown-menu {
+            display: block !important;
+        }
+        .nav-dropdown:hover .dropdown-chevron,
+        .nav-dropdown.dropdown-open .dropdown-chevron {
+            transform: rotate(180deg);
+        }
+
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
@@ -639,11 +649,10 @@
     <div class="main-shell mb-3">
         <div class="flex flex-wrap items-center justify-between gap-2 px-4 py-2 rounded-2xl bg-slate-900/80 backdrop-blur text-white text-xs md:text-sm shadow-lg border border-white/10">
             <div class="flex items-center gap-2">
-                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
                     <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mr-1.5 animate-pulse"></span>
-                    Versi Tampilan Baru
+                    Versi Tampilan Baru PSB
                 </span>
-                <span class="hidden sm:inline text-slate-300">Desain Modern MaryUI & DaisyUI (Laravel 11)</span>
             </div>
             <div class="flex items-center gap-3">
                 <a href="{{ route('switch.theme', 'classic') }}" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-white/10 hover:bg-white/20 text-white font-medium transition duration-200 border border-white/20 hover:border-emerald-400 text-xs">
@@ -708,27 +717,29 @@
                     </a>
 
                     <!-- Dropdown Kepesantrenan -->
-                    <div class="relative group">
-                        <button class="px-3.5 py-2 rounded-xl text-sm font-semibold text-white/90 hover:text-white hover:bg-white/15 inline-flex items-center gap-1.5 transition duration-150 {{ Request::is('pesantren*') || Request::is('visi_misi') || Request::is('kurikulum') || Request::is('fasilitas') || Request::is('jadwal_kegiatan') || Request::is('biaya_administrasi') ? 'bg-white/20 text-white shadow-sm' : '' }}">
+                    <div class="relative nav-dropdown group">
+                        <button type="button" class="nav-dropdown-btn px-3.5 py-2 rounded-xl text-sm font-semibold text-white/90 hover:text-white hover:bg-white/15 inline-flex items-center gap-1.5 transition duration-150 {{ Request::is('pesantren*') || Request::is('visi_misi') || Request::is('kurikulum') || Request::is('fasilitas') || Request::is('jadwal_kegiatan') || Request::is('biaya_administrasi') ? 'bg-white/20 text-white shadow-sm' : '' }}" aria-expanded="false">
                             <i class="fa-solid fa-mosque mr-1 opacity-80"></i> Kepesantrenan
-                            <i class="fa-solid fa-chevron-down text-xs opacity-70 group-hover:rotate-180 transition-transform"></i>
+                            <i class="fa-solid fa-chevron-down text-xs opacity-70 dropdown-chevron transition-transform duration-200"></i>
                         </button>
-                        <div class="absolute left-0 mt-1 w-60 rounded-2xl bg-white shadow-2xl border border-emerald-100 py-2 hidden group-hover:block hover:block z-50 animate-fadeIn">
-                            <a href="{{URL::to('/pesantren/visi_misi')}}" class="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 transition {{ Request::is('*visi_misi*') ? 'bg-emerald-50 text-emerald-700 font-bold' : '' }}">
-                                <i class="fa-solid fa-bullseye text-emerald-600 w-4"></i> Visi Misi
-                            </a>
-                            <a href="{{URL::to('/pesantren/kurikulum')}}" class="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 transition {{ Request::is('*kurikulum*') || Request::is('pesantren') ? 'bg-emerald-50 text-emerald-700 font-bold' : '' }}">
-                                <i class="fa-solid fa-book-quran text-emerald-600 w-4"></i> Kurikulum
-                            </a>
-                            <a href="{{URL::to('/pesantren/fasilitas')}}" class="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 transition {{ Request::is('*fasilitas*') ? 'bg-emerald-50 text-emerald-700 font-bold' : '' }}">
-                                <i class="fa-solid fa-building-columns text-emerald-600 w-4"></i> Fasilitas
-                            </a>
-                            <a href="{{URL::to('/pesantren/jadwal_kegiatan')}}" class="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 transition {{ Request::is('*jadwal*') ? 'bg-emerald-50 text-emerald-700 font-bold' : '' }}">
-                                <i class="fa-solid fa-calendar-days text-emerald-600 w-4"></i> Jadwal Kegiatan Sekolah
-                            </a>
-                            <a href="{{URL::to('/pesantren/biaya_administrasi')}}" class="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 transition {{ Request::is('*biaya_administrasi*') ? 'bg-emerald-50 text-emerald-700 font-bold' : '' }}">
-                                <i class="fa-solid fa-receipt text-emerald-600 w-4"></i> Biaya Administrasi
-                            </a>
+                        <div class="nav-dropdown-menu absolute left-0 top-full pt-1.5 w-60 z-50 hidden before:content-[''] before:absolute before:-top-3 before:left-0 before:right-0 before:h-3">
+                            <div class="rounded-2xl bg-white shadow-2xl border border-emerald-100 py-2">
+                                <a href="{{URL::to('/pesantren/visi_misi')}}" class="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 transition {{ Request::is('*visi_misi*') ? 'bg-emerald-50 text-emerald-700 font-bold' : '' }}">
+                                    <i class="fa-solid fa-bullseye text-emerald-600 w-4"></i> Visi Misi
+                                </a>
+                                <a href="{{URL::to('/pesantren/kurikulum')}}" class="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 transition {{ Request::is('*kurikulum*') || Request::is('pesantren') ? 'bg-emerald-50 text-emerald-700 font-bold' : '' }}">
+                                    <i class="fa-solid fa-book-quran text-emerald-600 w-4"></i> Kurikulum
+                                </a>
+                                <a href="{{URL::to('/pesantren/fasilitas')}}" class="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 transition {{ Request::is('*fasilitas*') ? 'bg-emerald-50 text-emerald-700 font-bold' : '' }}">
+                                    <i class="fa-solid fa-building-columns text-emerald-600 w-4"></i> Fasilitas
+                                </a>
+                                <a href="{{URL::to('/pesantren/jadwal_kegiatan')}}" class="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 transition {{ Request::is('*jadwal*') ? 'bg-emerald-50 text-emerald-700 font-bold' : '' }}">
+                                    <i class="fa-solid fa-calendar-days text-emerald-600 w-4"></i> Jadwal Kegiatan Sekolah
+                                </a>
+                                <a href="{{URL::to('/pesantren/biaya_administrasi')}}" class="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 transition {{ Request::is('*biaya_administrasi*') ? 'bg-emerald-50 text-emerald-700 font-bold' : '' }}">
+                                    <i class="fa-solid fa-receipt text-emerald-600 w-4"></i> Biaya Administrasi
+                                </a>
+                            </div>
                         </div>
                     </div>
 
@@ -737,18 +748,20 @@
                     </a>
 
                     <!-- Dropdown Data Santri -->
-                    <div class="relative group">
-                        <button class="px-3.5 py-2 rounded-xl text-sm font-semibold text-white/90 hover:text-white hover:bg-white/15 inline-flex items-center gap-1.5 transition duration-150 {{ Request::is('psb') || Request::is('santri_aktif') ? 'bg-white/20 text-white shadow-sm' : '' }}">
+                    <div class="relative nav-dropdown group">
+                        <button type="button" class="nav-dropdown-btn px-3.5 py-2 rounded-xl text-sm font-semibold text-white/90 hover:text-white hover:bg-white/15 inline-flex items-center gap-1.5 transition duration-150 {{ Request::is('psb') || Request::is('santri_aktif') ? 'bg-white/20 text-white shadow-sm' : '' }}" aria-expanded="false">
                             <i class="fa-solid fa-users mr-1 opacity-80"></i> Data Santri
-                            <i class="fa-solid fa-chevron-down text-xs opacity-70 group-hover:rotate-180 transition-transform"></i>
+                            <i class="fa-solid fa-chevron-down text-xs opacity-70 dropdown-chevron transition-transform duration-200"></i>
                         </button>
-                        <div class="absolute left-0 mt-1 w-52 rounded-2xl bg-white shadow-2xl border border-emerald-100 py-2 hidden group-hover:block hover:block z-50 animate-fadeIn">
-                            <a href="{{URL::to('psb')}}" class="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 transition">
-                                <i class="fa-solid fa-user-clock text-emerald-600 w-4"></i> Data Calon Santri
-                            </a>
-                            <a href="{{URL::to('santri_aktif')}}" class="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 transition">
-                                <i class="fa-solid fa-user-check text-emerald-600 w-4"></i> Data Santri Aktif
-                            </a>
+                        <div class="nav-dropdown-menu absolute left-0 top-full pt-1.5 w-52 z-50 hidden before:content-[''] before:absolute before:-top-3 before:left-0 before:right-0 before:h-3">
+                            <div class="rounded-2xl bg-white shadow-2xl border border-emerald-100 py-2">
+                                <a href="{{URL::to('psb')}}" class="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 transition">
+                                    <i class="fa-solid fa-user-clock text-emerald-600 w-4"></i> Data Calon Santri
+                                </a>
+                                <a href="{{URL::to('santri_aktif')}}" class="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 transition">
+                                    <i class="fa-solid fa-user-check text-emerald-600 w-4"></i> Data Santri Aktif
+                                </a>
+                            </div>
                         </div>
                     </div>
 
@@ -846,8 +859,6 @@
                     <a href="{{ route('switch.theme', 'classic') }}" class="btn btn-ghost btn-xs text-slate-600 hover:text-emerald-700">
                         <i class="fa-solid fa-repeat mr-1"></i> Mode Klasik
                     </a>
-                    <span class="text-slate-300">|</span>
-                    <span class="text-xs text-emerald-700 font-semibold">Tampilan Baru maryUI</span>
                 </div>
             </div>
             <div class="mt-4 pt-3 border-t border-slate-200/60 text-slate-400 text-xs">
@@ -864,5 +875,58 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
 
+    <!-- Nav Dropdown Interaction Script (Click Toggle, Outside Click & Keyboard Accessibility) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const dropdowns = document.querySelectorAll('.nav-dropdown');
+
+            dropdowns.forEach(function (dropdown) {
+                const btn = dropdown.querySelector('.nav-dropdown-btn');
+                const menu = dropdown.querySelector('.nav-dropdown-menu');
+
+                if (!btn || !menu) return;
+
+                btn.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    const isOpen = dropdown.classList.contains('dropdown-open');
+
+                    // Close all other dropdowns first
+                    dropdowns.forEach(function (d) {
+                        d.classList.remove('dropdown-open');
+                        const otherBtn = d.querySelector('.nav-dropdown-btn');
+                        if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+                    });
+
+                    // Toggle current dropdown
+                    if (!isOpen) {
+                        dropdown.classList.add('dropdown-open');
+                        btn.setAttribute('aria-expanded', 'true');
+                    }
+                });
+            });
+
+            // Close when clicking anywhere outside
+            document.addEventListener('click', function (e) {
+                if (!e.target.closest('.nav-dropdown')) {
+                    dropdowns.forEach(function (d) {
+                        d.classList.remove('dropdown-open');
+                        const btn = d.querySelector('.nav-dropdown-btn');
+                        if (btn) btn.setAttribute('aria-expanded', 'false');
+                    });
+                }
+            });
+
+            // Close on Escape key
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') {
+                    dropdowns.forEach(function (d) {
+                        d.classList.remove('dropdown-open');
+                        const btn = d.querySelector('.nav-dropdown-btn');
+                        if (btn) btn.setAttribute('aria-expanded', 'false');
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>

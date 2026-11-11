@@ -96,7 +96,7 @@
 
     <div style="position:fixed; bottom:20px; right:20px; z-index:99999;">
         <a href="{{ route('switch.theme', 'modern') }}" class="btn btn-success shadow" style="border-radius: 50px; font-weight:600; padding:10px 18px; box-shadow: 0 4px 15px rgba(0,0,0,0.25);">
-            ✨ Beralih ke Tampilan Baru (maryUI)
+            ✨ Beralih ke Tampilan Baru
         </a>
     </div>
 
