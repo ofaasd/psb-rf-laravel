@@ -455,15 +455,31 @@ Silahkan tunggu beberapa saat, admin kami akan memverifikasi pembayaran anda.
 
 terimakasih";
                     $walsan = PsbWaliPesertum::where('psb_peserta_id',$request->id)->first();
-                    $data['no_wa'] = $walsan->no_hp;
-                    $data['pesan'] = $pesan;
+                    if($walsan && !empty($walsan->no_hp)){
+                        $data['no_wa'] = $walsan->no_hp;
+                        $data['pesan'] = $pesan;
+                        helper::send_wa($data);
+                    }
 
-                    helper::send_wa($data);
+                    $berkas = PsbBerkasPendukung::where('psb_peserta_id', $request->id)->first();
+                    $user = UserPsb::where('username', $peserta->no_pendaftaran ?? '')->first();
+                    $kota_data = (!empty($peserta) && !empty($peserta->kota_id)) ? City::find($peserta->kota_id) : null;
+
+                    $nama_santri = $peserta->nama ?? ($request->nama ?? '-');
+                    $ayah = $walsan->nama_ayah ?? ($walsan->nama_ibu ?? '-');
+                    $kota = $kota_data->city_name ?? '-';
+                    $kk = (!empty($berkas) && !empty($berkas->file_kk)) ? 'Ada' : 'Tidak Ada';
+                    $rapor = (!empty($berkas) && !empty($berkas->file_rapor)) ? 'Ada' : 'Tidak Ada';
+                    $photo = (!empty($berkas) && !empty($berkas->file_photo)) ? 'Ada' : 'Tidak Ada';
+                    $ktp = (!empty($berkas) && !empty($berkas->file_ktp)) ? 'Ada' : 'Tidak Ada';
+                    $username = $user->username ?? ($peserta->no_pendaftaran ?? '-');
+                    $password = $user->password_ori ?? '-';
+
                     $pesan2 = 'Pesan dari sistem PSB PPATQ-RF
 https://psb.ppatq-rf.id
 
 Telah terdaftar
-Calon santri a/n : ' . $request->nama . '
+Calon santri a/n : ' . $nama_santri . '
 Wali santri a/n : ' . $ayah  . '
 dari kota : ' . $kota . '
 
