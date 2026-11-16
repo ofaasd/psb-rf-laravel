@@ -210,6 +210,28 @@
         </div>
     </div>
 
+    @if(!empty($detail->materi_test))
+    <!-- 5. MATERI TEST -->
+    <div class="rounded-3xl bg-white border border-indigo-100 shadow-sm overflow-hidden">
+        <div class="p-4 sm:p-5 md:p-6 border-b border-indigo-100/80 bg-gradient-to-r from-indigo-50/50 via-white to-transparent flex flex-wrap items-center justify-between gap-2.5">
+            <div class="flex items-center gap-3">
+                <span class="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-indigo-100 text-indigo-700 flex items-center justify-center text-base sm:text-lg shadow-xs shrink-0">
+                    <i class="fa-solid fa-file-signature"></i>
+                </span>
+                <h3 class="text-base sm:text-xl font-bold text-indigo-950 leading-tight">Materi Test</h3>
+            </div>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-indigo-100 text-indigo-800 shadow-xs">
+                <i class="fa-solid fa-list-check"></i> Ujian Seleksi
+            </span>
+        </div>
+        <div class="p-4 sm:p-6">
+            <div class="html-render p-4 sm:p-5 rounded-2xl bg-indigo-50/40 border border-indigo-100/60 text-slate-700 text-xs sm:text-sm leading-relaxed break-words [overflow-wrap:anywhere] max-w-full overflow-x-auto">
+                {!! $detail->materi_test !!}
+            </div>
+        </div>
+    </div>
+    @endif
+
 </div>
 
 <script>

@@ -41,6 +41,7 @@ class PsbGelombangDetail extends Model
 		'jam',
 		'syarat',
 		'prosedur_online',
-		'prosedur_offline'
+		'prosedur_offline',
+		'materi_test',
 	];
 }

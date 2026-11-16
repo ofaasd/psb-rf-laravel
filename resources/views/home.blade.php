@@ -46,6 +46,10 @@
                 {!!$detail->prosedur_online!!}
                 <h3 class="text-left">Prosedur/Alur Pendaftaran Offline</h3> <br />
                 {!!$detail->prosedur_offline!!}
+                @if(!empty($detail->materi_test))
+                <h3 class="text-left">Materi Test</h3> <br />
+                {!!$detail->materi_test!!}
+                @endif
                 <hr>
             </div>
         </div>
