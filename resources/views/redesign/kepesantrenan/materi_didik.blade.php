@@ -70,11 +70,11 @@
 
             <!-- 1. ALQURAN HADIST -->
             <x-mary-card shadow class="border border-emerald-100 bg-white rounded-3xl p-5 sm:p-6 hover:border-emerald-300 hover:shadow-md transition duration-200">
-                <div class="flex items-start gap-3.5">
-                    <span class="w-11 h-11 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-extrabold text-base shrink-0 shadow-xs">
+                <div class="flex items-start gap-6 sm:gap-7">
+                    <span class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-black text-base sm:text-lg shrink-0 shadow-xs">
                         01
                     </span>
-                    <div class="space-y-1.5 flex-1 min-w-0">
+                    <div class="space-y-2 flex-1 min-w-0">
                         <div class="flex flex-wrap items-center justify-between gap-2">
                             <h3 class="text-base sm:text-lg font-bold text-emerald-950 leading-snug">Al-Qur'an Hadist</h3>
                             <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
@@ -90,11 +90,11 @@
 
             <!-- 2. BAHASA INDONESIA -->
             <x-mary-card shadow class="border border-sky-100 bg-white rounded-3xl p-5 sm:p-6 hover:border-sky-300 hover:shadow-md transition duration-200">
-                <div class="flex items-start gap-3.5">
-                    <span class="w-11 h-11 rounded-2xl bg-sky-100 text-sky-800 flex items-center justify-center font-extrabold text-base shrink-0 shadow-xs">
+                <div class="flex items-start gap-6 sm:gap-7">
+                    <span class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-sky-100 text-sky-800 flex items-center justify-center font-black text-base sm:text-lg shrink-0 shadow-xs">
                         02
                     </span>
-                    <div class="space-y-1.5 flex-1 min-w-0">
+                    <div class="space-y-2 flex-1 min-w-0">
                         <div class="flex flex-wrap items-center justify-between gap-2">
                             <h3 class="text-base sm:text-lg font-bold text-slate-900 leading-snug">Bahasa Indonesia</h3>
                             <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-sky-50 text-sky-700 border border-sky-200">
@@ -110,11 +110,11 @@
 
             <!-- 3. AKHLAK SALAF -->
             <x-mary-card shadow class="border border-amber-100 bg-white rounded-3xl p-5 sm:p-6 hover:border-amber-300 hover:shadow-md transition duration-200">
-                <div class="flex items-start gap-3.5">
-                    <span class="w-11 h-11 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center font-extrabold text-base shrink-0 shadow-xs">
+                <div class="flex items-start gap-6 sm:gap-7">
+                    <span class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center font-black text-base sm:text-lg shrink-0 shadow-xs">
                         03
                     </span>
-                    <div class="space-y-1.5 flex-1 min-w-0">
+                    <div class="space-y-2 flex-1 min-w-0">
                         <div class="flex flex-wrap items-center justify-between gap-2">
                             <h3 class="text-base sm:text-lg font-bold text-amber-950 leading-snug">Akhlak Salaf</h3>
                             <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-50 text-amber-800 border border-amber-200">
@@ -130,11 +130,11 @@
 
             <!-- 4. NAHWU -->
             <x-mary-card shadow class="border border-teal-100 bg-white rounded-3xl p-5 sm:p-6 hover:border-teal-300 hover:shadow-md transition duration-200">
-                <div class="flex items-start gap-3.5">
-                    <span class="w-11 h-11 rounded-2xl bg-teal-100 text-teal-800 flex items-center justify-center font-extrabold text-base shrink-0 shadow-xs">
+                <div class="flex items-start gap-6 sm:gap-7">
+                    <span class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-teal-100 text-teal-800 flex items-center justify-center font-black text-base sm:text-lg shrink-0 shadow-xs">
                         04
                     </span>
-                    <div class="space-y-1.5 flex-1 min-w-0">
+                    <div class="space-y-2 flex-1 min-w-0">
                         <div class="flex flex-wrap items-center justify-between gap-2">
                             <h3 class="text-base sm:text-lg font-bold text-teal-950 leading-snug">Nahwu</h3>
                             <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-teal-50 text-teal-800 border border-teal-200">
@@ -150,11 +150,11 @@
 
             <!-- 5. BAHASA ARAB -->
             <x-mary-card shadow class="border border-emerald-100 bg-white rounded-3xl p-5 sm:p-6 hover:border-emerald-300 hover:shadow-md transition duration-200">
-                <div class="flex items-start gap-3.5">
-                    <span class="w-11 h-11 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-extrabold text-base shrink-0 shadow-xs">
+                <div class="flex items-start gap-6 sm:gap-7">
+                    <span class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-black text-base sm:text-lg shrink-0 shadow-xs">
                         05
                     </span>
-                    <div class="space-y-1.5 flex-1 min-w-0">
+                    <div class="space-y-2 flex-1 min-w-0">
                         <div class="flex flex-wrap items-center justify-between gap-2">
                             <h3 class="text-base sm:text-lg font-bold text-emerald-950 leading-snug">Bahasa Arab</h3>
                             <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
@@ -170,11 +170,11 @@
 
             <!-- 6. IPAS -->
             <x-mary-card shadow class="border border-indigo-100 bg-white rounded-3xl p-5 sm:p-6 hover:border-indigo-300 hover:shadow-md transition duration-200">
-                <div class="flex items-start gap-3.5">
-                    <span class="w-11 h-11 rounded-2xl bg-indigo-100 text-indigo-800 flex items-center justify-center font-extrabold text-base shrink-0 shadow-xs">
+                <div class="flex items-start gap-6 sm:gap-7">
+                    <span class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-indigo-100 text-indigo-800 flex items-center justify-center font-black text-base sm:text-lg shrink-0 shadow-xs">
                         06
                     </span>
-                    <div class="space-y-1.5 flex-1 min-w-0">
+                    <div class="space-y-2 flex-1 min-w-0">
                         <div class="flex flex-wrap items-center justify-between gap-2">
                             <h3 class="text-base sm:text-lg font-bold text-slate-900 leading-snug">IPAS (Alam & Sosial)</h3>
                             <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-indigo-50 text-indigo-700 border border-indigo-200">
@@ -190,11 +190,11 @@
 
             <!-- 7. FIQIH SALAF -->
             <x-mary-card shadow class="border border-amber-100 bg-white rounded-3xl p-5 sm:p-6 hover:border-amber-300 hover:shadow-md transition duration-200">
-                <div class="flex items-start gap-3.5">
-                    <span class="w-11 h-11 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center font-extrabold text-base shrink-0 shadow-xs">
+                <div class="flex items-start gap-6 sm:gap-7">
+                    <span class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center font-black text-base sm:text-lg shrink-0 shadow-xs">
                         07
                     </span>
-                    <div class="space-y-1.5 flex-1 min-w-0">
+                    <div class="space-y-2 flex-1 min-w-0">
                         <div class="flex flex-wrap items-center justify-between gap-2">
                             <h3 class="text-base sm:text-lg font-bold text-amber-950 leading-snug">Fiqih Salaf</h3>
                             <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-50 text-amber-800 border border-amber-200">
@@ -210,11 +210,11 @@
 
             <!-- 8. BAHASA INGGRIS -->
             <x-mary-card shadow class="border border-sky-100 bg-white rounded-3xl p-5 sm:p-6 hover:border-sky-300 hover:shadow-md transition duration-200">
-                <div class="flex items-start gap-3.5">
-                    <span class="w-11 h-11 rounded-2xl bg-sky-100 text-sky-800 flex items-center justify-center font-extrabold text-base shrink-0 shadow-xs">
+                <div class="flex items-start gap-6 sm:gap-7">
+                    <span class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-sky-100 text-sky-800 flex items-center justify-center font-black text-base sm:text-lg shrink-0 shadow-xs">
                         08
                     </span>
-                    <div class="space-y-1.5 flex-1 min-w-0">
+                    <div class="space-y-2 flex-1 min-w-0">
                         <div class="flex flex-wrap items-center justify-between gap-2">
                             <h3 class="text-base sm:text-lg font-bold text-slate-900 leading-snug">Bahasa Inggris</h3>
                             <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-sky-50 text-sky-700 border border-sky-200">
@@ -230,11 +230,11 @@
 
             <!-- 9. AKIDAH AKHLAK -->
             <x-mary-card shadow class="border border-emerald-100 bg-white rounded-3xl p-5 sm:p-6 hover:border-emerald-300 hover:shadow-md transition duration-200">
-                <div class="flex items-start gap-3.5">
-                    <span class="w-11 h-11 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-extrabold text-base shrink-0 shadow-xs">
+                <div class="flex items-start gap-6 sm:gap-7">
+                    <span class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-black text-base sm:text-lg shrink-0 shadow-xs">
                         09
                     </span>
-                    <div class="space-y-1.5 flex-1 min-w-0">
+                    <div class="space-y-2 flex-1 min-w-0">
                         <div class="flex flex-wrap items-center justify-between gap-2">
                             <h3 class="text-base sm:text-lg font-bold text-emerald-950 leading-snug">Akidah Akhlak</h3>
                             <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
@@ -250,11 +250,11 @@
 
             <!-- 10. SENI RUPA -->
             <x-mary-card shadow class="border border-purple-100 bg-white rounded-3xl p-5 sm:p-6 hover:border-purple-300 hover:shadow-md transition duration-200">
-                <div class="flex items-start gap-3.5">
-                    <span class="w-11 h-11 rounded-2xl bg-purple-100 text-purple-800 flex items-center justify-center font-extrabold text-base shrink-0 shadow-xs">
+                <div class="flex items-start gap-6 sm:gap-7">
+                    <span class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-purple-100 text-purple-800 flex items-center justify-center font-black text-base sm:text-lg shrink-0 shadow-xs">
                         10
                     </span>
-                    <div class="space-y-1.5 flex-1 min-w-0">
+                    <div class="space-y-2 flex-1 min-w-0">
                         <div class="flex flex-wrap items-center justify-between gap-2">
                             <h3 class="text-base sm:text-lg font-bold text-slate-900 leading-snug">Seni Rupa</h3>
                             <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-purple-50 text-purple-700 border border-purple-200">
@@ -270,11 +270,11 @@
 
             <!-- 11. TAUHID -->
             <x-mary-card shadow class="border border-emerald-100 bg-white rounded-3xl p-5 sm:p-6 hover:border-emerald-300 hover:shadow-md transition duration-200">
-                <div class="flex items-start gap-3.5">
-                    <span class="w-11 h-11 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-extrabold text-base shrink-0 shadow-xs">
+                <div class="flex items-start gap-6 sm:gap-7">
+                    <span class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-black text-base sm:text-lg shrink-0 shadow-xs">
                         11
                     </span>
-                    <div class="space-y-1.5 flex-1 min-w-0">
+                    <div class="space-y-2 flex-1 min-w-0">
                         <div class="flex flex-wrap items-center justify-between gap-2">
                             <h3 class="text-base sm:text-lg font-bold text-emerald-950 leading-snug">Tauhid</h3>
                             <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
@@ -290,11 +290,11 @@
 
             <!-- 12. BAHASA JAWA -->
             <x-mary-card shadow class="border border-sky-100 bg-white rounded-3xl p-5 sm:p-6 hover:border-sky-300 hover:shadow-md transition duration-200">
-                <div class="flex items-start gap-3.5">
-                    <span class="w-11 h-11 rounded-2xl bg-sky-100 text-sky-800 flex items-center justify-center font-extrabold text-base shrink-0 shadow-xs">
+                <div class="flex items-start gap-6 sm:gap-7">
+                    <span class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-sky-100 text-sky-800 flex items-center justify-center font-black text-base sm:text-lg shrink-0 shadow-xs">
                         12
                     </span>
-                    <div class="space-y-1.5 flex-1 min-w-0">
+                    <div class="space-y-2 flex-1 min-w-0">
                         <div class="flex flex-wrap items-center justify-between gap-2">
                             <h3 class="text-base sm:text-lg font-bold text-slate-900 leading-snug">Bahasa Jawa</h3>
                             <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-sky-50 text-sky-700 border border-sky-200">
@@ -310,11 +310,11 @@
 
             <!-- 13. SKI -->
             <x-mary-card shadow class="border border-emerald-100 bg-white rounded-3xl p-5 sm:p-6 hover:border-emerald-300 hover:shadow-md transition duration-200">
-                <div class="flex items-start gap-3.5">
-                    <span class="w-11 h-11 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-extrabold text-base shrink-0 shadow-xs">
+                <div class="flex items-start gap-6 sm:gap-7">
+                    <span class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-black text-base sm:text-lg shrink-0 shadow-xs">
                         13
                     </span>
-                    <div class="space-y-1.5 flex-1 min-w-0">
+                    <div class="space-y-2 flex-1 min-w-0">
                         <div class="flex flex-wrap items-center justify-between gap-2">
                             <h3 class="text-base sm:text-lg font-bold text-emerald-950 leading-snug">SKI (Sejarah Kebudayaan Islam)</h3>
                             <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
@@ -330,11 +330,11 @@
 
             <!-- 14. MATEMATIKA -->
             <x-mary-card shadow class="border border-indigo-100 bg-white rounded-3xl p-5 sm:p-6 hover:border-indigo-300 hover:shadow-md transition duration-200">
-                <div class="flex items-start gap-3.5">
-                    <span class="w-11 h-11 rounded-2xl bg-indigo-100 text-indigo-800 flex items-center justify-center font-extrabold text-base shrink-0 shadow-xs">
+                <div class="flex items-start gap-6 sm:gap-7">
+                    <span class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-indigo-100 text-indigo-800 flex items-center justify-center font-black text-base sm:text-lg shrink-0 shadow-xs">
                         14
                     </span>
-                    <div class="space-y-1.5 flex-1 min-w-0">
+                    <div class="space-y-2 flex-1 min-w-0">
                         <div class="flex flex-wrap items-center justify-between gap-2">
                             <h3 class="text-base sm:text-lg font-bold text-slate-900 leading-snug">Matematika</h3>
                             <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-indigo-50 text-indigo-700 border border-indigo-200">
@@ -350,11 +350,11 @@
 
             <!-- 15. TAJWID -->
             <x-mary-card shadow class="border border-emerald-100 bg-white rounded-3xl p-5 sm:p-6 hover:border-emerald-300 hover:shadow-md transition duration-200">
-                <div class="flex items-start gap-3.5">
-                    <span class="w-11 h-11 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-extrabold text-base shrink-0 shadow-xs">
+                <div class="flex items-start gap-6 sm:gap-7">
+                    <span class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-black text-base sm:text-lg shrink-0 shadow-xs">
                         15
                     </span>
-                    <div class="space-y-1.5 flex-1 min-w-0">
+                    <div class="space-y-2 flex-1 min-w-0">
                         <div class="flex flex-wrap items-center justify-between gap-2">
                             <h3 class="text-base sm:text-lg font-bold text-emerald-950 leading-snug">Tajwid</h3>
                             <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
@@ -370,11 +370,11 @@
 
             <!-- 16. FIKIH -->
             <x-mary-card shadow class="border border-emerald-100 bg-white rounded-3xl p-5 sm:p-6 hover:border-emerald-300 hover:shadow-md transition duration-200">
-                <div class="flex items-start gap-3.5">
-                    <span class="w-11 h-11 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-extrabold text-base shrink-0 shadow-xs">
+                <div class="flex items-start gap-6 sm:gap-7">
+                    <span class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-black text-base sm:text-lg shrink-0 shadow-xs">
                         16
                     </span>
-                    <div class="space-y-1.5 flex-1 min-w-0">
+                    <div class="space-y-2 flex-1 min-w-0">
                         <div class="flex flex-wrap items-center justify-between gap-2">
                             <h3 class="text-base sm:text-lg font-bold text-emerald-950 leading-snug">Fikih</h3>
                             <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
@@ -390,11 +390,11 @@
 
             <!-- 17. PENDIDIKAN PANCASILA -->
             <x-mary-card shadow class="border border-rose-100 bg-white rounded-3xl p-5 sm:p-6 hover:border-rose-300 hover:shadow-md transition duration-200">
-                <div class="flex items-start gap-3.5">
-                    <span class="w-11 h-11 rounded-2xl bg-rose-100 text-rose-800 flex items-center justify-center font-extrabold text-base shrink-0 shadow-xs">
+                <div class="flex items-start gap-6 sm:gap-7">
+                    <span class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-rose-100 text-rose-800 flex items-center justify-center font-black text-base sm:text-lg shrink-0 shadow-xs">
                         17
                     </span>
-                    <div class="space-y-1.5 flex-1 min-w-0">
+                    <div class="space-y-2 flex-1 min-w-0">
                         <div class="flex flex-wrap items-center justify-between gap-2">
                             <h3 class="text-base sm:text-lg font-bold text-slate-900 leading-snug">Pendidikan Pancasila</h3>
                             <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-rose-50 text-rose-700 border border-rose-200">
@@ -410,11 +410,11 @@
 
             <!-- 18. PJOK -->
             <x-mary-card shadow class="border border-amber-100 bg-white rounded-3xl p-5 sm:p-6 hover:border-amber-300 hover:shadow-md transition duration-200">
-                <div class="flex items-start gap-3.5">
-                    <span class="w-11 h-11 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center font-extrabold text-base shrink-0 shadow-xs">
+                <div class="flex items-start gap-6 sm:gap-7">
+                    <span class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center font-black text-base sm:text-lg shrink-0 shadow-xs">
                         18
                     </span>
-                    <div class="space-y-1.5 flex-1 min-w-0">
+                    <div class="space-y-2 flex-1 min-w-0">
                         <div class="flex flex-wrap items-center justify-between gap-2">
                             <h3 class="text-base sm:text-lg font-bold text-slate-900 leading-snug">PJOK (Olahraga & Jasmani)</h3>
                             <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-50 text-amber-800 border border-amber-200">
@@ -430,11 +430,11 @@
 
             <!-- 19. UBUDIYAH -->
             <x-mary-card shadow class="border-2 border-emerald-300 bg-gradient-to-br from-emerald-50/70 via-teal-50/30 to-white rounded-3xl p-5 sm:p-6 hover:border-emerald-400 hover:shadow-md transition duration-200 md:col-span-2">
-                <div class="flex items-start gap-3.5">
-                    <span class="w-11 h-11 rounded-2xl bg-emerald-600 text-white flex items-center justify-center font-extrabold text-base shrink-0 shadow-sm">
+                <div class="flex items-start gap-6 sm:gap-7">
+                    <span class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-emerald-600 text-white flex items-center justify-center font-black text-base sm:text-lg shrink-0 shadow-sm">
                         19
                     </span>
-                    <div class="space-y-1.5 flex-1 min-w-0">
+                    <div class="space-y-2 flex-1 min-w-0">
                         <div class="flex flex-wrap items-center justify-between gap-2">
                             <h3 class="text-base sm:text-lg font-extrabold text-emerald-950 leading-snug">Ubudiyah (Praktik Amaliah Ibadah Harian)</h3>
                             <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-600 text-white shadow-xs">
