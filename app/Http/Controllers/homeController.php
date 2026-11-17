@@ -48,6 +48,9 @@ class homeController extends Controller
 
         return view('kepesantrenan/materi_test', compact('detail', 'gelombang', 'materi_test'));
     }
+    public function materi_didik(){
+        return view('kepesantrenan/materi_didik');
+    }
     public function program_kegiatan(){
 
         return view('program_kegiatan');

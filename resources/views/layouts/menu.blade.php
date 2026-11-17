@@ -14,6 +14,7 @@
             <a class="dropdown-item" href="{{URL::to('/pesantren/jadwal_kegiatan')}}">Jadwal Kegiatan Sekolah</a>
             <a class="dropdown-item" href="{{URL::to('/pesantren/biaya_administrasi')}}">Biaya Administrasi</a>
             <a class="dropdown-item" href="{{URL::to('/pesantren/materi_test')}}">Materi Test</a>
+            <a class="dropdown-item" href="{{URL::to('/pesantren/materi_didik')}}">Materi Didik</a>
         </div>
     </li>
     <li class="nav-item">

@@ -30,6 +30,7 @@ Route::get('/pesantren/fasilitas', [homeController::class, 'fasilitas']);
 Route::get('/pesantren/jadwal_kegiatan', [homeController::class, 'jadwal_kegiatan']);
 Route::get('/pesantren/biaya_administrasi', [homeController::class, 'biaya_administrasi']);
 Route::get('/pesantren/materi_test', [homeController::class, 'materi_test']);
+Route::get('/pesantren/materi_didik', [homeController::class, 'materi_didik']);
 
 // Friendly Aliases
 Route::get('/visi_misi', [homeController::class, 'visi_misi']);
@@ -38,6 +39,7 @@ Route::get('/fasilitas', [homeController::class, 'fasilitas']);
 Route::get('/jadwal_kegiatan', [homeController::class, 'jadwal_kegiatan']);
 Route::get('/biaya_administrasi', [homeController::class, 'biaya_administrasi']);
 Route::get('/materi_test', [homeController::class, 'materi_test']);
+Route::get('/materi_didik', [homeController::class, 'materi_didik']);
 Route::get('psb/create',[psbController::class, 'create']);
 Route::get('psb/search_santri_aktif', [psbController::class, 'search_santri_aktif']);
 Route::post('psb/search_santri_aktif', [psbController::class, 'search_santri_aktif']);

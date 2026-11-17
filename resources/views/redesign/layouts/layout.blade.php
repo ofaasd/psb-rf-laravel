@@ -718,7 +718,7 @@
 
                     <!-- Dropdown Kepesantrenan -->
                     <div class="relative nav-dropdown group">
-                        <button type="button" class="nav-dropdown-btn px-3.5 py-2 rounded-xl text-sm font-semibold text-white/90 hover:text-white hover:bg-white/15 inline-flex items-center gap-1.5 transition duration-150 {{ Request::is('pesantren*') || Request::is('visi_misi') || Request::is('kurikulum') || Request::is('fasilitas') || Request::is('jadwal_kegiatan') || Request::is('biaya_administrasi') || Request::is('*materi_test*') ? 'bg-white/20 text-white shadow-sm' : '' }}" aria-expanded="false">
+                        <button type="button" class="nav-dropdown-btn px-3.5 py-2 rounded-xl text-sm font-semibold text-white/90 hover:text-white hover:bg-white/15 inline-flex items-center gap-1.5 transition duration-150 {{ Request::is('pesantren*') || Request::is('visi_misi') || Request::is('kurikulum') || Request::is('fasilitas') || Request::is('jadwal_kegiatan') || Request::is('biaya_administrasi') || Request::is('*materi_test*') || Request::is('*materi_didik*') ? 'bg-white/20 text-white shadow-sm' : '' }}" aria-expanded="false">
                             <i class="fa-solid fa-mosque mr-1 opacity-80"></i> Kepesantrenan
                             <i class="fa-solid fa-chevron-down text-xs opacity-70 dropdown-chevron transition-transform duration-200"></i>
                         </button>
@@ -741,6 +741,9 @@
                                 </a>
                                 <a href="{{URL::to('/pesantren/materi_test')}}" class="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 transition {{ Request::is('*materi_test*') ? 'bg-emerald-50 text-emerald-700 font-bold' : '' }}">
                                     <i class="fa-solid fa-file-signature text-emerald-600 w-4"></i> Materi Test
+                                </a>
+                                <a href="{{URL::to('/pesantren/materi_didik')}}" class="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 transition {{ Request::is('*materi_didik*') ? 'bg-emerald-50 text-emerald-700 font-bold' : '' }}">
+                                    <i class="fa-solid fa-book-open-reader text-emerald-600 w-4"></i> Materi Didik
                                 </a>
                             </div>
                         </div>
@@ -825,6 +828,9 @@
                 </a>
                 <a href="{{URL::to('/pesantren/materi_test')}}" class="block pl-6 pr-3 py-1.5 rounded-lg text-sm font-medium text-white/90 hover:bg-white/10 {{ Request::is('*materi_test*') ? 'bg-white/20 text-white font-bold' : '' }}">
                     <i class="fa-solid fa-file-signature mr-2"></i> Materi Test
+                </a>
+                <a href="{{URL::to('/pesantren/materi_didik')}}" class="block pl-6 pr-3 py-1.5 rounded-lg text-sm font-medium text-white/90 hover:bg-white/10 {{ Request::is('*materi_didik*') ? 'bg-white/20 text-white font-bold' : '' }}">
+                    <i class="fa-solid fa-book-open-reader mr-2"></i> Materi Didik
                 </a>
 
                 <a href="{{URL::to('psb/create')}}" class="block px-3 py-2 rounded-lg text-sm font-semibold text-white hover:bg-white/10 {{ Request::is('psb/create') ? 'bg-white/20' : '' }}">

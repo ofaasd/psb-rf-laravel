@@ -31,6 +31,9 @@
             <a href="{{URL::to('/pesantren/materi_test')}}" class="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 transition">
                 <i class="fa-solid fa-file-signature text-emerald-600 w-4"></i> Materi Test
             </a>
+            <a href="{{URL::to('/pesantren/materi_didik')}}" class="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 transition">
+                <i class="fa-solid fa-book-open-reader text-emerald-600 w-4"></i> Materi Didik
+            </a>
         </div>
     </div>
     <a href="{{URL::to('psb/create')}}" class="px-3.5 py-2 rounded-xl text-sm font-semibold text-white/90 hover:text-white hover:bg-white/15 transition {{ Request::is('psb/create') ? 'bg-white/20 text-white' : '' }}">
