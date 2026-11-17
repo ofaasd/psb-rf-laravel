@@ -13,6 +13,7 @@
             <a class="dropdown-item" href="{{URL::to('/pesantren/fasilitas')}}">Fasilitas</a>
             <a class="dropdown-item" href="{{URL::to('/pesantren/jadwal_kegiatan')}}">Jadwal Kegiatan Sekolah</a>
             <a class="dropdown-item" href="{{URL::to('/pesantren/biaya_administrasi')}}">Biaya Administrasi</a>
+            <a class="dropdown-item" href="{{URL::to('/pesantren/materi_test')}}">Materi Test</a>
         </div>
     </li>
     <li class="nav-item">

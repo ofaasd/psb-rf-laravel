@@ -40,6 +40,14 @@ class homeController extends Controller
     public function biaya_administrasi(){
         return view('kepesantrenan/biaya_administrasi');
     }
+    public function materi_test(){
+        $gelombang = PsbGelombang::where('pmb_online', 1)->first();
+        $id_gelombang = $gelombang->id ?? 1;
+        $detail = PsbGelombangDetail::where('id_gelombang', $id_gelombang)->first();
+        $materi_test = $detail->materi_test ?? ($gelombang->materi_test ?? '');
+
+        return view('kepesantrenan/materi_test', compact('detail', 'gelombang', 'materi_test'));
+    }
     public function program_kegiatan(){
 
         return view('program_kegiatan');
