@@ -11,7 +11,7 @@
                     <i class="fa-solid fa-graduation-cap text-emerald-300"></i> Kurikulum Pendidikan Terpadu
                 </span>
                 <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-400/20 text-emerald-200 border border-emerald-400/30">
-                    <i class="fa-solid fa-book-quran"></i> Tahfidz & Salafiyah
+                    <i class="fa-solid fa-book-quran"></i> Tahfidz
                 </span>
                 <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-400/20 text-amber-200 border border-amber-400/30">
                     <i class="fa-solid fa-school"></i> MI TQ Raudlatul Falah
@@ -19,7 +19,7 @@
             </div>
             <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight">Materi Didik & Mata Pelajaran</h1>
             <p class="text-sm sm:text-base text-emerald-100/90 leading-relaxed">
-                Integrasi komprehensif antara penguatan Al-Qur'an, khazanah keilmuan salaf, kebahasaan, sains modern, dan pembinaan karakter luhur untuk mencetak generasi qur'ani yang cerdas dan beradab.
+                Integrasi komprehensif antara penguatan Al-Qur'an, khazanah keilmuan , kebahasaan, sains modern, dan pembinaan karakter luhur untuk mencetak generasi qur'ani yang cerdas dan beradab.
             </p>
         </div>
         <div class="absolute -right-10 -bottom-10 opacity-10 pointer-events-none text-white text-9xl">
@@ -41,7 +41,7 @@
         </div>
         <div class="p-4 rounded-2xl bg-amber-50 border border-amber-100 text-center space-y-1">
             <span class="text-2xl font-black text-amber-800">4</span>
-            <p class="text-xs font-semibold text-amber-950">Kepesantrenan Salaf</p>
+            <p class="text-xs font-semibold text-amber-950">Kepesantrenan </p>
             <span class="text-[10px] text-amber-600 block">Turats & Adab Ulama</span>
         </div>
         <div class="p-4 rounded-2xl bg-sky-50 border border-sky-100 text-center space-y-1">
@@ -108,7 +108,7 @@
                 </div>
             </x-mary-card>
 
-            <!-- 3. AKHLAK SALAF -->
+            <!-- 3. AKHLAK  -->
             <x-mary-card shadow class="border border-amber-100 bg-white rounded-3xl p-5 sm:p-6 hover:border-amber-300 hover:shadow-md transition duration-200">
                 <div class="flex items-start gap-6 sm:gap-7">
                     <span class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center font-black text-base sm:text-lg shrink-0 shadow-xs">
@@ -116,13 +116,13 @@
                     </span>
                     <div class="space-y-2 flex-1 min-w-0">
                         <div class="flex flex-wrap items-center justify-between gap-2">
-                            <h3 class="text-base sm:text-lg font-bold text-amber-950 leading-snug">Akhlak Salaf</h3>
+                            <h3 class="text-base sm:text-lg font-bold text-amber-950 leading-snug">Akhlak </h3>
                             <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-50 text-amber-800 border border-amber-200">
-                                Pesantren Salaf
+                                Pesantren 
                             </span>
                         </div>
                         <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                            Penanaman adab dan tata krama menuntut ilmu merujuk pada keteladanan para ulama salafus shalih, seperti sikap tawadhu' kepada guru, memuliakan orang tua, menjaga kebersihan hati, dan toleran terhadap sesama.
+                            Penanaman adab dan tata krama menuntut ilmu merujuk pada keteladanan para ulama  shalih, seperti sikap tawadhu' kepada guru, memuliakan orang tua, menjaga kebersihan hati, dan toleran terhadap sesama.
                         </p>
                     </div>
                 </div>
@@ -138,7 +138,7 @@
                         <div class="flex flex-wrap items-center justify-between gap-2">
                             <h3 class="text-base sm:text-lg font-bold text-teal-950 leading-snug">Nahwu</h3>
                             <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-teal-50 text-teal-800 border border-teal-200">
-                                Pesantren Salaf
+                                Pesantren 
                             </span>
                         </div>
                         <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -188,7 +188,7 @@
                 </div>
             </x-mary-card>
 
-            <!-- 7. FIQIH SALAF -->
+            <!-- 7. FIQIH  -->
             <x-mary-card shadow class="border border-amber-100 bg-white rounded-3xl p-5 sm:p-6 hover:border-amber-300 hover:shadow-md transition duration-200">
                 <div class="flex items-start gap-6 sm:gap-7">
                     <span class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center font-black text-base sm:text-lg shrink-0 shadow-xs">
@@ -196,13 +196,13 @@
                     </span>
                     <div class="space-y-2 flex-1 min-w-0">
                         <div class="flex flex-wrap items-center justify-between gap-2">
-                            <h3 class="text-base sm:text-lg font-bold text-amber-950 leading-snug">Fiqih Salaf</h3>
+                            <h3 class="text-base sm:text-lg font-bold text-amber-950 leading-snug">Fiqih </h3>
                             <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-50 text-amber-800 border border-amber-200">
-                                Pesantren Salaf
+                                Pesantren 
                             </span>
                         </div>
                         <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                            Kajian hukum syariat Islam madzhab Syafi'i dari kitab-kitab turats salaf guna memberikan pemahaman hukum ibadah yang kokoh, terperinci, dan tersambung dengan sanad keilmuan para ulama terpercaya.
+                            Kajian hukum syariat Islam madzhab Syafi'i dari kitab-kitab turats  guna memberikan pemahaman hukum ibadah yang kokoh, terperinci, dan tersambung dengan sanad keilmuan para ulama terpercaya.
                         </p>
                     </div>
                 </div>
