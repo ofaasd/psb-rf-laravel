@@ -1,3 +1,19 @@
+@php
+    try {
+        $gelombangAktif = \App\Models\PsbGelombang::where('pmb_online', 1)->first();
+    } catch (\Throwable $e) {
+        $gelombangAktif = null;
+    }
+    $rawPeriode = $gelombangAktif->no_gelombang ?? $gelombangAktif->no_gel ?? '';
+    $rawPeriodeStr = (string)$rawPeriode;
+    if (preg_match('/^(\d{4})(\d{4})$/', $rawPeriodeStr, $matches)) {
+        $periode = $matches[1] . '/' . $matches[2];
+    } elseif (!empty($rawPeriodeStr)) {
+        $periode = $rawPeriodeStr;
+    } else {
+        $periode = '2027/2028';
+    }
+@endphp
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,7 +64,7 @@
             <td colspan="5" align="center"><img src="{{asset('assets/images/')}}/Gambar1.png" alt="" height="30" align="center"></td>
         </tr>--}}
         <tr>
-            <td colspan="5" align="center"><b>FORMULIR PENDAFTARAN SANTRI BARU PERIODE 2026</b><br /><b>PONDOK PESANTREN ANAK TAHFIDZUL QUR'AN RAUDLATUL  FALAH</b></td>
+            <td colspan="5" align="center"><b>FORMULIR PENDAFTARAN SANTRI BARU PERIODE {{ $periode }}</b><br /><b>PONDOK PESANTREN ANAK TAHFIDZUL QUR'AN RAUDLATUL  FALAH</b></td>
         </tr>
         <tr>
             <td colspan="5" align="center">Jl. KH. Abdullah Km. 2 Bermi-Gembong -Pati 59162 <br />www.ppatq-rf.sch.id  ||  www.ppatq-rf.id</td>
