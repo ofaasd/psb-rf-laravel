@@ -21,6 +21,8 @@ use App\Http\Middleware\CheckLogin;
 Route::get('/', [homeController::class, 'index']);
 Route::get('/program_kegiatan', [homeController::class, 'program_kegiatan']);
 Route::get('/santri_aktif', [homeController::class, 'santri_aktif']);
+Route::get('/alumni', [homeController::class, 'alumni']);
+Route::get('/alumni_khotimin', [homeController::class, 'alumni_khotimin']);
 
 // Kepesantrenan Submenus
 Route::get('/pesantren', [homeController::class, 'kurikulum']);
@@ -40,6 +42,8 @@ Route::get('/jadwal_kegiatan', [homeController::class, 'jadwal_kegiatan']);
 Route::get('/biaya_administrasi', [homeController::class, 'biaya_administrasi']);
 Route::get('/materi_test', [homeController::class, 'materi_test']);
 Route::get('/materi_didik', [homeController::class, 'materi_didik']);
+Route::get('/santri/alumni', [homeController::class, 'alumni']);
+Route::get('/santri/alumni_khotimin', [homeController::class, 'alumni_khotimin']);
 Route::get('psb/create',[psbController::class, 'create']);
 Route::get('psb/search_santri_aktif', [psbController::class, 'search_santri_aktif']);
 Route::post('psb/search_santri_aktif', [psbController::class, 'search_santri_aktif']);

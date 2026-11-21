@@ -53,6 +53,12 @@
             <a href="{{URL::to('santri_aktif')}}" class="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 transition">
                 <i class="fa-solid fa-user-check text-emerald-600 w-4"></i> Data Santri Aktif
             </a>
+            <a href="{{URL::to('alumni')}}" class="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 transition">
+                <i class="fa-solid fa-user-graduate text-emerald-600 w-4"></i> Alumni
+            </a>
+            <a href="{{URL::to('alumni_khotimin')}}" class="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 transition">
+                <i class="fa-solid fa-award text-amber-500 w-4"></i> Alumni Khotimin
+            </a>
         </div>
     </div>
 

@@ -26,6 +26,8 @@
         <div class="dropdown-menu">
             <a class="dropdown-item" href="{{URL::to('psb')}}">Data Calon Santri</a>
             <a class="dropdown-item" href="{{URL::to('santri_aktif')}}">Data Santri Aktif</a>
+            <a class="dropdown-item" href="{{URL::to('alumni')}}">Alumni</a>
+            <a class="dropdown-item" href="{{URL::to('alumni_khotimin')}}">Alumni Khotimin</a>
         </div>
     </li>
     @if(!empty(session('psb_username')))
